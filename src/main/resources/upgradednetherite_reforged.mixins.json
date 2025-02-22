@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.sjhub.upgradednetherite_reforged.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "upgradednetherite_reforged.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
