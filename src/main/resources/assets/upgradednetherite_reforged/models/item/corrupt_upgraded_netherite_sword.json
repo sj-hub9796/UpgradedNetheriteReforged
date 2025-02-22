@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "upgradednetherite:item/corrupt_upgraded_netherite_sword"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "parent": "minecraft:nether/netherite_armor",
+  "criteria": {
+    "corrupt_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:corrupt_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:corrupt_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:corrupt_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:corrupt_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "echo_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:echo_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:echo_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:echo_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:echo_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ender_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:ender_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:ender_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:ender_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:ender_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "feather_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:feather_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:feather_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:feather_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:feather_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "fire_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:fire_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:fire_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:fire_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:fire_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "gold_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:gold_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:gold_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:gold_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:gold_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "phantom_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:phantom_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:phantom_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:phantom_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:phantom_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "poison_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:poison_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:poison_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:poison_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:poison_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "water_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:water_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:water_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:water_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:water_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "wither_upgraded_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:wither_upgraded_netherite_helmet"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:wither_upgraded_netherite_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:wither_upgraded_netherite_leggings"
+            ]
+          },
+          {
+            "items": [
+              "upgradednetherite:wither_upgraded_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.upgradednetherite.upgraded_armor.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "upgradednetherite:fire_upgraded_netherite_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.upgradednetherite.upgraded_armor"
+    }
+  },
+  "requirements": [
+    [
+      "gold_upgraded_netherite",
+      "fire_upgraded_netherite",
+      "ender_upgraded_netherite",
+      "water_upgraded_netherite",
+      "wither_upgraded_netherite",
+      "poison_upgraded_netherite",
+      "phantom_upgraded_netherite",
+      "feather_upgraded_netherite",
+      "corrupt_upgraded_netherite",
+      "echo_upgraded_netherite"
+    ]
+  ]
+}

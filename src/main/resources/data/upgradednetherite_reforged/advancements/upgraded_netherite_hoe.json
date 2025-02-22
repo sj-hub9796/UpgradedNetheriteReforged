@@ -1,0 +1,142 @@
+{
+  "parent": "minecraft:husbandry/obtain_netherite_hoe",
+  "criteria": {
+    "corrupt_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:corrupt_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "echo_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:echo_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ender_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:ender_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "feather_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:feather_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "fire_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:fire_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "gold_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:gold_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "phantom_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:phantom_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "poison_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:poison_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "water_upgraded_netherite_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "upgradednetherite:water_upgraded_netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.upgradednetherite.upgraded_hoe.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "upgradednetherite:gold_upgraded_netherite_hoe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.upgradednetherite.upgraded_hoe"
+    }
+  },
+  "requirements": [
+    [
+      "gold_upgraded_netherite_hoe",
+      "fire_upgraded_netherite_hoe",
+      "ender_upgraded_netherite_hoe",
+      "water_upgraded_netherite_hoe",
+      "poison_upgraded_netherite_hoe",
+      "phantom_upgraded_netherite_hoe",
+      "feather_upgraded_netherite_hoe",
+      "corrupt_upgraded_netherite_hoe",
+      "echo_upgraded_netherite_hoe"
+    ]
+  ]
+}
