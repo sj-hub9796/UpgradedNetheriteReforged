@@ -51,12 +51,12 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 
 @Mod("upgradednetherite")
-public class UpgradedNetheriteMod {
+public class UpgradedNetheriteReforgedMod {
    public static final Logger LOGGER = LogUtils.getLogger();
    public static final String MOD_ID = "upgradednetherite";
    public static SimpleChannel packetInstance;
 
-   public UpgradedNetheriteMod() {
+   public UpgradedNetheriteReforgedMod() {
       FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
       FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
       FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
