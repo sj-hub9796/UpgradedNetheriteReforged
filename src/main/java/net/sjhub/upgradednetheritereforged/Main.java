@@ -12,10 +12,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-@Mod(Main.MODID)
+@Mod(Main.MOD_ID)
 public class Main {
 
-    public static final String MODID = "upgradednetherite_reforged";
+    public static final String MOD_ID = "upgradednetherite_reforged";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public Main() {
@@ -32,7 +32,7 @@ public class Main {
     public void onServerStarting(ServerStartingEvent event) {
     }
 
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
 
         @SubscribeEvent
