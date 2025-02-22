@@ -16,7 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite",
+   modid = "upgradednetherite_reforged",
    bus = Bus.MOD
 )
 public class ModEventSubscriber {
@@ -39,7 +39,7 @@ public class ModEventSubscriber {
    }
 
    static {
-      RECIPE = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, "upgradednetherite");
+      RECIPE = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, "upgradednetherite_reforged");
       SHIELD_RECIPE = RECIPE.register("shield_decoration", () -> {
          return ShieldRecipes.SERIALIZER;
       });

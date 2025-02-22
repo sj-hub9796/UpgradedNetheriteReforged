@@ -52,7 +52,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite",
+   modid = "upgradednetherite_reforged",
    bus = Bus.FORGE
 )
 public class HorseArmorEventHandler {

@@ -53,7 +53,7 @@ public class GlobalLootModifiers {
    private static final RegistryObject<Codec<GlobalLootModifiers.EnderTeleportModifier>> ENDERTP_MODIFIER;
 
    static {
-      GLM = DeferredRegister.create(Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, "upgradednetherite");
+      GLM = DeferredRegister.create(Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, "upgradednetherite_reforged");
       UPGRADED_HOE_MODIFIER = GLM.register("upgraded_hoe_tool", GlobalLootModifiers.UpgradedHoeModifier.CODEC);
       AUTOSMELT_MODIFIER = GLM.register("auto_smelt_tool", GlobalLootModifiers.AutoSmeltModifier.CODEC);
       ENDERTP_MODIFIER = GLM.register("ender_teleport_tool", GlobalLootModifiers.EnderTeleportModifier.CODEC);

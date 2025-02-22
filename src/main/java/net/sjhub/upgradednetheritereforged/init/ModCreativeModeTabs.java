@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite",
+   modid = "upgradednetherite_reforged",
    bus = Bus.MOD
 )
 public class ModCreativeModeTabs {
@@ -19,7 +19,7 @@ public class ModCreativeModeTabs {
 
    @SubscribeEvent
    public static void registerCreativeModeTabs(Register event) {
-      UPGRADED_NETHERITE_TAB = event.registerCreativeModeTab(new ResourceLocation("upgradednetherite", "upgradednetherite_tab"), (builder) -> {
+      UPGRADED_NETHERITE_TAB = event.registerCreativeModeTab(new ResourceLocation("upgradednetherite_reforged", "upgradednetherite_tab"), (builder) -> {
          builder.m_257737_(() -> {
             return new ItemStack((ItemLike)ModItems.FIRE_UPGRADED_NETHERITE_CHESTPLATE.get());
          }).m_257941_(Component.m_237115_("itemGroup.upgradednetheriteTab"));

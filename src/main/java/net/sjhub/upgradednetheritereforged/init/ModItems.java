@@ -189,7 +189,7 @@ public class ModItems {
    }
 
    static {
-      ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "upgradednetherite");
+      ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "upgradednetherite_reforged");
       GOLD_UPGRADED_NETHERITE_INGOT = ITEMS.register("gold_upgraded_netherite_ingot", UpgradedNetheriteIngotItemBase::new);
       FIRE_UPGRADED_NETHERITE_INGOT = ITEMS.register("fire_upgraded_netherite_ingot", UpgradedNetheriteIngotItemBase::new);
       ENDER_UPGRADED_NETHERITE_INGOT = ITEMS.register("ender_upgraded_netherite_ingot", UpgradedNetheriteIngotItemBase::new);
@@ -565,37 +565,37 @@ public class ModItems {
          return new UpgradedNetheriteArmor(ModArmorMaterial.ECHO_UPGRADED_NETHERITE, Type.BOOTS, (new Properties()).m_41497_(ModRarity.UPGRADED_SET).m_41486_());
       });
       NETHERITE_ARMOR_HORSE = ITEMS.register("netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41486_());
       });
       GOLD_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("gold_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/gold_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/gold_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       FIRE_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("fire_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/fire_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/fire_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       ENDER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("ender_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/ender_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/ender_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       WATER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("water_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/water_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/water_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       WITHER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("wither_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/wither_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/wither_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       POISON_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("poison_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/poison_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/poison_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("phantom_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/phantom_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/phantom_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("feather_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/feather_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/feather_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("corrupt_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/corrupt_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/corrupt_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
       ECHO_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("echo_upgraded_netherite_horse_armor", () -> {
-         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite", "textures/entity/horse/armor/echo_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
+         return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/echo_upgraded_netherite_horse_armor.png", (new Properties()).m_41487_(1).m_41497_(Rarity.RARE).m_41486_());
       });
    }
 }

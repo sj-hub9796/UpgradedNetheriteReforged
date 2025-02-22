@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite",
+   modid = "upgradednetherite_reforged",
    bus = Bus.MOD
 )
 public class UpgradedNetheriteEffects {
@@ -21,7 +21,7 @@ public class UpgradedNetheriteEffects {
    public static final RegistryObject<MobEffect> NETHERITE_CORRUPTION;
 
    static {
-      EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, "upgradednetherite");
+      EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, "upgradednetherite_reforged");
       ENDER_ANCHOR = EFFECTS.register("ender_anchor", EnderAnchor::new);
       ATTRACTION = EFFECTS.register("attraction", Attraction::new);
       NETHERITE_CORRUPTION = EFFECTS.register("netherite_corruption", NetheriteCorruption::new);

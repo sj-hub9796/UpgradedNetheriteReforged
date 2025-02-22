@@ -50,10 +50,10 @@ import net.minecraftforge.network.NetworkRegistry.ChannelBuilder;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 
-@Mod("upgradednetherite")
+@Mod("upgradednetherite_reforged")
 public class UpgradedNetheriteReforgedMod {
    public static final Logger LOGGER = LogUtils.getLogger();
-   public static final String MOD_ID = "upgradednetherite";
+   public static final String MOD_ID = "upgradednetherite_reforged";
    public static SimpleChannel packetInstance;
 
    public UpgradedNetheriteReforgedMod() {
@@ -79,7 +79,7 @@ public class UpgradedNetheriteReforgedMod {
    }
 
    private void setup(FMLCommonSetupEvent event) {
-      packetInstance = ChannelBuilder.named(new ResourceLocation("upgradednetherite", "main")).networkProtocolVersion(() -> {
+      packetInstance = ChannelBuilder.named(new ResourceLocation("upgradednetherite_reforged", "main")).networkProtocolVersion(() -> {
          return "1";
       }).clientAcceptedVersions("1"::equals).serverAcceptedVersions("1"::equals).simpleChannel();
       packetInstance.registerMessage(1, PacketPlayerFallDistanceUpdate.class, PacketPlayerFallDistanceUpdate::encode, PacketPlayerFallDistanceUpdate::decode, PacketPlayerFallDistanceUpdate::handle);
@@ -277,8 +277,8 @@ public class UpgradedNetheriteReforgedMod {
 
    private void addAltPack(AddPackFindersEvent event) {
       if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-         Path path = ModList.get().getModFileById("upgradednetherite").getFile().findResource(new String[]{"packs/alt"});
-         PathPackResources pathPackResources = new PathPackResources(ModList.get().getModFileById("upgradednetherite").getFile().getFileName() + ":" + path, path, true);
+         Path path = ModList.get().getModFileById("upgradednetherite_reforged").getFile().findResource(new String[]{"packs/alt"});
+         PathPackResources pathPackResources = new PathPackResources(ModList.get().getModFileById("upgradednetherite_reforged").getFile().getFileName() + ":" + path, path, true);
          event.addRepositorySource((source) -> {
             source.accept(Pack.m_245512_("builtin/alt", Component.m_237113_("Upgraded Netherite Alt"), false, (string) -> {
                return pathPackResources;
@@ -290,8 +290,8 @@ public class UpgradedNetheriteReforgedMod {
 
    private void addOldPack(AddPackFindersEvent event) {
       if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-         Path path = ModList.get().getModFileById("upgradednetherite").getFile().findResource(new String[]{"packs/old"});
-         PathPackResources pathPackResources = new PathPackResources(ModList.get().getModFileById("upgradednetherite").getFile().getFileName() + ":" + path, path, true);
+         Path path = ModList.get().getModFileById("upgradednetherite_reforged").getFile().findResource(new String[]{"packs/old"});
+         PathPackResources pathPackResources = new PathPackResources(ModList.get().getModFileById("upgradednetherite_reforged").getFile().getFileName() + ":" + path, path, true);
          event.addRepositorySource((source) -> {
             source.accept(Pack.m_245512_("builtin/old", Component.m_237113_("Upgraded Netherite Old"), false, (string) -> {
                return pathPackResources;

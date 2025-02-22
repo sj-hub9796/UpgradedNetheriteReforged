@@ -34,7 +34,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite",
+   modid = "upgradednetherite_reforged",
    bus = Bus.FORGE
 )
 public class EventHandler {

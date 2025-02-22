@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import top.theillusivec4.curios.api.CuriosApi;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite",
+   modid = "upgradednetherite_reforged",
    bus = Bus.FORGE
 )
 public class SoulboundEventHandler {

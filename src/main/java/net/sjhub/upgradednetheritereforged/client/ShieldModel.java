@@ -13,14 +13,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @EventBusSubscriber(
    value = {Dist.CLIENT},
-   modid = "upgradednetherite",
+   modid = "upgradednetherite_reforged",
    bus = Bus.MOD
 )
 public class ShieldModel {
    @SubscribeEvent
    public static void init(FMLClientSetupEvent event) {
       event.enqueueWork(() -> {
-         addShieldPropertyOverrides(new ResourceLocation("upgradednetherite", "blocking"), (stack, world, entity, seed) -> {
+         addShieldPropertyOverrides(new ResourceLocation("upgradednetherite_reforged", "blocking"), (stack, world, entity, seed) -> {
             return entity != null && entity.m_6117_() && entity.m_21211_() == stack ? 1.0F : 0.0F;
          }, (ItemLike)ModItems.NETHERITE_SHIELD.get(), (ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.FIRE_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.ENDER_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.WITHER_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.POISON_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHIELD.get(), (ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_SHIELD.get());
       });
