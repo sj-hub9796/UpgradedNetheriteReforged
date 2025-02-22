@@ -25,9 +25,9 @@ displayName = "${mod_name}" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL = "https://discord.com/users/1025725101620068373" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-#logoFile="upgradednetherite_reforged.png" #optional
+logoFile="LogoUpgradedNetherite.png" #optional
 # A text field displayed in the mod UI
-#credits="Thanks for this example mod goes to Java" #optional
+credits="Original author: Rolfmao25" #optional
 # A text field displayed in the mod UI
 authors = "${mod_authors}" #optional
 # Display Test controls the display for your mod in the server connection screen
@@ -39,7 +39,7 @@ authors = "${mod_authors}" #optional
 #displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
 
 # The description text for the mod (multi line!) (#mandatory)
-description = '''${mod_description}'''
+description='''Give some love to your Netherite !'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies."${mod_id}"]] #optional
 # the modid of the dependency
@@ -61,3 +61,17 @@ mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="upgradedcore"
+mandatory=true
+versionRange="[1.20.1-5.0.0.2-release,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="curios"
+mandatory=false
+versionRange="[1.20.1-5.12.0,)"
+ordering="NONE"
+side="BOTH"
