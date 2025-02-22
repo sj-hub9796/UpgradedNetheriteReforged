@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_boots"
   },
   "addition": {
-    "item": "upgradednetherite:ender_essence"
+    "item": "upgradednetherite_reforged:ender_essence"
   },
   "result": {
-    "item": "upgradednetherite:ender_upgraded_netherite_boots"
+    "item": "upgradednetherite_reforged:ender_upgraded_netherite_boots"
   }
 }

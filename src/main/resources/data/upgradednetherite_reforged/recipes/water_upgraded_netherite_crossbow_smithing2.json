@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_crossbow"
+    "item": "upgradednetherite_reforged:netherite_crossbow"
   },
   "addition": {
-    "item": "upgradednetherite:water_essence"
+    "item": "upgradednetherite_reforged:water_essence"
   },
   "result": {
-    "item": "upgradednetherite:water_upgraded_netherite_crossbow"
+    "item": "upgradednetherite_reforged:water_upgraded_netherite_crossbow"
   }
 }

@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_shovel"
   },
   "addition": {
-    "item": "upgradednetherite:water_essence"
+    "item": "upgradednetherite_reforged:water_essence"
   },
   "result": {
-    "item": "upgradednetherite:water_upgraded_netherite_shovel"
+    "item": "upgradednetherite_reforged:water_upgraded_netherite_shovel"
   }
 }

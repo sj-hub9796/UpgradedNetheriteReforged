@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "upgradednetherite:item/feather_upgraded_netherite_axe"
+    "layer0": "upgradednetherite_reforged:item/feather_upgraded_netherite_axe"
   }
 }

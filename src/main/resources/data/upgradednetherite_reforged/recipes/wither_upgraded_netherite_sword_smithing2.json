@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_sword"
   },
   "addition": {
-    "item": "upgradednetherite:wither_essence"
+    "item": "upgradednetherite_reforged:wither_essence"
   },
   "result": {
-    "item": "upgradednetherite:wither_upgraded_netherite_sword"
+    "item": "upgradednetherite_reforged:wither_upgraded_netherite_sword"
   }
 }

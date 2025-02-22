@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_crossbow"
+    "item": "upgradednetherite_reforged:netherite_crossbow"
   },
   "addition": {
-    "item": "upgradednetherite:ender_essence"
+    "item": "upgradednetherite_reforged:ender_essence"
   },
   "result": {
-    "item": "upgradednetherite:ender_upgraded_netherite_crossbow"
+    "item": "upgradednetherite_reforged:ender_upgraded_netherite_crossbow"
   }
 }

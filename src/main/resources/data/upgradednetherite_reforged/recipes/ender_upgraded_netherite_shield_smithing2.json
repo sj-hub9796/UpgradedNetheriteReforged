@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_shield"
+    "item": "upgradednetherite_reforged:netherite_shield"
   },
   "addition": {
-    "item": "upgradednetherite:ender_essence"
+    "item": "upgradednetherite_reforged:ender_essence"
   },
   "result": {
-    "item": "upgradednetherite:ender_upgraded_netherite_shield"
+    "item": "upgradednetherite_reforged:ender_upgraded_netherite_shield"
   }
 }

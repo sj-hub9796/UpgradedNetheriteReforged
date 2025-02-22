@@ -1,12 +1,12 @@
 {
   "replace": false,
   "values": [
-    "upgradednetherite:gold_upgraded_netherite_pickaxe",
-    "upgradednetherite:fire_upgraded_netherite_pickaxe",
-    "upgradednetherite:ender_upgraded_netherite_pickaxe",
-    "upgradednetherite:water_upgraded_netherite_pickaxe",
-    "upgradednetherite:phantom_upgraded_netherite_pickaxe",
-    "upgradednetherite:feather_upgraded_netherite_pickaxe",
-    "upgradednetherite:echo_upgraded_netherite_pickaxe"
+    "upgradednetherite_reforged:gold_upgraded_netherite_pickaxe",
+    "upgradednetherite_reforged:fire_upgraded_netherite_pickaxe",
+    "upgradednetherite_reforged:ender_upgraded_netherite_pickaxe",
+    "upgradednetherite_reforged:water_upgraded_netherite_pickaxe",
+    "upgradednetherite_reforged:phantom_upgraded_netherite_pickaxe",
+    "upgradednetherite_reforged:feather_upgraded_netherite_pickaxe",
+    "upgradednetherite_reforged:echo_upgraded_netherite_pickaxe"
   ]
 }

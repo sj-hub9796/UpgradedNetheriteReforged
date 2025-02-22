@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_horse_armor"
   },
   "addition": {
-    "item": "upgradednetherite:feather_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:feather_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:feather_upgraded_netherite_horse_armor"
+    "item": "upgradednetherite_reforged:feather_upgraded_netherite_horse_armor"
   }
 }

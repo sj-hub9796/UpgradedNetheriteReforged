@@ -7,9 +7,9 @@
   "overrides": [
     {
       "predicate": {
-        "upgradednetherite:blocking": 1
+        "upgradednetherite_reforged:blocking": 1
       },
-      "model": "upgradednetherite:item/feather_upgraded_netherite_shield_blocking"
+      "model": "upgradednetherite_reforged:item/feather_upgraded_netherite_shield_blocking"
     }
   ]
 }

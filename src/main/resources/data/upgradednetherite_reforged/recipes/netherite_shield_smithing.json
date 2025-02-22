@@ -7,6 +7,6 @@
     "item": "minecraft:netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:netherite_shield"
+    "item": "upgradednetherite_reforged:netherite_shield"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "upgradednetherite:item/phantom_essence"
+    "layer0": "upgradednetherite_reforged:item/phantom_essence"
   }
 }

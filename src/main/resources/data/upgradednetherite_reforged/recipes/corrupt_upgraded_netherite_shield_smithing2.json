@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_shield"
+    "item": "upgradednetherite_reforged:netherite_shield"
   },
   "addition": {
-    "item": "upgradednetherite:corrupt_essence"
+    "item": "upgradednetherite_reforged:corrupt_essence"
   },
   "result": {
-    "item": "upgradednetherite:corrupt_upgraded_netherite_shield"
+    "item": "upgradednetherite_reforged:corrupt_upgraded_netherite_shield"
   }
 }

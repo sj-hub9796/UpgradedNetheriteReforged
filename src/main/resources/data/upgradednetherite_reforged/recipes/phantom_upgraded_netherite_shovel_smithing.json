@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_shovel"
   },
   "addition": {
-    "item": "upgradednetherite:phantom_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:phantom_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:phantom_upgraded_netherite_shovel"
+    "item": "upgradednetherite_reforged:phantom_upgraded_netherite_shovel"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "upgradednetherite:item/water_upgraded_netherite_pickaxe"
+    "layer0": "upgradednetherite_reforged:item/water_upgraded_netherite_pickaxe"
   }
 }

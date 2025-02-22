@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_hoe"
   },
   "addition": {
-    "item": "upgradednetherite:feather_essence"
+    "item": "upgradednetherite_reforged:feather_essence"
   },
   "result": {
-    "item": "upgradednetherite:feather_upgraded_netherite_hoe"
+    "item": "upgradednetherite_reforged:feather_upgraded_netherite_hoe"
   }
 }

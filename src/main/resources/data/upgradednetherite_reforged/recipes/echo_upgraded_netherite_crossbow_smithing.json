@@ -4,9 +4,9 @@
     "item": "minecraft:crossbow"
   },
   "addition": {
-    "item": "upgradednetherite:echo_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:echo_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:echo_upgraded_netherite_crossbow"
+    "item": "upgradednetherite_reforged:echo_upgraded_netherite_crossbow"
   }
 }

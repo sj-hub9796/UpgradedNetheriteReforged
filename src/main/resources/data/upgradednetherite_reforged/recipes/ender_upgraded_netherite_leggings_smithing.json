@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_leggings"
   },
   "addition": {
-    "item": "upgradednetherite:ender_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:ender_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:ender_upgraded_netherite_leggings"
+    "item": "upgradednetherite_reforged:ender_upgraded_netherite_leggings"
   }
 }

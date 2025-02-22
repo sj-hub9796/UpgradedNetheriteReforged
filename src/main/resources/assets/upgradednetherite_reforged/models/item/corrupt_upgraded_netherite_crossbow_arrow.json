@@ -1,6 +1,6 @@
 {
     "parent": "item/crossbow",
     "textures": {
-        "layer0": "upgradednetherite:item/corrupt_upgraded_netherite_crossbow_arrow"
+        "layer0": "upgradednetherite_reforged:item/corrupt_upgraded_netherite_crossbow_arrow"
     }
 }

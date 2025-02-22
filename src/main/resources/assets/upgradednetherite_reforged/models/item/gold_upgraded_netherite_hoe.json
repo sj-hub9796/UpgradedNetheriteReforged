@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "upgradednetherite:item/gold_upgraded_netherite_hoe"
+    "layer0": "upgradednetherite_reforged:item/gold_upgraded_netherite_hoe"
   }
 }

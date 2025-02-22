@@ -1,5 +1,5 @@
 {
-  "parent": "upgradednetherite:recipes/root",
+  "parent": "upgradednetherite_reforged:recipes/root",
   "criteria": {
     "has_dragon_breath": {
       "conditions": {
@@ -39,7 +39,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "upgradednetherite:corrupt_essence"
+        "recipe": "upgradednetherite_reforged:corrupt_essence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -54,7 +54,7 @@
   ],
   "rewards": {
     "recipes": [
-      "upgradednetherite:corrupt_essence"
+      "upgradednetherite_reforged:corrupt_essence"
     ]
   }
 }

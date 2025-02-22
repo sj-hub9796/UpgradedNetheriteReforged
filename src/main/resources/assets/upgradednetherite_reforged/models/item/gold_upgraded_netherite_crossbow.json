@@ -1,7 +1,7 @@
 {
     "parent": "item/crossbow",
     "textures": {
-        "layer0": "upgradednetherite:item/gold_upgraded_netherite_crossbow_standby"
+        "layer0": "upgradednetherite_reforged:item/gold_upgraded_netherite_crossbow_standby"
     },
     "display": {
         "thirdperson_righthand": {
@@ -30,34 +30,34 @@
             "predicate": {
                 "pulling": 1
             },
-            "model": "upgradednetherite:item/gold_upgraded_netherite_crossbow_pulling_0"
+            "model": "upgradednetherite_reforged:item/gold_upgraded_netherite_crossbow_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.58
             },
-            "model": "upgradednetherite:item/gold_upgraded_netherite_crossbow_pulling_1"
+            "model": "upgradednetherite_reforged:item/gold_upgraded_netherite_crossbow_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 1.0
             },
-            "model": "upgradednetherite:item/gold_upgraded_netherite_crossbow_pulling_2"
+            "model": "upgradednetherite_reforged:item/gold_upgraded_netherite_crossbow_pulling_2"
         },
         {
             "predicate": {
                 "charged": 1
             },
-            "model": "upgradednetherite:item/gold_upgraded_netherite_crossbow_arrow"
+            "model": "upgradednetherite_reforged:item/gold_upgraded_netherite_crossbow_arrow"
         },
         {
             "predicate": {
                 "charged": 1,
                 "firework": 1
             },
-            "model": "upgradednetherite:item/gold_upgraded_netherite_crossbow_firework"
+            "model": "upgradednetherite_reforged:item/gold_upgraded_netherite_crossbow_firework"
         }
     ]
 }

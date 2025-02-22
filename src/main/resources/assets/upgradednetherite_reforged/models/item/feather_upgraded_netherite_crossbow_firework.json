@@ -1,6 +1,6 @@
 {
     "parent": "item/crossbow",
     "textures": {
-        "layer0": "upgradednetherite:item/feather_upgraded_netherite_crossbow_firework"
+        "layer0": "upgradednetherite_reforged:item/feather_upgraded_netherite_crossbow_firework"
     }
 }

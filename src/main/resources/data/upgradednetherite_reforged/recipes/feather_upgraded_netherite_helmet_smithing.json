@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_helmet"
   },
   "addition": {
-    "item": "upgradednetherite:feather_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:feather_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:feather_upgraded_netherite_helmet"
+    "item": "upgradednetherite_reforged:feather_upgraded_netherite_helmet"
   }
 }

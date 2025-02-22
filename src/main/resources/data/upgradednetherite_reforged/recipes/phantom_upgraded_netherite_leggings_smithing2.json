@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_leggings"
   },
   "addition": {
-    "item": "upgradednetherite:phantom_essence"
+    "item": "upgradednetherite_reforged:phantom_essence"
   },
   "result": {
-    "item": "upgradednetherite:phantom_upgraded_netherite_leggings"
+    "item": "upgradednetherite_reforged:phantom_upgraded_netherite_leggings"
   }
 }

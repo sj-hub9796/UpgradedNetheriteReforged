@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_crossbow"
+    "item": "upgradednetherite_reforged:netherite_crossbow"
   },
   "addition": {
-    "item": "upgradednetherite:fire_essence"
+    "item": "upgradednetherite_reforged:fire_essence"
   },
   "result": {
-    "item": "upgradednetherite:fire_upgraded_netherite_crossbow"
+    "item": "upgradednetherite_reforged:fire_upgraded_netherite_crossbow"
   }
 }

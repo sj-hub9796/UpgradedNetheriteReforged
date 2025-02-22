@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "upgradednetherite:gold_upgraded_netherite_chestplate",
-    "upgradednetherite:fire_upgraded_netherite_chestplate",
-    "upgradednetherite:ender_upgraded_netherite_chestplate",
-    "upgradednetherite:water_upgraded_netherite_chestplate",
-    "upgradednetherite:wither_upgraded_netherite_chestplate",
-    "upgradednetherite:poison_upgraded_netherite_chestplate",
-    "upgradednetherite:phantom_upgraded_netherite_chestplate",
-    "upgradednetherite:feather_upgraded_netherite_chestplate",
-    "upgradednetherite:echo_upgraded_netherite_chestplate"
+    "upgradednetherite_reforged:gold_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:fire_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:ender_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:water_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:wither_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:poison_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:phantom_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:feather_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:echo_upgraded_netherite_chestplate"
   ]
 }

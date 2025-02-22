@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_ingot"
   },
   "addition": {
-    "item": "upgradednetherite:phantom_essence"
+    "item": "upgradednetherite_reforged:phantom_essence"
   },
   "result": {
-    "item": "upgradednetherite:phantom_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:phantom_upgraded_netherite_ingot"
   }
 }

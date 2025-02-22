@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_hoe"
   },
   "addition": {
-    "item": "upgradednetherite:corrupt_essence"
+    "item": "upgradednetherite_reforged:corrupt_essence"
   },
   "result": {
-    "item": "upgradednetherite:corrupt_upgraded_netherite_hoe"
+    "item": "upgradednetherite_reforged:corrupt_upgraded_netherite_hoe"
   }
 }

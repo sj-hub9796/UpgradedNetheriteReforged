@@ -1,6 +1,6 @@
 {
     "parent": "item/bow",
     "textures": {
-        "layer0": "upgradednetherite:item/feather_upgraded_netherite_bow_pulling_2"
+        "layer0": "upgradednetherite_reforged:item/feather_upgraded_netherite_bow_pulling_2"
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "upgradednetherite:item/phantom_upgraded_netherite_pickaxe"
+    "layer0": "upgradednetherite_reforged:item/phantom_upgraded_netherite_pickaxe"
   }
 }

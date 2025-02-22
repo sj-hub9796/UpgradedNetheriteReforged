@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_pickaxe"
   },
   "addition": {
-    "item": "upgradednetherite:echo_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:echo_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:echo_upgraded_netherite_pickaxe"
+    "item": "upgradednetherite_reforged:echo_upgraded_netherite_pickaxe"
   }
 }

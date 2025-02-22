@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "upgradednetherite:fire_upgraded_netherite_helmet",
-    "upgradednetherite:fire_upgraded_netherite_chestplate",
-    "upgradednetherite:fire_upgraded_netherite_leggings",
-    "upgradednetherite:fire_upgraded_netherite_boots",
-    "upgradednetherite:fire_upgraded_netherite_horse_armor",
-    "upgradednetherite:feather_upgraded_netherite_helmet",
-    "upgradednetherite:feather_upgraded_netherite_chestplate",
-    "upgradednetherite:feather_upgraded_netherite_leggings",
-    "upgradednetherite:feather_upgraded_netherite_boots",
-    "upgradednetherite:feather_upgraded_netherite_horse_armor"
+    "upgradednetherite_reforged:fire_upgraded_netherite_helmet",
+    "upgradednetherite_reforged:fire_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:fire_upgraded_netherite_leggings",
+    "upgradednetherite_reforged:fire_upgraded_netherite_boots",
+    "upgradednetherite_reforged:fire_upgraded_netherite_horse_armor",
+    "upgradednetherite_reforged:feather_upgraded_netherite_helmet",
+    "upgradednetherite_reforged:feather_upgraded_netherite_chestplate",
+    "upgradednetherite_reforged:feather_upgraded_netherite_leggings",
+    "upgradednetherite_reforged:feather_upgraded_netherite_boots",
+    "upgradednetherite_reforged:feather_upgraded_netherite_horse_armor"
   ]
 }

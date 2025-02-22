@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_hoe"
   },
   "addition": {
-    "item": "upgradednetherite:water_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:water_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:water_upgraded_netherite_hoe"
+    "item": "upgradednetherite_reforged:water_upgraded_netherite_hoe"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "upgradednetherite:item/poison_upgraded_netherite_horse_armor"
+    "layer0": "upgradednetherite_reforged:item/poison_upgraded_netherite_horse_armor"
   }
 }

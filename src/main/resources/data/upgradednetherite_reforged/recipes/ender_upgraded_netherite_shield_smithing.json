@@ -4,9 +4,9 @@
     "item": "minecraft:shield"
   },
   "addition": {
-    "item": "upgradednetherite:ender_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:ender_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:ender_upgraded_netherite_shield"
+    "item": "upgradednetherite_reforged:ender_upgraded_netherite_shield"
   }
 }

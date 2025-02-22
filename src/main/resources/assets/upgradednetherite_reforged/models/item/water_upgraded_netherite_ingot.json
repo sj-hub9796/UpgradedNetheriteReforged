@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "upgradednetherite:item/water_upgraded_netherite_ingot"
+    "layer0": "upgradednetherite_reforged:item/water_upgraded_netherite_ingot"
   }
 }

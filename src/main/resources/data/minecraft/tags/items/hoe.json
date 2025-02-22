@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "upgradednetherite:gold_upgraded_netherite_hoe",
-    "upgradednetherite:fire_upgraded_netherite_hoe",
-    "upgradednetherite:ender_upgraded_netherite_hoe",
-    "upgradednetherite:water_upgraded_netherite_hoe",
-    "upgradednetherite:poison_upgraded_netherite_hoe",
-    "upgradednetherite:phantom_upgraded_netherite_hoe",
-    "upgradednetherite:feather_upgraded_netherite_hoe",
-    "upgradednetherite:corrupt_upgraded_netherite_hoe",
-    "upgradednetherite:echo_upgraded_netherite_hoe"
+    "upgradednetherite_reforged:gold_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:fire_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:ender_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:water_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:poison_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:phantom_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:feather_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:corrupt_upgraded_netherite_hoe",
+    "upgradednetherite_reforged:echo_upgraded_netherite_hoe"
   ]
 }

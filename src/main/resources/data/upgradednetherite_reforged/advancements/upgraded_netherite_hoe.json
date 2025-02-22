@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:corrupt_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:corrupt_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:echo_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:echo_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -30,7 +30,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:ender_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:ender_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -42,7 +42,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:feather_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:feather_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -54,7 +54,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:fire_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:fire_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -66,7 +66,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:gold_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:gold_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -78,7 +78,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:phantom_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:phantom_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -90,7 +90,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:poison_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:poison_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -102,7 +102,7 @@
         "items": [
           {
             "items": [
-              "upgradednetherite:water_upgraded_netherite_hoe"
+              "upgradednetherite_reforged:water_upgraded_netherite_hoe"
             ]
           }
         ]
@@ -118,7 +118,7 @@
     "frame": "challenge",
     "hidden": true,
     "icon": {
-      "item": "upgradednetherite:gold_upgraded_netherite_hoe",
+      "item": "upgradednetherite_reforged:gold_upgraded_netherite_hoe",
       "nbt": "{Damage:0}"
     },
     "show_toast": true,

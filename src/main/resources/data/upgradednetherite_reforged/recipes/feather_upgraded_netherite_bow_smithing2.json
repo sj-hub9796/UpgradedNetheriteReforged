@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_bow"
+    "item": "upgradednetherite_reforged:netherite_bow"
   },
   "addition": {
-    "item": "upgradednetherite:feather_essence"
+    "item": "upgradednetherite_reforged:feather_essence"
   },
   "result": {
-    "item": "upgradednetherite:feather_upgraded_netherite_bow"
+    "item": "upgradednetherite_reforged:feather_upgraded_netherite_bow"
   }
 }

@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_boots"
   },
   "addition": {
-    "item": "upgradednetherite:corrupt_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:corrupt_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:corrupt_upgraded_netherite_boots"
+    "item": "upgradednetherite_reforged:corrupt_upgraded_netherite_boots"
   }
 }

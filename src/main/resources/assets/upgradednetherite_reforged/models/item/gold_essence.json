@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "upgradednetherite:item/gold_essence"
+    "layer0": "upgradednetherite_reforged:item/gold_essence"
   }
 }

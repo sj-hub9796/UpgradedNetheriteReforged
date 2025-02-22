@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_leggings"
   },
   "addition": {
-    "item": "upgradednetherite:water_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:water_upgraded_netherite_ingot"
   },
   "result": {
-    "item": "upgradednetherite:water_upgraded_netherite_leggings"
+    "item": "upgradednetherite_reforged:water_upgraded_netherite_leggings"
   }
 }

@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_shield"
+    "item": "upgradednetherite_reforged:netherite_shield"
   },
   "addition": {
-    "item": "upgradednetherite:phantom_essence"
+    "item": "upgradednetherite_reforged:phantom_essence"
   },
   "result": {
-    "item": "upgradednetherite:phantom_upgraded_netherite_shield"
+    "item": "upgradednetherite_reforged:phantom_upgraded_netherite_shield"
   }
 }

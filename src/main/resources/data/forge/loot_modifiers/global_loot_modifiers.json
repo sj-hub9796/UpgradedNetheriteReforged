@@ -1,8 +1,8 @@
 {
   "replace" : false,
   "entries" : [
-    "upgradednetherite:upgraded_hoe_tool",
-    "upgradednetherite:auto_smelt_tool",
-    "upgradednetherite:ender_teleport_tool"
+    "upgradednetherite_reforged:upgraded_hoe_tool",
+    "upgradednetherite_reforged:auto_smelt_tool",
+    "upgradednetherite_reforged:ender_teleport_tool"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "upgradednetherite:item/wither_upgraded_netherite_sword"
+    "layer0": "upgradednetherite_reforged:item/wither_upgraded_netherite_sword"
   }
 }

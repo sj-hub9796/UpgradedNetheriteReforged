@@ -4,9 +4,9 @@
     "item": "minecraft:netherite_ingot"
   },
   "addition": {
-    "item": "upgradednetherite:echo_essence"
+    "item": "upgradednetherite_reforged:echo_essence"
   },
   "result": {
-    "item": "upgradednetherite:echo_upgraded_netherite_ingot"
+    "item": "upgradednetherite_reforged:echo_upgraded_netherite_ingot"
   }
 }

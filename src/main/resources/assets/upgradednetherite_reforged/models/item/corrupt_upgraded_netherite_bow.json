@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "upgradednetherite:item/corrupt_upgraded_netherite_bow"
+        "layer0": "upgradednetherite_reforged:item/corrupt_upgraded_netherite_bow"
     },
     "display": {
         "thirdperson_righthand": {
@@ -30,21 +30,21 @@
             "predicate": {
                 "pulling": 1
             },
-            "model": "upgradednetherite:item/corrupt_upgraded_netherite_bow_pulling_0"
+            "model": "upgradednetherite_reforged:item/corrupt_upgraded_netherite_bow_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.65
             },
-            "model": "upgradednetherite:item/corrupt_upgraded_netherite_bow_pulling_1"
+            "model": "upgradednetherite_reforged:item/corrupt_upgraded_netherite_bow_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.9
             },
-            "model": "upgradednetherite:item/corrupt_upgraded_netherite_bow_pulling_2"
+            "model": "upgradednetherite_reforged:item/corrupt_upgraded_netherite_bow_pulling_2"
         }
     ]
 }

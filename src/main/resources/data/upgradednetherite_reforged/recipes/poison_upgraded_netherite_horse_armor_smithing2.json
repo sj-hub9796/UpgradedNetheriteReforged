@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "upgradednetherite:netherite_horse_armor"
+    "item": "upgradednetherite_reforged:netherite_horse_armor"
   },
   "addition": {
-    "item": "upgradednetherite:poison_essence"
+    "item": "upgradednetherite_reforged:poison_essence"
   },
   "result": {
-    "item": "upgradednetherite:poison_upgraded_netherite_horse_armor"
+    "item": "upgradednetherite_reforged:poison_upgraded_netherite_horse_armor"
   }
 }
