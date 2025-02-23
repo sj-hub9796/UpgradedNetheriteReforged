@@ -66,6 +66,17 @@ public class RecipeData extends RecipeProvider {
                     }
                 }
             }
+
+            // ingot
+            String essenceString = type + "_ESSENCE";
+            String ingotString = type + "_UPGRADED_NETHERITE_INGOT";
+
+            Item essence = ItemUtil.valueOf(MOD_ID, essenceString);
+            Item ingot = ItemUtil.valueOf(MOD_ID, ingotString);
+
+            if (essence != null && essence != Items.AIR && ingot != null && ingot != Items.AIR) {
+                netheriteCustomSmithing(consumer, Items.NETHERITE_INGOT, ingot, essence, Items.BLAZE_POWDER, RecipeCategory.MISC);
+            }
         }
     }
 
