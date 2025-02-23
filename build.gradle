@@ -201,6 +201,10 @@ tasks.named('jar', Jar).configure {
     finalizedBy 'reobfJar'
 }
 
+jar {
+    archiveFileName = mod_id + "-" + minecraft_version + "-" + mod_version + "-release.jar"
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
