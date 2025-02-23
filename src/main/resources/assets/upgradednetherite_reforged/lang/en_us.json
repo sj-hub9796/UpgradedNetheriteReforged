@@ -482,5 +482,11 @@
   "advancement.upgradednetherite_reforged.upgraded_armor": "Keep Improving !",
   "advancement.upgradednetherite_reforged.upgraded_armor.desc": "Get a full suit of Upgraded Netherite armor",
   "advancement.upgradednetherite_reforged.upgraded_hoe": "What took you so long ?",
-  "advancement.upgradednetherite_reforged.upgraded_hoe.desc": "Obtain an Upgraded Netherite Hoe"
+  "advancement.upgradednetherite_reforged.upgraded_hoe.desc": "Obtain an Upgraded Netherite Hoe",
+
+  "upgrade.upgradednetherite_reforged.netherite_transcend": "Netherite Transcend",
+  "item.upgradednetherite_reforged.netherite_transcend_smithing_template.applies_to": "Netherite Equipment",
+  "item.upgradednetherite_reforged.netherite_transcend_smithing_template.ingredients": "Upgraded Netherite Ingot",
+  "item.upgradednetherite_reforged.netherite_transcend_smithing_template.base_slot_description": "Add netherite armor, weapon, or tool",
+  "item.upgradednetherite_reforged.netherite_transcend_smithing_template.additions_slot_description": "Add Upgraded Netherite Ingot"
 }
