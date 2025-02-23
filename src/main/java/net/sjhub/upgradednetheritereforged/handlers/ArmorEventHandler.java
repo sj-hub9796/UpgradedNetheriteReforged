@@ -236,19 +236,19 @@ public class ArmorEventHandler {
 
    private Multimap<Attribute, AttributeModifier> SwimAttributeMap() {
       Multimap<Attribute, AttributeModifier> attributesDefault = HashMultimap.create();
-      attributesDefault.put((Attribute)ForgeMod.SWIM_SPEED.get(), new AttributeModifier(UUID.fromString("fbfd69fe-3369-11eb-adc1-0242ac120002"), "upgradednetherite:swim_bonus", 1.1D, Operation.MULTIPLY_BASE));
+      attributesDefault.put((Attribute)ForgeMod.SWIM_SPEED.get(), new AttributeModifier(UUID.fromString("fbfd69fe-3369-11eb-adc1-0242ac120002"), "upgradednetherite_reforged:swim_bonus", 1.1D, Operation.MULTIPLY_BASE));
       return attributesDefault;
    }
 
    private Multimap<Attribute, AttributeModifier> HealthAttributeMap(Integer mult) {
       Multimap<Attribute, AttributeModifier> attributesDefault = HashMultimap.create();
-      attributesDefault.put(Attributes.MAX_HEALTH, new AttributeModifier(UUID.fromString("7d87fb9e-d0ca-4bdd-8d00-384044b3417b"), "upgradednetherite:health_malus", (double)UpgradedNetheriteConfig.HealthMalus * -0.01D * (double)mult, Operation.MULTIPLY_TOTAL));
+      attributesDefault.put(Attributes.MAX_HEALTH, new AttributeModifier(UUID.fromString("7d87fb9e-d0ca-4bdd-8d00-384044b3417b"), "upgradednetherite_reforged:health_malus", (double)UpgradedNetheriteConfig.HealthMalus * -0.01D * (double)mult, Operation.MULTIPLY_TOTAL));
       return attributesDefault;
    }
 
    private Multimap<Attribute, AttributeModifier> LuckAttributeMap() {
       Multimap<Attribute, AttributeModifier> attributesDefault = HashMultimap.create();
-      attributesDefault.put(Attributes.LUCK, new AttributeModifier(UUID.fromString("33ca3756-9ea8-41d0-898c-d93352065fbb"), "upgradednetherite:luck_bonus", (double)UpgradedNetheriteConfig.LuckBonus, Operation.ADDITION));
+      attributesDefault.put(Attributes.LUCK, new AttributeModifier(UUID.fromString("33ca3756-9ea8-41d0-898c-d93352065fbb"), "upgradednetherite_reforged:luck_bonus", (double)UpgradedNetheriteConfig.LuckBonus, Operation.ADDITION));
       return attributesDefault;
    }
 

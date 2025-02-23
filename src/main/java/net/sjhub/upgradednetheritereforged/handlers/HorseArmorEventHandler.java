@@ -95,7 +95,7 @@ public class HorseArmorEventHandler {
 
    private Multimap<Attribute, AttributeModifier> SwimHorseAttributeMap() {
       Multimap<Attribute, AttributeModifier> attributesDefault = HashMultimap.create();
-      attributesDefault.put((Attribute)ForgeMod.SWIM_SPEED.get(), new AttributeModifier(UUID.fromString("fbfd69fe-3369-11eb-adc1-0242ac120002"), "upgradednetherite:swim_bonus", 1.5D, Operation.MULTIPLY_BASE));
+      attributesDefault.put((Attribute)ForgeMod.SWIM_SPEED.get(), new AttributeModifier(UUID.fromString("fbfd69fe-3369-11eb-adc1-0242ac120002"), "upgradednetherite_reforged:swim_bonus", 1.5D, Operation.MULTIPLY_BASE));
       return attributesDefault;
    }
 

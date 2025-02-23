@@ -38,13 +38,13 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 public class ToolEventHandler {
    private Multimap<Attribute, AttributeModifier> ReachAttributeMap() {
       Multimap<Attribute, AttributeModifier> attributesDefault = HashMultimap.create();
-      attributesDefault.put((Attribute)ForgeMod.BLOCK_REACH.get(), new AttributeModifier(UUID.fromString("ca095c88-32c8-11eb-adc1-0242ac120002"), "upgradednetherite:reach_bonus", (double)UpgradedNetheriteConfig.BonusReachTool, Operation.ADDITION));
+      attributesDefault.put((Attribute)ForgeMod.BLOCK_REACH.get(), new AttributeModifier(UUID.fromString("ca095c88-32c8-11eb-adc1-0242ac120002"), "upgradednetherite_reforged:reach_bonus", (double)UpgradedNetheriteConfig.BonusReachTool, Operation.ADDITION));
       return attributesDefault;
    }
 
    private Multimap<Attribute, AttributeModifier> AttackRangeAttributeMap() {
       Multimap<Attribute, AttributeModifier> attributesDefault = HashMultimap.create();
-      attributesDefault.put((Attribute)ForgeMod.ENTITY_REACH.get(), new AttributeModifier(UUID.fromString("ea87f882-cd65-4b5c-9f49-0be421f62df9"), "upgradednetherite:attackrange_bonus", (double)UpgradedNetheriteConfig.BonusReachTool, Operation.ADDITION));
+      attributesDefault.put((Attribute)ForgeMod.ENTITY_REACH.get(), new AttributeModifier(UUID.fromString("ea87f882-cd65-4b5c-9f49-0be421f62df9"), "upgradednetherite_reforged:attackrange_bonus", (double)UpgradedNetheriteConfig.BonusReachTool, Operation.ADDITION));
       return attributesDefault;
    }
 

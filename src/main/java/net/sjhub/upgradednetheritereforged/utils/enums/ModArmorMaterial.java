@@ -12,7 +12,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
 public enum ModArmorMaterial implements ArmorMaterial {
-   GOLD_UPGRADED_NETHERITE("upgradednetherite:gold_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (goldUpgradedNetherite) -> {
+   GOLD_UPGRADED_NETHERITE("upgradednetherite_reforged:gold_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (goldUpgradedNetherite) -> {
       goldUpgradedNetherite.put(Type.BOOTS, 3);
       goldUpgradedNetherite.put(Type.LEGGINGS, 6);
       goldUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -20,7 +20,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   FIRE_UPGRADED_NETHERITE("upgradednetherite:fire_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (fireUpgradedNetherite) -> {
+   FIRE_UPGRADED_NETHERITE("upgradednetherite_reforged:fire_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (fireUpgradedNetherite) -> {
       fireUpgradedNetherite.put(Type.BOOTS, 3);
       fireUpgradedNetherite.put(Type.LEGGINGS, 6);
       fireUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -28,7 +28,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   ENDER_UPGRADED_NETHERITE("upgradednetherite:ender_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (enderUpgradedNetherite) -> {
+   ENDER_UPGRADED_NETHERITE("upgradednetherite_reforged:ender_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (enderUpgradedNetherite) -> {
       enderUpgradedNetherite.put(Type.BOOTS, 3);
       enderUpgradedNetherite.put(Type.LEGGINGS, 6);
       enderUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -36,7 +36,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   WATER_UPGRADED_NETHERITE("upgradednetherite:water_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (waterUpgradedNetherite) -> {
+   WATER_UPGRADED_NETHERITE("upgradednetherite_reforged:water_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (waterUpgradedNetherite) -> {
       waterUpgradedNetherite.put(Type.BOOTS, 3);
       waterUpgradedNetherite.put(Type.LEGGINGS, 6);
       waterUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -44,7 +44,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   WITHER_UPGRADED_NETHERITE("upgradednetherite:wither_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (witherUpgradedNetherite) -> {
+   WITHER_UPGRADED_NETHERITE("upgradednetherite_reforged:wither_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (witherUpgradedNetherite) -> {
       witherUpgradedNetherite.put(Type.BOOTS, 3);
       witherUpgradedNetherite.put(Type.LEGGINGS, 6);
       witherUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -52,7 +52,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   POISON_UPGRADED_NETHERITE("upgradednetherite:poison_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (poisonUpgradedNetherite) -> {
+   POISON_UPGRADED_NETHERITE("upgradednetherite_reforged:poison_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (poisonUpgradedNetherite) -> {
       poisonUpgradedNetherite.put(Type.BOOTS, 3);
       poisonUpgradedNetherite.put(Type.LEGGINGS, 6);
       poisonUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -60,7 +60,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   PHANTOM_UPGRADED_NETHERITE("upgradednetherite:phantom_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (phantomUpgradedNetherite) -> {
+   PHANTOM_UPGRADED_NETHERITE("upgradednetherite_reforged:phantom_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (phantomUpgradedNetherite) -> {
       phantomUpgradedNetherite.put(Type.BOOTS, 3);
       phantomUpgradedNetherite.put(Type.LEGGINGS, 6);
       phantomUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -68,7 +68,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   FEATHER_UPGRADED_NETHERITE("upgradednetherite:feather_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (featherUpgradedNetherite) -> {
+   FEATHER_UPGRADED_NETHERITE("upgradednetherite_reforged:feather_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (featherUpgradedNetherite) -> {
       featherUpgradedNetherite.put(Type.BOOTS, 3);
       featherUpgradedNetherite.put(Type.LEGGINGS, 6);
       featherUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -76,7 +76,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   CORRUPT_UPGRADED_NETHERITE("upgradednetherite:corrupt_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (corruptUpgradedNetherite) -> {
+   CORRUPT_UPGRADED_NETHERITE("upgradednetherite_reforged:corrupt_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (corruptUpgradedNetherite) -> {
       corruptUpgradedNetherite.put(Type.BOOTS, 3);
       corruptUpgradedNetherite.put(Type.LEGGINGS, 6);
       corruptUpgradedNetherite.put(Type.CHESTPLATE, 8);
@@ -84,7 +84,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
       return Ingredient.of(new ItemLike[]{Items.NETHERITE_INGOT});
    }, 0.1F),
-   ECHO_UPGRADED_NETHERITE("upgradednetherite:echo_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (echoUpgradedNetherite) -> {
+   ECHO_UPGRADED_NETHERITE("upgradednetherite_reforged:echo_upgraded_netherite", 37, (EnumMap)Util.make(new EnumMap(Type.class), (echoUpgradedNetherite) -> {
       echoUpgradedNetherite.put(Type.BOOTS, 3);
       echoUpgradedNetherite.put(Type.LEGGINGS, 6);
       echoUpgradedNetherite.put(Type.CHESTPLATE, 8);
