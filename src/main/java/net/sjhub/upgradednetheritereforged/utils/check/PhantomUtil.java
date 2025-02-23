@@ -36,7 +36,7 @@ public class PhantomUtil {
    }
 
    public static boolean isHorseWearingPhantomArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MorePhantomUtil.isHorseWearingPhantomArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.PHANTOM_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MorePhantomUtil.isHorseWearingPhantomArmor(horse);
    }
 
    public static boolean isPhantomArmor(ItemStack itemStack) {
@@ -72,6 +72,6 @@ public class PhantomUtil {
    }
 
    public static boolean isPhantomHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MorePhantomUtil.isPhantomHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MorePhantomUtil.isPhantomHorseArmor(itemStack);
    }
 }

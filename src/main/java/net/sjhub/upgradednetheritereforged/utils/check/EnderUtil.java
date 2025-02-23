@@ -37,7 +37,7 @@ public class EnderUtil {
    }
 
    public static boolean isHorseWearingEnderArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.ENDER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreEnderUtil.isHorseWearingEnderArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.ENDER_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MoreEnderUtil.isHorseWearingEnderArmor(horse);
    }
 
    public static boolean isEnderArmor(ItemStack itemStack) {
@@ -73,7 +73,7 @@ public class EnderUtil {
    }
 
    public static boolean isEnderHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ENDER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreEnderUtil.isEnderHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ENDER_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreEnderUtil.isEnderHorseArmor(itemStack);
    }
 
    public static boolean isVoidYLevel(Player player) {

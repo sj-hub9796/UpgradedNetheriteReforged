@@ -36,7 +36,7 @@ public class EchoUtil {
    }
 
    public static boolean isHorseWearingEchoArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.ECHO_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreEchoUtil.isHorseWearingEchoArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.ECHO_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MoreEchoUtil.isHorseWearingEchoArmor(horse);
    }
 
    public static boolean isEchoArmor(ItemStack itemStack) {
@@ -72,10 +72,10 @@ public class EchoUtil {
    }
 
    public static boolean isEchoHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreEchoUtil.isEchoHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreEchoUtil.isEchoHorseArmor(itemStack);
    }
 
    public static boolean isEchoSoulbound(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_INGOT.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_CROSSBOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_SHIELD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_HELMET.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_CHESTPLATE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_LEGGINGS.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_BOOTS.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreEchoUtil.isEchoSoulbound(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_INGOT.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_CROSSBOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_SHIELD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_HELMET.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_CHESTPLATE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_LEGGINGS.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_BOOTS.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.ECHO_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreEchoUtil.isEchoSoulbound(itemStack);
    }
 }

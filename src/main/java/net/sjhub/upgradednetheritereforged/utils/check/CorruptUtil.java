@@ -28,7 +28,7 @@ public class CorruptUtil {
    }
 
    public static boolean isHorseWearingCorruptArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem();
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.CORRUPT_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem();
    }
 
    public static boolean isCorruptArmor(ItemStack itemStack) {
@@ -64,6 +64,6 @@ public class CorruptUtil {
    }
 
    public static boolean isCorruptHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreCorruptUtil.isCorruptHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreCorruptUtil.isCorruptHorseArmor(itemStack);
    }
 }

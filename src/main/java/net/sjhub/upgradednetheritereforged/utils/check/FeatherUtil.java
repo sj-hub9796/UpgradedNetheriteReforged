@@ -36,7 +36,7 @@ public class FeatherUtil {
    }
 
    public static boolean isHorseWearingFeatherArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreFeatherUtil.isHorseWearingFeatherArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.FEATHER_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MoreFeatherUtil.isHorseWearingFeatherArmor(horse);
    }
 
    public static boolean isFeatherArmor(ItemStack itemStack) {
@@ -72,6 +72,6 @@ public class FeatherUtil {
    }
 
    public static boolean isFeatherHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreFeatherUtil.isFeatherHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreFeatherUtil.isFeatherHorseArmor(itemStack);
    }
 }

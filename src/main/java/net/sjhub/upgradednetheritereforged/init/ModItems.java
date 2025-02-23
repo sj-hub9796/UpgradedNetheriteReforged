@@ -170,17 +170,17 @@ public class ModItems {
    public static final RegistryObject<ArmorItem> FEATHER_UPGRADED_NETHERITE_BOOTS;
    public static final RegistryObject<ArmorItem> CORRUPT_UPGRADED_NETHERITE_BOOTS;
    public static final RegistryObject<ArmorItem> ECHO_UPGRADED_NETHERITE_BOOTS;
-   public static final RegistryObject<HorseArmorItem> NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> GOLD_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> FIRE_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> ENDER_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> WATER_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> WITHER_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> POISON_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE;
-   public static final RegistryObject<HorseArmorItem> ECHO_UPGRADED_NETHERITE_ARMOR_HORSE;
+   public static final RegistryObject<HorseArmorItem> NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> GOLD_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> FIRE_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> ENDER_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> WATER_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> WITHER_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> POISON_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> PHANTOM_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> FEATHER_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> CORRUPT_UPGRADED_NETHERITE_HORSE_ARMOR;
+   public static final RegistryObject<HorseArmorItem> ECHO_UPGRADED_NETHERITE_HORSE_ARMOR;
 
    public static void init() {
       ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -567,37 +567,37 @@ public class ModItems {
       ECHO_UPGRADED_NETHERITE_BOOTS = ITEMS.register("echo_upgraded_netherite_boots", () -> {
          return new UpgradedNetheriteArmor(ModArmorMaterial.ECHO_UPGRADED_NETHERITE, Type.BOOTS, (new Properties()).rarity(ModRarity.UPGRADED_SET).fireResistant());
       });
-      NETHERITE_ARMOR_HORSE = ITEMS.register("netherite_horse_armor", () -> {
+      NETHERITE_HORSE_ARMOR = ITEMS.register("netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/netherite_horse_armor.png", (new Properties()).stacksTo(1).fireResistant());
       });
-      GOLD_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("gold_upgraded_netherite_horse_armor", () -> {
+      GOLD_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("gold_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/gold_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      FIRE_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("fire_upgraded_netherite_horse_armor", () -> {
+      FIRE_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("fire_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/fire_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      ENDER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("ender_upgraded_netherite_horse_armor", () -> {
+      ENDER_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("ender_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/ender_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      WATER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("water_upgraded_netherite_horse_armor", () -> {
+      WATER_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("water_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/water_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      WITHER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("wither_upgraded_netherite_horse_armor", () -> {
+      WITHER_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("wither_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/wither_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      POISON_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("poison_upgraded_netherite_horse_armor", () -> {
+      POISON_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("poison_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/poison_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("phantom_upgraded_netherite_horse_armor", () -> {
+      PHANTOM_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("phantom_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/phantom_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("feather_upgraded_netherite_horse_armor", () -> {
+      FEATHER_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("feather_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/feather_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("corrupt_upgraded_netherite_horse_armor", () -> {
+      CORRUPT_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("corrupt_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/corrupt_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
-      ECHO_UPGRADED_NETHERITE_ARMOR_HORSE = ITEMS.register("echo_upgraded_netherite_horse_armor", () -> {
+      ECHO_UPGRADED_NETHERITE_HORSE_ARMOR = ITEMS.register("echo_upgraded_netherite_horse_armor", () -> {
          return new UpgradedNetheriteHorseArmor(15, "upgradednetherite_reforged", "textures/entity/horse/armor/echo_upgraded_netherite_horse_armor.png", (new Properties()).stacksTo(1).rarity(Rarity.RARE).fireResistant());
       });
    }

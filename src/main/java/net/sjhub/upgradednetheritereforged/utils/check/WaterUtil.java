@@ -36,7 +36,7 @@ public class WaterUtil {
    }
 
    public static boolean isHorseWearingWaterArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreWaterUtil.isHorseWearingWaterArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.WATER_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MoreWaterUtil.isHorseWearingWaterArmor(horse);
    }
 
    public static boolean isWaterArmor(ItemStack itemStack) {
@@ -72,6 +72,6 @@ public class WaterUtil {
    }
 
    public static boolean isWaterHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreWaterUtil.isWaterHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreWaterUtil.isWaterHorseArmor(itemStack);
    }
 }

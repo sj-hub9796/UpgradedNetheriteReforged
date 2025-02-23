@@ -36,7 +36,7 @@ public class FireUtil {
    }
 
    public static boolean isHorseWearingFireArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.FIRE_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreFireUtil.isHorseWearingFireArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.FIRE_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MoreFireUtil.isHorseWearingFireArmor(horse);
    }
 
    public static boolean isFireArmor(ItemStack itemStack) {
@@ -72,6 +72,6 @@ public class FireUtil {
    }
 
    public static boolean isFireHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FIRE_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreFireUtil.isFireHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FIRE_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreFireUtil.isFireHorseArmor(itemStack);
    }
 }

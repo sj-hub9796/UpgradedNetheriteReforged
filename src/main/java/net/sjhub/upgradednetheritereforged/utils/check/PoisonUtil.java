@@ -36,7 +36,7 @@ public class PoisonUtil {
    }
 
    public static boolean isHorseWearingPoisonArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MorePoisonUtil.isHorseWearingPoisonArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.POISON_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MorePoisonUtil.isHorseWearingPoisonArmor(horse);
    }
 
    public static boolean isPoisonArmor(ItemStack itemStack) {
@@ -76,6 +76,6 @@ public class PoisonUtil {
    }
 
    public static boolean isPoisonHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MorePoisonUtil.isPoisonHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MorePoisonUtil.isPoisonHorseArmor(itemStack);
    }
 }

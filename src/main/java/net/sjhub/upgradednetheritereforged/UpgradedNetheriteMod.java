@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.sjhub.upgradednetheritereforged.config.ConfigHolder;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.data.AdvancementData;
+import net.sjhub.upgradednetheritereforged.data.RecipeData;
 import net.sjhub.upgradednetheritereforged.handlers.ArmorEventHandler;
 import net.sjhub.upgradednetheritereforged.handlers.EventHandler;
 import net.sjhub.upgradednetheritereforged.handlers.HorseArmorEventHandler;
@@ -123,6 +124,7 @@ public class UpgradedNetheriteMod {
 
    public void dataSetup(GatherDataEvent event) {
       event.getGenerator().addProvider(event.includeServer(), new AdvancementData(event.getGenerator().getPackOutput(), event.getLookupProvider(), event.getExistingFileHelper()));
+      event.getGenerator().addProvider(event.includeServer(), new RecipeData(event.getGenerator().getPackOutput()));
    }
 
    private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -130,7 +132,7 @@ public class UpgradedNetheriteMod {
          event.getEntries().putAfter(new ItemStack(Items.BOW), new ItemStack((ItemLike)ModItems.NETHERITE_BOW.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
          event.getEntries().putAfter(new ItemStack(Items.CROSSBOW), new ItemStack((ItemLike)ModItems.NETHERITE_CROSSBOW.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
          event.getEntries().putAfter(new ItemStack(Items.SHIELD), new ItemStack((ItemLike)ModItems.NETHERITE_SHIELD.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
-         event.getEntries().putAfter(new ItemStack(Items.DIAMOND_HORSE_ARMOR), new ItemStack((ItemLike)ModItems.NETHERITE_ARMOR_HORSE.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
+         event.getEntries().putAfter(new ItemStack(Items.DIAMOND_HORSE_ARMOR), new ItemStack((ItemLike)ModItems.NETHERITE_HORSE_ARMOR.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
       }
 
       if (event.getTab() == ModCreativeModeTabs.UPGRADED_NETHERITE_TAB.get()) {
@@ -149,7 +151,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.GOLD_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.GOLD_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.GOLD_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.GOLD_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.FIRE_ESSENCE);
          event.accept(ModItems.FIRE_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.FIRE_UPGRADED_NETHERITE_SWORD);
@@ -164,7 +166,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.FIRE_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.FIRE_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.FIRE_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.FIRE_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.FIRE_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.ENDER_ESSENCE);
          event.accept(ModItems.ENDER_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.ENDER_UPGRADED_NETHERITE_SWORD);
@@ -179,7 +181,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.ENDER_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.ENDER_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.ENDER_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.ENDER_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.ENDER_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.WATER_ESSENCE);
          event.accept(ModItems.WATER_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.WATER_UPGRADED_NETHERITE_SWORD);
@@ -194,7 +196,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.WATER_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.WATER_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.WATER_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.WATER_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.WITHER_ESSENCE);
          event.accept(ModItems.WITHER_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.WITHER_UPGRADED_NETHERITE_SWORD);
@@ -206,7 +208,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.WITHER_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.WITHER_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.WITHER_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.WITHER_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.WITHER_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.POISON_ESSENCE);
          event.accept(ModItems.POISON_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.POISON_UPGRADED_NETHERITE_SWORD);
@@ -219,7 +221,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.POISON_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.POISON_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.POISON_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.POISON_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.PHANTOM_ESSENCE);
          event.accept(ModItems.PHANTOM_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.PHANTOM_UPGRADED_NETHERITE_SWORD);
@@ -234,7 +236,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.PHANTOM_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.PHANTOM_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.PHANTOM_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.PHANTOM_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.FEATHER_ESSENCE);
          event.accept(ModItems.FEATHER_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.FEATHER_UPGRADED_NETHERITE_SWORD);
@@ -249,7 +251,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.FEATHER_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.FEATHER_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.FEATHER_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.FEATHER_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.CORRUPT_ESSENCE);
          event.accept(ModItems.CORRUPT_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.CORRUPT_UPGRADED_NETHERITE_SWORD);
@@ -264,7 +266,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.CORRUPT_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.CORRUPT_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.CORRUPT_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.CORRUPT_UPGRADED_NETHERITE_HORSE_ARMOR);
          event.accept(ModItems.ECHO_ESSENCE);
          event.accept(ModItems.ECHO_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.ECHO_UPGRADED_NETHERITE_SWORD);
@@ -279,7 +281,7 @@ public class UpgradedNetheriteMod {
          event.accept(ModItems.ECHO_UPGRADED_NETHERITE_CHESTPLATE);
          event.accept(ModItems.ECHO_UPGRADED_NETHERITE_LEGGINGS);
          event.accept(ModItems.ECHO_UPGRADED_NETHERITE_BOOTS);
-         event.accept(ModItems.ECHO_UPGRADED_NETHERITE_ARMOR_HORSE);
+         event.accept(ModItems.ECHO_UPGRADED_NETHERITE_HORSE_ARMOR);
       }
 
    }

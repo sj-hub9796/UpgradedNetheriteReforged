@@ -36,7 +36,7 @@ public class GoldUtil {
    }
 
    public static boolean isHorseWearingGoldArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreGoldUtil.isHorseWearingGoldArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.GOLD_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MoreGoldUtil.isHorseWearingGoldArmor(horse);
    }
 
    public static boolean isGoldArmor(ItemStack itemStack) {
@@ -76,6 +76,6 @@ public class GoldUtil {
    }
 
    public static boolean isGoldHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreGoldUtil.isGoldHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreGoldUtil.isGoldHorseArmor(itemStack);
    }
 }

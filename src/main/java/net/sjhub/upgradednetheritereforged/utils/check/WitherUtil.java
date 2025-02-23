@@ -36,7 +36,7 @@ public class WitherUtil {
    }
 
    public static boolean isHorseWearingWitherArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.WITHER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreWitherUtil.isHorseWearingWitherArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.WITHER_UPGRADED_NETHERITE_HORSE_ARMOR.get()).asItem() || MoreWitherUtil.isHorseWearingWitherArmor(horse);
    }
 
    public static boolean isWitherArmor(ItemStack itemStack) {
@@ -72,6 +72,6 @@ public class WitherUtil {
    }
 
    public static boolean isWitherHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WITHER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreWitherUtil.isWitherHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WITHER_UPGRADED_NETHERITE_HORSE_ARMOR.get())) || MoreWitherUtil.isWitherHorseArmor(itemStack);
    }
 }

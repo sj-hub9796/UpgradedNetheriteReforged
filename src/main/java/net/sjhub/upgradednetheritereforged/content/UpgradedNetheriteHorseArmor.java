@@ -25,18 +25,18 @@ public class UpgradedNetheriteHorseArmor extends HorseArmorItem {
       super.appendHoverText(itemStack, level, tooltip, tooltipFlag);
       if (!UpgradedNetheriteConfig.DisableTooltips) {
          Item horseArmor = itemStack.getItem();
-         if (horseArmor != ModItems.NETHERITE_ARMOR_HORSE.get()) {
+         if (horseArmor != ModItems.NETHERITE_HORSE_ARMOR.get()) {
             if (Screen.hasShiftDown()) {
-               if (horseArmor != ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get()) {
+               if (horseArmor != ModItems.CORRUPT_UPGRADED_NETHERITE_HORSE_ARMOR.get()) {
                }
 
-               if (horseArmor == ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE.get()) {
+               if (horseArmor == ModItems.GOLD_UPGRADED_NETHERITE_HORSE_ARMOR.get()) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Gold_Horse_Bonus.TT"));
                }
 
-               if (horseArmor == ModItems.FIRE_UPGRADED_NETHERITE_ARMOR_HORSE.get() && (UpgradedNetheriteConfig.EnableLavaSpeed || UpgradedNetheriteConfig.EnableFireImmune)) {
+               if (horseArmor == ModItems.FIRE_UPGRADED_NETHERITE_HORSE_ARMOR.get() && (UpgradedNetheriteConfig.EnableLavaSpeed || UpgradedNetheriteConfig.EnableFireImmune)) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableFireImmune) {
@@ -48,13 +48,13 @@ public class UpgradedNetheriteHorseArmor extends HorseArmorItem {
                   }
                }
 
-               if (horseArmor == ModItems.ENDER_UPGRADED_NETHERITE_ARMOR_HORSE.get() && UpgradedNetheriteConfig.EnableVoidSave) {
+               if (horseArmor == ModItems.ENDER_UPGRADED_NETHERITE_HORSE_ARMOR.get() && UpgradedNetheriteConfig.EnableVoidSave) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Bonus.TT"));
                }
 
-               if (horseArmor == ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE.get() && (UpgradedNetheriteConfig.EnableWaterLavaWalking || UpgradedNetheriteConfig.EnableWaterSpeed)) {
+               if (horseArmor == ModItems.WATER_UPGRADED_NETHERITE_HORSE_ARMOR.get() && (UpgradedNetheriteConfig.EnableWaterLavaWalking || UpgradedNetheriteConfig.EnableWaterSpeed)) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableWaterBreath) {
@@ -66,13 +66,13 @@ public class UpgradedNetheriteHorseArmor extends HorseArmorItem {
                   }
                }
 
-               if (horseArmor == ModItems.WITHER_UPGRADED_NETHERITE_ARMOR_HORSE.get() && UpgradedNetheriteConfig.EnableWitherImmune) {
+               if (horseArmor == ModItems.WITHER_UPGRADED_NETHERITE_HORSE_ARMOR.get() && UpgradedNetheriteConfig.EnableWitherImmune) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Wither_Bonus.TT"));
                }
 
-               if (horseArmor == ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE.get() && (UpgradedNetheriteConfig.EnablePoisonImmune || UpgradedNetheriteConfig.EnableClimbWall)) {
+               if (horseArmor == ModItems.POISON_UPGRADED_NETHERITE_HORSE_ARMOR.get() && (UpgradedNetheriteConfig.EnablePoisonImmune || UpgradedNetheriteConfig.EnableClimbWall)) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnablePoisonImmune) {
@@ -84,13 +84,13 @@ public class UpgradedNetheriteHorseArmor extends HorseArmorItem {
                   }
                }
 
-               if (horseArmor == ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE.get() && UpgradedNetheriteConfig.EnableFallImmune) {
+               if (horseArmor == ModItems.PHANTOM_UPGRADED_NETHERITE_HORSE_ARMOR.get() && UpgradedNetheriteConfig.EnableFallImmune) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Phantom_Bonus.TT"));
                }
 
-               if (horseArmor == ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE.get() && (UpgradedNetheriteConfig.EnableWaterLavaWalking || UpgradedNetheriteConfig.EnableReduceFallDamage)) {
+               if (horseArmor == ModItems.FEATHER_UPGRADED_NETHERITE_HORSE_ARMOR.get() && (UpgradedNetheriteConfig.EnableWaterLavaWalking || UpgradedNetheriteConfig.EnableReduceFallDamage)) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableWaterLavaWalking) {
@@ -102,7 +102,7 @@ public class UpgradedNetheriteHorseArmor extends HorseArmorItem {
                   }
                }
 
-               if (horseArmor == ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get()) {
+               if (horseArmor == ModItems.CORRUPT_UPGRADED_NETHERITE_HORSE_ARMOR.get()) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Malus.TT"));
                   TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Horse_Bonus.TT", new Object[]{"§6" + UpgradedNetheriteConfig.HealthMalus + "%"});
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
@@ -110,7 +110,7 @@ public class UpgradedNetheriteHorseArmor extends HorseArmorItem {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Corrupt_Horse_Bonus2.TT"));
                }
 
-               if (horseArmor == ModItems.ECHO_UPGRADED_NETHERITE_ARMOR_HORSE.get() && (UpgradedNetheriteConfig.EnableReduceDamageEchoArmor || UpgradedNetheriteConfig.EnableHealEchoArmor)) {
+               if (horseArmor == ModItems.ECHO_UPGRADED_NETHERITE_HORSE_ARMOR.get() && (UpgradedNetheriteConfig.EnableReduceDamageEchoArmor || UpgradedNetheriteConfig.EnableHealEchoArmor)) {
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableReduceDamageEchoArmor) {
