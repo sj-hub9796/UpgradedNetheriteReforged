@@ -1,7 +1,7 @@
 package net.sjhub.upgradednetheritereforged.utils.check;
 
-import com.rolfmao.upgradedcore.utils.SetArmorUtil;
-import com.rolfmao.upgradedcore.utils.morecheck.MorePhantomUtil;
+import com.rolfmao.upgradedcore_old.utils.SetArmorUtil;
+import com.rolfmao.upgradedcore_old.utils.morecheck.MorePhantomUtil;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModArmorMaterial;
@@ -36,7 +36,7 @@ public class PhantomUtil {
    }
 
    public static boolean isHorseWearingPhantomArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE.get()).m_5456_() || MorePhantomUtil.isHorseWearingPhantomArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MorePhantomUtil.isHorseWearingPhantomArmor(horse);
    }
 
    public static boolean isPhantomArmor(ItemStack itemStack) {
@@ -44,7 +44,7 @@ public class PhantomUtil {
    }
 
    public static boolean isPhantomToolOrWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_CROSSBOW.get())) || MorePhantomUtil.isPhantomToolOrWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_CROSSBOW.get())) || MorePhantomUtil.isPhantomToolOrWeapon(itemStack);
    }
 
    public static boolean isPhantomWeapon(ItemStack itemStack) {
@@ -52,26 +52,26 @@ public class PhantomUtil {
    }
 
    public static boolean isPhantomMeleeWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_AXE.get())) || MorePhantomUtil.isPhantomWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_AXE.get())) || MorePhantomUtil.isPhantomWeapon(itemStack);
    }
 
    public static boolean isPhantomRangedWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_CROSSBOW.get())) || MorePhantomUtil.isPhantomRangedWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_CROSSBOW.get())) || MorePhantomUtil.isPhantomRangedWeapon(itemStack);
    }
 
    public static boolean isPhantomTool(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_HOE.get())) || MorePhantomUtil.isPhantomTool(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_HOE.get())) || MorePhantomUtil.isPhantomTool(itemStack);
    }
 
    public static boolean isPhantomProjectile(Projectile projectile) {
-      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MorePhantomUtil.isPhantomProjectile(projectile)) && projectile.m_19880_().contains("PhantomUpgradedNetheriteBow");
+      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MorePhantomUtil.isPhantomProjectile(projectile)) && projectile.getTags().contains("PhantomUpgradedNetheriteBow");
    }
 
    public static boolean isPhantomShield(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SHIELD.get())) || MorePhantomUtil.isPhantomShield(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_SHIELD.get())) || MorePhantomUtil.isPhantomShield(itemStack);
    }
 
    public static boolean isPhantomHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MorePhantomUtil.isPhantomHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.PHANTOM_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MorePhantomUtil.isPhantomHorseArmor(itemStack);
    }
 }

@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.rolfmao.upgradedcore_old.client.BowModel;
 import com.rolfmao.upgradedcore_old.client.CrossBowModel;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.sjhub.upgradednetheritereforged.config.ConfigHolder;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.data.AdvancementData;
@@ -57,16 +58,22 @@ public class UpgradedNetheriteMod {
    public static SimpleChannel packetInstance;
 
    public UpgradedNetheriteMod() {
-      FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-      FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-      FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
-      FMLJavaModLoadingContext.get().getModEventBus().addListener(this::addAltPack);
-      FMLJavaModLoadingContext.get().getModEventBus().addListener(this::addOldPack);
-      UpgradedNetheriteEffects.EFFECTS.register(FMLJavaModLoadingContext.get().getModEventBus());
-      ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-      GlobalLootModifiers.GLM.register(FMLJavaModLoadingContext.get().getModEventBus());
-      ModEventSubscriber.create(FMLJavaModLoadingContext.get().getModEventBus());
-      FMLJavaModLoadingContext.get().getModEventBus().addListener(this::addCreative);
+      IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+      ModCreativeModeTabs.register(eventBus);
+
+      eventBus.addListener(this::setup);
+      eventBus.addListener(this::doClientStuff);
+      eventBus.addListener(this::dataSetup);
+      eventBus.addListener(this::addAltPack);
+      eventBus.addListener(this::addOldPack);
+
+      UpgradedNetheriteEffects.EFFECTS.register(eventBus);
+      ModItems.ITEMS.register(eventBus);
+      GlobalLootModifiers.GLM.register(eventBus);
+      ModEventSubscriber.create(eventBus);
+      eventBus.addListener(this::addCreative);
+
       MinecraftForge.EVENT_BUS.register(this);
       MinecraftForge.EVENT_BUS.register(new EventHandler());
       MinecraftForge.EVENT_BUS.register(new ArmorEventHandler());
@@ -74,6 +81,7 @@ public class UpgradedNetheriteMod {
       MinecraftForge.EVENT_BUS.register(new WeaponEventHandler());
       MinecraftForge.EVENT_BUS.register(new HorseArmorEventHandler());
       MinecraftForge.EVENT_BUS.register(new SoulboundEventHandler());
+
       ModLoadingContext.get().registerConfig(Type.CLIENT, ConfigHolder.CLIENT_SPEC);
       ModLoadingContext.get().registerConfig(Type.SERVER, ConfigHolder.SERVER_SPEC);
    }
@@ -125,7 +133,7 @@ public class UpgradedNetheriteMod {
          event.getEntries().putAfter(new ItemStack(Items.DIAMOND_HORSE_ARMOR), new ItemStack((ItemLike)ModItems.NETHERITE_ARMOR_HORSE.get()), TabVisibility.PARENT_AND_SEARCH_TABS);
       }
 
-      if (event.getTab() == ModCreativeModeTabs.UPGRADED_NETHERITE_TAB) {
+      if (event.getTab() == ModCreativeModeTabs.UPGRADED_NETHERITE_TAB.get()) {
          event.accept(ModItems.GOLD_ESSENCE);
          event.accept(ModItems.GOLD_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.GOLD_UPGRADED_NETHERITE_SWORD);

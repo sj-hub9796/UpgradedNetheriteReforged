@@ -1,7 +1,7 @@
 package net.sjhub.upgradednetheritereforged.utils.check;
 
-import com.rolfmao.upgradedcore.utils.SetArmorUtil;
-import com.rolfmao.upgradedcore.utils.morecheck.MoreFeatherUtil;
+import com.rolfmao.upgradedcore_old.utils.SetArmorUtil;
+import com.rolfmao.upgradedcore_old.utils.morecheck.MoreFeatherUtil;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModArmorMaterial;
@@ -36,7 +36,7 @@ public class FeatherUtil {
    }
 
    public static boolean isHorseWearingFeatherArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).m_5456_() || MoreFeatherUtil.isHorseWearingFeatherArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreFeatherUtil.isHorseWearingFeatherArmor(horse);
    }
 
    public static boolean isFeatherArmor(ItemStack itemStack) {
@@ -44,7 +44,7 @@ public class FeatherUtil {
    }
 
    public static boolean isFeatherToolOrWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreFeatherUtil.isFeatherToolOrWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreFeatherUtil.isFeatherToolOrWeapon(itemStack);
    }
 
    public static boolean isFeatherWeapon(ItemStack itemStack) {
@@ -52,26 +52,26 @@ public class FeatherUtil {
    }
 
    public static boolean isFeatherMeleeWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_AXE.get())) || MoreFeatherUtil.isFeatherWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_AXE.get())) || MoreFeatherUtil.isFeatherWeapon(itemStack);
    }
 
    public static boolean isFeatherRangedWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreFeatherUtil.isFeatherRangedWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreFeatherUtil.isFeatherRangedWeapon(itemStack);
    }
 
    public static boolean isFeatherTool(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_HOE.get())) || MoreFeatherUtil.isFeatherTool(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_HOE.get())) || MoreFeatherUtil.isFeatherTool(itemStack);
    }
 
    public static boolean isFeatherProjectile(Projectile projectile) {
-      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreFeatherUtil.isFeatherProjectile(projectile)) && projectile.m_19880_().contains("FeatherUpgradedNetheriteBow");
+      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreFeatherUtil.isFeatherProjectile(projectile)) && projectile.getTags().contains("FeatherUpgradedNetheriteBow");
    }
 
    public static boolean isFeatherShield(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SHIELD.get())) || MoreFeatherUtil.isFeatherShield(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_SHIELD.get())) || MoreFeatherUtil.isFeatherShield(itemStack);
    }
 
    public static boolean isFeatherHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreFeatherUtil.isFeatherHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.FEATHER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreFeatherUtil.isFeatherHorseArmor(itemStack);
    }
 }

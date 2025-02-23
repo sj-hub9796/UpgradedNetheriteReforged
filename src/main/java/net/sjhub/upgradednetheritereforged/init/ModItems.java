@@ -1,6 +1,6 @@
 package net.sjhub.upgradednetheritereforged.init;
 
-import com.rolfmao.upgradedcore.init.ModRarity;
+import com.rolfmao.upgradedcore_old.init.ModRarity;
 import net.sjhub.upgradednetheritereforged.content.UpgradedNetheriteArmor;
 import net.sjhub.upgradednetheritereforged.content.UpgradedNetheriteAxe;
 import net.sjhub.upgradednetheritereforged.content.UpgradedNetheriteBow;

@@ -1,6 +1,6 @@
 package net.sjhub.upgradednetheritereforged.content;
 
-import com.rolfmao.upgradedcore.helpers.TooltipHelper;
+import com.rolfmao.upgradedcore_old.helpers.TooltipHelper;
 import net.sjhub.upgradednetheritereforged.client.ShieldRenderer;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.ModItems;

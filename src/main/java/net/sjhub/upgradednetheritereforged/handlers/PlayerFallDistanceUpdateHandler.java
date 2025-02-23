@@ -11,6 +11,6 @@ public class PlayerFallDistanceUpdateHandler {
    }
 
    public static void handlePlayerFallDistanceUpdate(ServerPlayer player, Float fallDistance) {
-      player.f_19789_ = fallDistance;
+      player.fallDistance = fallDistance;
    }
 }

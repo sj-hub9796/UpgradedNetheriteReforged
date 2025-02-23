@@ -1,7 +1,7 @@
 package net.sjhub.upgradednetheritereforged.utils.check;
 
-import com.rolfmao.upgradedcore.utils.SetArmorUtil;
-import com.rolfmao.upgradedcore.utils.morecheck.MoreGoldUtil;
+import com.rolfmao.upgradedcore_old.utils.SetArmorUtil;
+import com.rolfmao.upgradedcore_old.utils.morecheck.MoreGoldUtil;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModArmorMaterial;
@@ -36,7 +36,7 @@ public class GoldUtil {
    }
 
    public static boolean isHorseWearingGoldArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE.get()).m_5456_() || MoreGoldUtil.isHorseWearingGoldArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreGoldUtil.isHorseWearingGoldArmor(horse);
    }
 
    public static boolean isGoldArmor(ItemStack itemStack) {
@@ -44,7 +44,7 @@ public class GoldUtil {
    }
 
    public static boolean isGoldToolOrWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreGoldUtil.isGoldToolOrWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreGoldUtil.isGoldToolOrWeapon(itemStack);
    }
 
    public static boolean isGoldWeapon(ItemStack itemStack) {
@@ -52,30 +52,30 @@ public class GoldUtil {
    }
 
    public static boolean isGoldMeleeWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_AXE.get())) || MoreGoldUtil.isGoldWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_AXE.get())) || MoreGoldUtil.isGoldWeapon(itemStack);
    }
 
    public static boolean isGoldRangedWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreGoldUtil.isGoldRangedWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreGoldUtil.isGoldRangedWeapon(itemStack);
    }
 
    public static boolean isGoldTool(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_HOE.get())) || MoreGoldUtil.isGoldTool(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_HOE.get())) || MoreGoldUtil.isGoldTool(itemStack);
    }
 
    public static boolean isGoldHoe(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_HOE.get())) || MoreGoldUtil.isGoldHoe(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_HOE.get())) || MoreGoldUtil.isGoldHoe(itemStack);
    }
 
    public static boolean isGoldProjectile(Projectile projectile) {
-      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreGoldUtil.isGoldProjectile(projectile)) && projectile.m_19880_().contains("GoldUpgradedNetheriteBow");
+      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreGoldUtil.isGoldProjectile(projectile)) && projectile.getTags().contains("GoldUpgradedNetheriteBow");
    }
 
    public static boolean isGoldShield(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SHIELD.get())) || MoreGoldUtil.isGoldShield(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_SHIELD.get())) || MoreGoldUtil.isGoldShield(itemStack);
    }
 
    public static boolean isGoldHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreGoldUtil.isGoldHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreGoldUtil.isGoldHorseArmor(itemStack);
    }
 }

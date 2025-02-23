@@ -61,8 +61,8 @@ public class HorseArmorEventHandler {
       priority = EventPriority.LOWEST
    )
    public static void onDamageEntity(LivingHurtEvent event) {
-      if (!event.getEntity().f_19853_.isClientSide) {
-         if (event.getEntity() instanceof Player && event.getEntity().m_20202_() instanceof Horse && FeatherUtil.isHorseWearingFeatherArmor((Horse)event.getEntity().m_20202_()) && event.getSource().is(DamageTypes.FALL) && UpgradedNetheriteConfig.EnableReduceFallDamage) {
+      if (!event.getEntity().level().isClientSide) {
+         if (event.getEntity() instanceof Player && event.getEntity().getVehicle() instanceof Horse && FeatherUtil.isHorseWearingFeatherArmor((Horse)event.getEntity().getVehicle()) && event.getSource().is(DamageTypes.FALL) && UpgradedNetheriteConfig.EnableReduceFallDamage) {
             event.setAmount(event.getAmount() / 2.0F);
          } else if (event.getEntity() instanceof Horse && FeatherUtil.isHorseWearingFeatherArmor((Horse)event.getEntity()) && event.getSource().is(DamageTypes.FALL) && UpgradedNetheriteConfig.EnableReduceFallDamage) {
             event.setAmount(event.getAmount() / 2.0F);
@@ -83,8 +83,8 @@ public class HorseArmorEventHandler {
    public static void onLooting(LootingLevelEvent event) {
       if (event.getDamageSource() != null && event.getDamageSource().getEntity() instanceof ServerPlayer) {
          ServerPlayer player = (ServerPlayer)event.getDamageSource().getEntity();
-         if (player.m_20202_() instanceof Horse) {
-            Horse horse = (Horse)player.m_20202_();
+         if (player.getVehicle() instanceof Horse) {
+            Horse horse = (Horse)player.getVehicle();
             if (GoldUtil.isHorseWearingGoldArmor(horse) && UpgradedNetheriteConfig.EnableLootingBonus) {
                event.setLootingLevel(event.getLootingLevel() + 1);
             }
@@ -101,11 +101,11 @@ public class HorseArmorEventHandler {
 
    @SubscribeEvent
    public void onLivingUpdate(LivingTickEvent event) {
-      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).m_30614_()) {
+      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).isTamed()) {
          Horse horse = (Horse)event.getEntity();
          Player rider = null;
-         if (!horse.m_20197_().isEmpty()) {
-            Iterator var4 = horse.m_20197_().iterator();
+         if (!horse.getPassengers().isEmpty()) {
+            Iterator var4 = horse.getPassengers().iterator();
 
             while(var4.hasNext()) {
                Entity entity = (Entity)var4.next();
@@ -115,14 +115,14 @@ public class HorseArmorEventHandler {
             }
          }
 
-         if (horse.m_20077_() && FireUtil.isHorseWearingFireArmor(horse) && UpgradedNetheriteConfig.EnableLavaSpeed) {
-            horse.m_20256_(horse.m_20184_().multiply(1.66D, 1.0D, 1.66D));
+         if (horse.isInLava() && FireUtil.isHorseWearingFireArmor(horse) && UpgradedNetheriteConfig.EnableLavaSpeed) {
+            horse.setDeltaMovement(horse.getDeltaMovement().multiply(1.66D, 1.0D, 1.66D));
          }
 
          if (EnderUtil.isHorseWearingEnderArmor(horse) && UpgradedNetheriteConfig.EnableVoidSave) {
-            BlockPos blockpos1 = horse.m_20183_().below();
-            BlockState blockstate = horse.f_19853_.getBlockState(blockpos1);
-            if (blockstate.m_60767_().blocksMotion()) {
+            BlockPos blockpos1 = horse.blockPosition().below();
+            BlockState blockstate = horse.level().getBlockState(blockpos1);
+            if (blockstate.blocksMotion()) {
                EntityDataUtil.setAbilityEnderPos(horse, true);
             }
          } else if (!EnderUtil.isHorseWearingEnderArmor(horse) && EntityDataUtil.getAbilityEnderPos(horse) != null) {
@@ -130,26 +130,26 @@ public class HorseArmorEventHandler {
          }
 
          if (WaterUtil.isHorseWearingWaterArmor(horse) && UpgradedNetheriteConfig.EnableWaterSpeed) {
-            horse.m_21204_().addTransientAttributeModifiers(this.SwimHorseAttributeMap());
+            horse.getAttributes().addTransientAttributeModifiers(this.SwimHorseAttributeMap());
          } else if (!WaterUtil.isHorseWearingWaterArmor(horse)) {
-            horse.m_21204_().removeAttributeModifiers(this.SwimHorseAttributeMap());
+            horse.getAttributes().removeAttributeModifiers(this.SwimHorseAttributeMap());
          }
 
          if (PoisonUtil.isHorseWearingPoisonArmor(horse) && UpgradedNetheriteConfig.EnableClimbWall) {
             if (rider != null && EntityDataUtil.getAbilityClimbwall(horse)) {
-               if (horse.m_20184_().y() < 0.0D) {
-                  horse.m_6853_(true);
-                  horse.f_19789_ = 0.0F;
-                  horse.m_20256_(horse.m_20184_().add(-horse.m_20184_().x() / 10.0D, -horse.m_20184_().y(), -horse.m_20184_().z() / 10.0D));
+               if (horse.getDeltaMovement().y() < 0.0D) {
+                  horse.setOnGround(true);
+                  horse.fallDistance = 0.0F;
+                  horse.setDeltaMovement(horse.getDeltaMovement().add(-horse.getDeltaMovement().x() / 10.0D, -horse.getDeltaMovement().y(), -horse.getDeltaMovement().z() / 10.0D));
                }
 
-               if (horse.m_20184_().x() != 0.0D && horse.m_20184_().z() != 0.0D) {
+               if (horse.getDeltaMovement().x() != 0.0D && horse.getDeltaMovement().z() != 0.0D) {
                   EntityDataUtil.setAbilityClimbwall(horse, false);
                }
             }
 
-            if (rider != null && horse.f_19862_ && !horse.m_20077_() && !horse.m_20069_()) {
-               Double LookAt = horse.m_20154_().y;
+            if (rider != null && horse.horizontalCollision && !horse.isInLava() && !horse.isInWater()) {
+               Double LookAt = horse.getLookAngle().y;
                if (LookAt > 0.1D) {
                   LookAt = 0.1D;
                }
@@ -158,14 +158,14 @@ public class HorseArmorEventHandler {
                   LookAt = -0.1D;
                }
 
-               if (rider.f_19853_.isClientSide && ((LocalPlayer)rider).input.forwardImpulse < 0.0F) {
+               if (rider.level().isClientSide && ((LocalPlayer)rider).input.forwardImpulse < 0.0F) {
                   LookAt = LookAt * -1.0D;
                }
 
-               horse.f_19789_ = 0.0F;
-               horse.m_20256_(horse.m_20184_().add(-horse.m_20184_().x() / 10.0D, LookAt - horse.m_20184_().y, -horse.m_20184_().z() / 10.0D));
-               if (horse.f_19853_.isClientSide) {
-                  EntityFallDistanceUpdateHandler.EntityFallDistanceUpdate(horse.m_19879_(), horse.f_19789_);
+               horse.fallDistance = 0.0F;
+               horse.setDeltaMovement(horse.getDeltaMovement().add(-horse.getDeltaMovement().x() / 10.0D, LookAt - horse.getDeltaMovement().y, -horse.getDeltaMovement().z() / 10.0D));
+               if (horse.level().isClientSide) {
+                  EntityFallDistanceUpdateHandler.EntityFallDistanceUpdate(horse.getId(), horse.fallDistance);
                }
 
                EntityDataUtil.setAbilityClimbwall(horse, true);
@@ -174,33 +174,33 @@ public class HorseArmorEventHandler {
             EntityDataUtil.setAbilityClimbwall(horse, false);
          }
 
-         if (horse.m_20146_() < horse.m_6062_() && WaterUtil.isHorseWearingWaterArmor(horse) && UpgradedNetheriteConfig.EnableWaterBreath) {
-            horse.m_20301_(horse.m_20146_() + 1);
+         if (horse.getAirSupply() < horse.getMaxAirSupply() && WaterUtil.isHorseWearingWaterArmor(horse) && UpgradedNetheriteConfig.EnableWaterBreath) {
+            horse.setAirSupply(horse.getAirSupply() + 1);
          }
 
-         if (horse.m_21023_(MobEffects.WITHER) && WitherUtil.isHorseWearingWitherArmor(horse) && UpgradedNetheriteConfig.EnableWitherImmune) {
-            horse.m_21195_(MobEffects.WITHER);
+         if (horse.hasEffect(MobEffects.WITHER) && WitherUtil.isHorseWearingWitherArmor(horse) && UpgradedNetheriteConfig.EnableWitherImmune) {
+            horse.removeEffect(MobEffects.WITHER);
          }
 
-         if (horse.m_21023_(MobEffects.POISON) && PoisonUtil.isHorseWearingPoisonArmor(horse) && UpgradedNetheriteConfig.EnablePoisonImmune) {
-            horse.m_21195_(MobEffects.POISON);
+         if (horse.hasEffect(MobEffects.POISON) && PoisonUtil.isHorseWearingPoisonArmor(horse) && UpgradedNetheriteConfig.EnablePoisonImmune) {
+            horse.removeEffect(MobEffects.POISON);
          }
 
-         if ((horse.f_19853_.getFluidState(horse.m_20183_()).is(FluidTags.LAVA) || horse.f_19853_.getFluidState(horse.m_20183_()).is(FluidTags.WATER)) && FeatherUtil.isHorseWearingFeatherArmor(horse) && UpgradedNetheriteConfig.EnableWaterLavaWalking) {
-            if (!horse.m_20069_() && !horse.m_20077_()) {
-               horse.m_6853_(true);
-               horse.m_6862_(false);
-               horse.m_20256_(horse.m_20184_().add(0.0D, -horse.m_20184_().y(), 0.0D));
-            } else if (horse.m_20184_().y < 0.3D && (horse.m_204029_(FluidTags.LAVA) || horse.m_204029_(FluidTags.WATER))) {
-               horse.m_20256_(horse.m_20184_().add(0.0D, 0.3D - horse.m_20184_().y, 0.0D));
-            } else if (horse.m_20184_().y < 0.15D && !horse.m_204029_(FluidTags.LAVA) && !horse.m_204029_(FluidTags.WATER)) {
-               horse.m_20256_(horse.m_20184_().add(0.0D, 0.15D - horse.m_20184_().y, 0.0D));
+         if ((horse.level().getFluidState(horse.blockPosition()).is(FluidTags.LAVA) || horse.level().getFluidState(horse.blockPosition()).is(FluidTags.WATER)) && FeatherUtil.isHorseWearingFeatherArmor(horse) && UpgradedNetheriteConfig.EnableWaterLavaWalking) {
+            if (!horse.isInWater() && !horse.isInLava()) {
+               horse.setOnGround(true);
+               horse.setJumping(false);
+               horse.setDeltaMovement(horse.getDeltaMovement().add(0.0D, -horse.getDeltaMovement().y(), 0.0D));
+            } else if (horse.getDeltaMovement().y < 0.3D && (horse.isEyeInFluid(FluidTags.LAVA) || horse.isEyeInFluid(FluidTags.WATER))) {
+               horse.setDeltaMovement(horse.getDeltaMovement().add(0.0D, 0.3D - horse.getDeltaMovement().y, 0.0D));
+            } else if (horse.getDeltaMovement().y < 0.15D && !horse.isEyeInFluid(FluidTags.LAVA) && !horse.isEyeInFluid(FluidTags.WATER)) {
+               horse.setDeltaMovement(horse.getDeltaMovement().add(0.0D, 0.15D - horse.getDeltaMovement().y, 0.0D));
             }
          }
 
-         if (EchoUtil.isHorseWearingEchoArmor(horse) && UpgradedNetheriteConfig.EnableHealEchoArmor && !EntityDataUtil.hasEchoHealCooldownHorse(horse) && horse.m_21223_() < horse.m_21233_()) {
+         if (EchoUtil.isHorseWearingEchoArmor(horse) && UpgradedNetheriteConfig.EnableHealEchoArmor && !EntityDataUtil.hasEchoHealCooldownHorse(horse) && horse.getHealth() < horse.getMaxHealth()) {
             horse.getPersistentData().putInt("upgraded_netherite_echo_heal_cd", UpgradedNetheriteConfig.HealEchoArmorDelay * 20);
-            horse.m_5634_(1.0F);
+            horse.heal(1.0F);
          }
 
          EntityDataUtil.tickCooldownHorse(horse);
@@ -208,19 +208,19 @@ public class HorseArmorEventHandler {
 
       if (event.getEntity() instanceof Player) {
          Player player = (Player)event.getEntity();
-         if (player.m_20202_() instanceof Horse && player.f_19853_.isClientSide) {
-            Horse horse = (Horse)player.m_20202_();
-            if ((WaterUtil.isHorseWearingWaterArmor(horse) && horse.f_19853_.getFluidState(player.m_20183_()).is(FluidTags.WATER) || FireUtil.isHorseWearingFireArmor(horse) && horse.f_19853_.getFluidState(player.m_20183_()).is(FluidTags.LAVA)) && player.f_19853_.isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.forwardImpulse != 0.0F) {
-               double d3 = player.m_20154_().y;
+         if (player.getVehicle() instanceof Horse && player.level().isClientSide) {
+            Horse horse = (Horse)player.getVehicle();
+            if ((WaterUtil.isHorseWearingWaterArmor(horse) && horse.level().getFluidState(player.blockPosition()).is(FluidTags.WATER) || FireUtil.isHorseWearingFireArmor(horse) && horse.level().getFluidState(player.blockPosition()).is(FluidTags.LAVA)) && player.level().isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.forwardImpulse != 0.0F) {
+               double d3 = player.getLookAngle().y;
                double d4 = d3 < -0.2D ? 0.085D : 0.06D;
                double d5;
-               if (player.f_19853_.isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.forwardImpulse > 0.0F) {
-                  d5 = (d3 - horse.m_20184_().y) * d4;
+               if (player.level().isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.forwardImpulse > 0.0F) {
+                  d5 = (d3 - horse.getDeltaMovement().y) * d4;
                } else {
-                  d5 = -((d3 - horse.m_20184_().y) * d4) / 4.0D;
+                  d5 = -((d3 - horse.getDeltaMovement().y) * d4) / 4.0D;
                }
 
-               horse.m_20256_(horse.m_20184_().add(0.0D, d5, 0.0D));
+               horse.setDeltaMovement(horse.getDeltaMovement().add(0.0D, d5, 0.0D));
             }
          }
       }
@@ -232,18 +232,18 @@ public class HorseArmorEventHandler {
       priority = EventPriority.HIGHEST
    )
    public void onLivingAttackEvent(LivingAttackEvent event) {
-      if (event.getEntity() instanceof Player && event.getEntity().m_20202_() instanceof Horse && ((Horse)event.getEntity().m_20202_()).m_30614_() && PhantomUtil.isHorseWearingPhantomArmor((Horse)event.getEntity().m_20202_()) && event.isCancelable()) {
+      if (event.getEntity() instanceof Player && event.getEntity().getVehicle() instanceof Horse && ((Horse)event.getEntity().getVehicle()).isTamed() && PhantomUtil.isHorseWearingPhantomArmor((Horse)event.getEntity().getVehicle()) && event.isCancelable()) {
          event.setCanceled(true);
       }
 
-      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).m_30614_()) {
+      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).isTamed()) {
          Horse horse = (Horse)event.getEntity();
          if (event.getSource().is(DamageTypeTags.IS_FIRE) && FireUtil.isHorseWearingFireArmor(horse) && UpgradedNetheriteConfig.EnableFireImmune) {
             if (event.isCancelable()) {
                event.setCanceled(true);
             }
 
-            horse.m_20095_();
+            horse.clearFire();
          } else if (event.getSource().is(DamageTypes.FALL) && PhantomUtil.isHorseWearingPhantomArmor(horse) && UpgradedNetheriteConfig.EnableFallImmune) {
             if (event.isCancelable()) {
                event.setCanceled(true);
@@ -253,25 +253,25 @@ public class HorseArmorEventHandler {
                event.setCanceled(true);
             }
 
-            horse.m_20301_(horse.m_6062_());
-         } else if (event.getSource().is(DamageTypes.OUT_OF_WORLD) && EnderUtil.isHorseWearingEnderArmor(horse) && UpgradedNetheriteConfig.EnableVoidSave && horse.m_20186_() < -63.0D) {
+            horse.setAirSupply(horse.getMaxAirSupply());
+         } else if (event.getSource().is(DamageTypes.FELL_OUT_OF_WORLD) && EnderUtil.isHorseWearingEnderArmor(horse) && UpgradedNetheriteConfig.EnableVoidSave && horse.getY() < -63.0D) {
             if (event.isCancelable()) {
                event.setCanceled(true);
             }
 
-            Level world = horse.f_19853_;
-            if (!horse.m_20197_().isEmpty()) {
-               horse.m_20153_();
+            Level world = horse.level();
+            if (!horse.getPassengers().isEmpty()) {
+               horse.ejectPassengers();
             }
 
-            horse.f_19789_ = 0.0F;
+            horse.fallDistance = 0.0F;
             Boolean validtp = false;
             BlockPos blockpos;
             if (EntityDataUtil.getAbilityEnderPos(horse) != null) {
-               if (horse.m_20984_((double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[0] + 0.5D, (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[1], (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[2] + 0.5D, true)) {
+               if (horse.randomTeleport((double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[0] + 0.5D, (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[1], (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[2] + 0.5D, true)) {
                   SoundEvent soundevent = SoundEvents.ENDERMAN_TELEPORT;
-                  horse.f_19853_.playSound((Player)null, (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[0] + 0.5D, (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[1], (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[2] + 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
-                  horse.m_5496_(soundevent, 1.0F, 1.0F);
+                  horse.level().playSound((Player)null, (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[0] + 0.5D, (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[1], (double)horse.getPersistentData().getIntArray("upgraded_netherite_ender_pos")[2] + 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+                  horse.playSound(soundevent, 1.0F, 1.0F);
                   validtp = true;
                } else {
                   blockpos = EntityDataUtil.getAbilityEnderPos(horse);
@@ -303,39 +303,39 @@ public class HorseArmorEventHandler {
                                                                               do {
                                                                                  if (!var7.hasNext()) {
                                                                                     if (validTpList.size() > 0) {
-                                                                                       Integer IRNG = horse.m_217043_().nextInt(validTpList.size());
-                                                                                       horse.m_6021_((double)((BlockPos)validTpList.get(IRNG)).m_123341_() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).m_123342_(), (double)((BlockPos)validTpList.get(IRNG)).m_123343_() + 0.5D);
+                                                                                       Integer IRNG = horse.getRandom().nextInt(validTpList.size());
+                                                                                       horse.teleportTo((double)((BlockPos)validTpList.get(IRNG)).getX() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).getY(), (double)((BlockPos)validTpList.get(IRNG)).getZ() + 0.5D);
                                                                                        SoundEvent soundevent = SoundEvents.ENDERMAN_TELEPORT;
-                                                                                       horse.f_19853_.playSound((Player)null, (double)((BlockPos)validTpList.get(IRNG)).m_123341_() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).m_123342_(), (double)((BlockPos)validTpList.get(IRNG)).m_123343_() + 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
-                                                                                       horse.m_5496_(soundevent, 1.0F, 1.0F);
+                                                                                       horse.level().playSound((Player)null, (double)((BlockPos)validTpList.get(IRNG)).getX() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).getY(), (double)((BlockPos)validTpList.get(IRNG)).getZ() + 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+                                                                                       horse.playSound(soundevent, 1.0F, 1.0F);
                                                                                        validtp = true;
                                                                                     }
                                                                                     break label219;
                                                                                  }
 
                                                                                  blockpos1 = (BlockPos)var7.next();
-                                                                              } while(!world.getBlockState(blockpos1.below()).m_60767_().blocksMotion());
-                                                                           } while(!horse.f_19853_.getFluidState(blockpos1).isEmpty() && !horse.f_19853_.getBlockState(blockpos1).m_60713_(Blocks.BUBBLE_COLUMN));
-                                                                        } while(!horse.f_19853_.getBlockState(blockpos1).m_60647_(horse.f_19853_, blockpos1, PathComputationType.LAND));
-                                                                     } while(!horse.f_19853_.getFluidState(blockpos1.offset(-1, 1, 0)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(-1, 1, 0)).m_60713_(Blocks.BUBBLE_COLUMN));
-                                                                  } while(!horse.f_19853_.getBlockState(blockpos1.offset(-1, 1, 0)).m_60647_(horse.f_19853_, blockpos1.offset(-1, 1, 0), PathComputationType.LAND));
-                                                               } while(!horse.f_19853_.getFluidState(blockpos1.offset(-1, 1, -1)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(-1, 1, -1)).m_60713_(Blocks.BUBBLE_COLUMN));
-                                                            } while(!horse.f_19853_.getBlockState(blockpos1.offset(-1, 1, -1)).m_60647_(horse.f_19853_, blockpos1.offset(-1, 1, -1), PathComputationType.LAND));
-                                                         } while(!horse.f_19853_.getFluidState(blockpos1.offset(-1, 1, 1)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(-1, 1, 1)).m_60713_(Blocks.BUBBLE_COLUMN));
-                                                      } while(!horse.f_19853_.getBlockState(blockpos1.offset(-1, 1, 1)).m_60647_(horse.f_19853_, blockpos1.offset(-1, 1, 1), PathComputationType.LAND));
-                                                   } while(!horse.f_19853_.getFluidState(blockpos1.offset(0, 1, 0)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(0, 1, 0)).m_60713_(Blocks.BUBBLE_COLUMN));
-                                                } while(!horse.f_19853_.getBlockState(blockpos1.offset(0, 1, 0)).m_60647_(horse.f_19853_, blockpos1.offset(0, 1, 0), PathComputationType.LAND));
-                                             } while(!horse.f_19853_.getFluidState(blockpos1.offset(0, 1, -1)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(0, 1, -1)).m_60713_(Blocks.BUBBLE_COLUMN));
-                                          } while(!horse.f_19853_.getBlockState(blockpos1.offset(0, 1, -1)).m_60647_(horse.f_19853_, blockpos1.offset(0, 1, -1), PathComputationType.LAND));
-                                       } while(!horse.f_19853_.getFluidState(blockpos1.offset(0, 1, 1)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(0, 1, 1)).m_60713_(Blocks.BUBBLE_COLUMN));
-                                    } while(!horse.f_19853_.getBlockState(blockpos1.offset(0, 1, 1)).m_60647_(horse.f_19853_, blockpos1.offset(0, 1, 1), PathComputationType.LAND));
-                                 } while(!horse.f_19853_.getFluidState(blockpos1.offset(1, 1, 0)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(1, 1, 0)).m_60713_(Blocks.BUBBLE_COLUMN));
-                              } while(!horse.f_19853_.getBlockState(blockpos1.offset(1, 1, 0)).m_60647_(horse.f_19853_, blockpos1.offset(1, 1, 0), PathComputationType.LAND));
-                           } while(!horse.f_19853_.getFluidState(blockpos1.offset(1, 1, -1)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(1, 1, -1)).m_60713_(Blocks.BUBBLE_COLUMN));
-                        } while(!horse.f_19853_.getBlockState(blockpos1.offset(1, 1, -1)).m_60647_(horse.f_19853_, blockpos1.offset(1, 1, -1), PathComputationType.LAND));
-                     } while(!horse.f_19853_.getFluidState(blockpos1.offset(1, 1, 1)).isEmpty() && !horse.f_19853_.getBlockState(blockpos1.offset(1, 1, 1)).m_60713_(Blocks.BUBBLE_COLUMN));
+                                                                              } while(!world.getBlockState(blockpos1.below()).blocksMotion());
+                                                                           } while(!horse.level().getFluidState(blockpos1).isEmpty() && !horse.level().getBlockState(blockpos1).is(Blocks.BUBBLE_COLUMN));
+                                                                        } while(!horse.level().getBlockState(blockpos1).isPathfindable(horse.level(), blockpos1, PathComputationType.LAND));
+                                                                     } while(!horse.level().getFluidState(blockpos1.offset(-1, 1, 0)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(-1, 1, 0)).is(Blocks.BUBBLE_COLUMN));
+                                                                  } while(!horse.level().getBlockState(blockpos1.offset(-1, 1, 0)).isPathfindable(horse.level(), blockpos1.offset(-1, 1, 0), PathComputationType.LAND));
+                                                               } while(!horse.level().getFluidState(blockpos1.offset(-1, 1, -1)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(-1, 1, -1)).is(Blocks.BUBBLE_COLUMN));
+                                                            } while(!horse.level().getBlockState(blockpos1.offset(-1, 1, -1)).isPathfindable(horse.level(), blockpos1.offset(-1, 1, -1), PathComputationType.LAND));
+                                                         } while(!horse.level().getFluidState(blockpos1.offset(-1, 1, 1)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(-1, 1, 1)).is(Blocks.BUBBLE_COLUMN));
+                                                      } while(!horse.level().getBlockState(blockpos1.offset(-1, 1, 1)).isPathfindable(horse.level(), blockpos1.offset(-1, 1, 1), PathComputationType.LAND));
+                                                   } while(!horse.level().getFluidState(blockpos1.offset(0, 1, 0)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(0, 1, 0)).is(Blocks.BUBBLE_COLUMN));
+                                                } while(!horse.level().getBlockState(blockpos1.offset(0, 1, 0)).isPathfindable(horse.level(), blockpos1.offset(0, 1, 0), PathComputationType.LAND));
+                                             } while(!horse.level().getFluidState(blockpos1.offset(0, 1, -1)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(0, 1, -1)).is(Blocks.BUBBLE_COLUMN));
+                                          } while(!horse.level().getBlockState(blockpos1.offset(0, 1, -1)).isPathfindable(horse.level(), blockpos1.offset(0, 1, -1), PathComputationType.LAND));
+                                       } while(!horse.level().getFluidState(blockpos1.offset(0, 1, 1)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(0, 1, 1)).is(Blocks.BUBBLE_COLUMN));
+                                    } while(!horse.level().getBlockState(blockpos1.offset(0, 1, 1)).isPathfindable(horse.level(), blockpos1.offset(0, 1, 1), PathComputationType.LAND));
+                                 } while(!horse.level().getFluidState(blockpos1.offset(1, 1, 0)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(1, 1, 0)).is(Blocks.BUBBLE_COLUMN));
+                              } while(!horse.level().getBlockState(blockpos1.offset(1, 1, 0)).isPathfindable(horse.level(), blockpos1.offset(1, 1, 0), PathComputationType.LAND));
+                           } while(!horse.level().getFluidState(blockpos1.offset(1, 1, -1)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(1, 1, -1)).is(Blocks.BUBBLE_COLUMN));
+                        } while(!horse.level().getBlockState(blockpos1.offset(1, 1, -1)).isPathfindable(horse.level(), blockpos1.offset(1, 1, -1), PathComputationType.LAND));
+                     } while(!horse.level().getFluidState(blockpos1.offset(1, 1, 1)).isEmpty() && !horse.level().getBlockState(blockpos1.offset(1, 1, 1)).is(Blocks.BUBBLE_COLUMN));
 
-                     if (horse.f_19853_.getBlockState(blockpos1.offset(1, 1, 1)).m_60647_(horse.f_19853_, blockpos1.offset(1, 1, 1), PathComputationType.LAND)) {
+                     if (horse.level().getBlockState(blockpos1.offset(1, 1, 1)).isPathfindable(horse.level(), blockpos1.offset(1, 1, 1), PathComputationType.LAND)) {
                         validTpList.add(blockpos1.immutable());
                      }
                   }
@@ -359,10 +359,10 @@ public class HorseArmorEventHandler {
                   world.setBlockAndUpdate(blockpos1, Blocks.AIR.defaultBlockState());
                }
 
-               horse.m_6021_(100.5D, 49.0D, 0.5D);
+               horse.teleportTo(100.5D, 49.0D, 0.5D);
                SoundEvent soundevent = SoundEvents.ENDERMAN_TELEPORT;
-               horse.f_19853_.playSound((Player)null, 100.5D, 49.0D, 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
-               horse.m_5496_(soundevent, 1.0F, 1.0F);
+               horse.level().playSound((Player)null, 100.5D, 49.0D, 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+               horse.playSound(soundevent, 1.0F, 1.0F);
             }
          }
       }
@@ -371,7 +371,7 @@ public class HorseArmorEventHandler {
 
    @SubscribeEvent
    public void onJump(LivingJumpEvent event) {
-      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).m_30614_()) {
+      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).isTamed()) {
          Horse horse = (Horse)event.getEntity();
          EntityDataUtil.setAbilityClimbwall(horse, false);
       }
@@ -383,7 +383,7 @@ public class HorseArmorEventHandler {
       priority = EventPriority.HIGHEST
    )
    public void onApplyEffect(Added event) {
-      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).m_30614_()) {
+      if (event.getEntity() instanceof Horse && ((Horse)event.getEntity()).isTamed()) {
          Horse horse = (Horse)event.getEntity();
          if (event.getEffectInstance().getEffect() == MobEffects.WITHER && WitherUtil.isHorseWearingWitherArmor(horse) && UpgradedNetheriteConfig.EnableWitherImmune) {
             event.setResult(Result.DENY);
@@ -402,9 +402,9 @@ public class HorseArmorEventHandler {
 
    @SubscribeEvent
    public void onUnmount(EntityMountEvent event) {
-      if (event.isDismounting() && event.getEntity() instanceof Player && !event.getEntity().level.isClientSide() && !event.getEntity().isDescending() && event.getEntity().getVehicle() instanceof Horse) {
+      if (event.isDismounting() && event.getEntity() instanceof Player && !event.getEntity().level().isClientSide() && !event.getEntity().isDescending() && event.getEntity().getVehicle() instanceof Horse) {
          Horse horse = (Horse)event.getEntity().getVehicle();
-         if (horse.m_30614_() && horse.m_204029_(FluidTags.WATER) && WaterUtil.isHorseWearingWaterArmor(horse) && (UpgradedNetheriteConfig.EnableWaterBreath || UpgradedNetheriteConfig.EnableWaterSpeed)) {
+         if (horse.isTamed() && horse.isEyeInFluid(FluidTags.WATER) && WaterUtil.isHorseWearingWaterArmor(horse) && (UpgradedNetheriteConfig.EnableWaterBreath || UpgradedNetheriteConfig.EnableWaterSpeed)) {
             event.setCanceled(true);
          }
       }

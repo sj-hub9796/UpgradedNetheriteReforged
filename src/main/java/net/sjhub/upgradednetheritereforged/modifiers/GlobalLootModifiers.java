@@ -83,7 +83,7 @@ public class GlobalLootModifiers {
 
          ObjectArrayList<ItemStack> itemStackList = new ObjectArrayList();
          if (player != null && tool != null && blockState != null) {
-            if (GoldUtil.isGoldHoe(tool) && blockState.m_60734_() instanceof CarrotBlock && ((CarrotBlock)blockState.m_60734_()).m_52307_(blockState)) {
+            if (GoldUtil.isGoldHoe(tool) && blockState.getBlock() instanceof CarrotBlock && ((CarrotBlock)blockState.getBlock()).isMaxAge(blockState)) {
                Integer FortuneLevel = 0;
                Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(tool);
                if (!enchantments.isEmpty() && enchantments.containsKey(Enchantments.BLOCK_FORTUNE)) {
@@ -101,7 +101,7 @@ public class GlobalLootModifiers {
                while(true) {
                   while(var11.hasNext()) {
                      ItemStack stack = (ItemStack)var11.next();
-                     if (ItemStack.isSame(stack, new ItemStack(Items.CARROT))) {
+                     if (ItemStack.isSameItem(stack, new ItemStack(Items.CARROT))) {
                         Integer goldCarrot = 0;
 
                         int carrotCount;
@@ -125,12 +125,12 @@ public class GlobalLootModifiers {
                }
             }
 
-            if (PoisonUtil.isPoisonHoe(tool) && blockState.m_60734_() instanceof PotatoBlock && ((PotatoBlock)blockState.m_60734_()).m_52307_(blockState)) {
+            if (PoisonUtil.isPoisonHoe(tool) && blockState.getBlock() instanceof PotatoBlock && ((PotatoBlock)blockState.getBlock()).isMaxAge(blockState)) {
                ObjectListIterator var8 = generatedLoot.iterator();
 
                while(var8.hasNext()) {
                   ItemStack stack = (ItemStack)var8.next();
-                  if (ItemStack.isSame(stack, new ItemStack(Items.POTATO))) {
+                  if (ItemStack.isSameItem(stack, new ItemStack(Items.POTATO))) {
                      itemStackList.add(ItemHandlerHelper.copyStackWithSize(new ItemStack(Items.POISONOUS_POTATO), stack.getCount()));
                   } else {
                      itemStackList.add(ItemHandlerHelper.copyStackWithSize(stack, stack.getCount()));
@@ -186,7 +186,7 @@ public class GlobalLootModifiers {
             return generatedLoot;
          } else if (!UpgradedNetheriteConfig.EnableAutoSmelt || tool != null && ToolUtil.getDisableEffect(tool)) {
             return generatedLoot;
-         } else if ((player == null || !FireUtil.isFireToolOrWeapon(player.getMainHandItem()) || ToolUtil.getDisableEffect(player.getMainHandItem())) && (arrow == null || arrow.m_19880_().isEmpty() || !FireUtil.isFireProjectile(arrow))) {
+         } else if ((player == null || !FireUtil.isFireToolOrWeapon(player.getMainHandItem()) || ToolUtil.getDisableEffect(player.getMainHandItem())) && (arrow == null || arrow.getTags().isEmpty() || !FireUtil.isFireProjectile(arrow))) {
             return generatedLoot;
          } else {
             if (tool != null) {
@@ -196,8 +196,9 @@ public class GlobalLootModifiers {
                   FortuneLevel = (Integer)enchantments.get(Enchantments.BLOCK_FORTUNE);
                }
 
+               Integer FortuneLevel2 = FortuneLevel;
                generatedLoot.forEach((stack) -> {
-                  itemStackList.add(this.autoSmelt(stack, context, context.getLevel(), FortuneLevel));
+                  itemStackList.add(this.autoSmelt(stack, context, context.getLevel(), FortuneLevel2));
                });
             } else {
                generatedLoot.forEach((stack) -> {
@@ -212,7 +213,7 @@ public class GlobalLootModifiers {
       protected ItemStack autoSmelt(ItemStack stack, LootContext context, Level level, Integer fortuneLevel) {
          Integer countBonus = 0;
          Optional<ItemStack> iStackSmelt = Optional.ofNullable((ItemStack)context.getLevel().getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(new ItemStack[]{stack}), context.getLevel()).map((smeltingRecipe) -> {
-            return smeltingRecipe.m_8043_(context.getLevel().m_9598_());
+            return smeltingRecipe.getResultItem(context.getLevel().registryAccess());
          }).filter((itemStack) -> {
             return !itemStack.isEmpty();
          }).map((itemStack) -> {
@@ -267,7 +268,7 @@ public class GlobalLootModifiers {
          if (player != null && UpgradedNetheriteConfig.EnableTeleportChest) {
             ItemStack heldItem = player.getMainHandItem();
             if (EnderUtil.isEnderToolOrWeapon(player.getMainHandItem()) && !ToolUtil.getDisableEffect(heldItem) && heldItem.getTag() != null && heldItem.getTag().contains("UpgradedNetherite_Tagged") && heldItem.getTag().getBoolean("UpgradedNetherite_Tagged")) {
-               Level level = player.f_19853_;
+               Level level = player.level();
                String levelPath = level.dimension().location().getPath();
                if (!levelPath.equals(heldItem.getTag().getString("UpgradedNetherite_Dimension"))) {
                   return generatedLoot;
@@ -275,7 +276,7 @@ public class GlobalLootModifiers {
 
                BlockPos blockPos = new BlockPos(heldItem.getTag().getIntArray("UpgradedNetherite_Position")[0], heldItem.getTag().getIntArray("UpgradedNetherite_Position")[1], heldItem.getTag().getIntArray("UpgradedNetherite_Position")[2]);
                BlockState state = level.getBlockState(blockPos);
-               if (state.m_155947_()) {
+               if (state.hasBlockEntity()) {
                   BlockEntity blockEntity = level.getBlockEntity(blockPos);
                   if (blockEntity != null) {
                      IItemHandler iItemHandler = (IItemHandler)((ImmutablePair)blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).map((capability) -> {
@@ -292,7 +293,7 @@ public class GlobalLootModifiers {
                }
             }
          } else if (arrow != null && UpgradedNetheriteConfig.EnableTeleportChest && EnderUtil.isEnderProjectile(arrow) && arrow.getPersistentData().getBoolean("UpgradedNetherite_Tagged")) {
-            Level level = arrow.f_19853_;
+            Level level = arrow.level();
             String levelPath = level.dimension().location().getPath();
             if (!levelPath.equals(arrow.getPersistentData().getString("UpgradedNetherite_Dimension"))) {
                return generatedLoot;
@@ -300,7 +301,7 @@ public class GlobalLootModifiers {
 
             BlockPos blockPos = new BlockPos(arrow.getPersistentData().getIntArray("UpgradedNetherite_Position")[0], arrow.getPersistentData().getIntArray("UpgradedNetherite_Position")[1], arrow.getPersistentData().getIntArray("UpgradedNetherite_Position")[2]);
             BlockState state = level.getBlockState(blockPos);
-            if (state.m_155947_()) {
+            if (state.hasBlockEntity()) {
                BlockEntity blockEntity = level.getBlockEntity(blockPos);
                if (blockEntity != null) {
                   IItemHandler iItemHandler = (IItemHandler)((ImmutablePair)blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).map((capability) -> {

@@ -76,18 +76,18 @@ public class ArmorEventHandler {
    public static void onLivingEquipmentChange(LivingEquipmentChangeEvent event) {
       if (event.getEntity() instanceof Player) {
          Player player = (Player)event.getEntity();
-         if (WitherUtil.isWearingWitherArmor(player) && UpgradedNetheriteConfig.EnableWitherImmune && player.m_21023_(MobEffects.WITHER)) {
-            player.m_21195_(MobEffects.WITHER);
+         if (WitherUtil.isWearingWitherArmor(player) && UpgradedNetheriteConfig.EnableWitherImmune && player.hasEffect(MobEffects.WITHER)) {
+            player.removeEffect(MobEffects.WITHER);
             DurabilityUtil.WitherDurabilityLoss(player);
          }
 
-         if (PoisonUtil.isWearingPoisonArmor(player) && UpgradedNetheriteConfig.EnablePoisonImmune && player.m_21023_(MobEffects.POISON)) {
-            player.m_21195_(MobEffects.POISON);
+         if (PoisonUtil.isWearingPoisonArmor(player) && UpgradedNetheriteConfig.EnablePoisonImmune && player.hasEffect(MobEffects.POISON)) {
+            player.removeEffect(MobEffects.POISON);
             DurabilityUtil.PoisonDurabilityLoss(player);
          }
 
-         if (FeatherUtil.isWearingFeatherArmor(player) && UpgradedNetheriteConfig.EnableLevitationImmune && player.m_21023_(MobEffects.LEVITATION)) {
-            player.m_21195_(MobEffects.LEVITATION);
+         if (FeatherUtil.isWearingFeatherArmor(player) && UpgradedNetheriteConfig.EnableLevitationImmune && player.hasEffect(MobEffects.LEVITATION)) {
+            player.removeEffect(MobEffects.LEVITATION);
             DurabilityUtil.FeatherDurabilityLoss(player);
          }
 
@@ -98,21 +98,21 @@ public class ArmorEventHandler {
 
             if (CorruptUtil.intWearingCorrupt(player, false) >= 0 && EntityDataUtil.getCorrupterite(player) > CorruptUtil.intWearingCorrupt(player, false) + EntityDataUtil.getMalusCorruption(player)) {
                EntityDataUtil.setMalusCorruption(player, EntityDataUtil.getCorrupterite(player) - CorruptUtil.intWearingCorrupt(player, false));
-               player.m_7292_(new MobEffectInstance((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get(), 12000, EntityDataUtil.getMalusCorruption(player) - 1, false, true, true));
-            } else if (CorruptUtil.intWearingCorrupt(player, false) + EntityDataUtil.getMalusCorruption(player) > EntityDataUtil.getCorrupterite(player) && player.m_21023_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
+               player.addEffect(new MobEffectInstance((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get(), 12000, EntityDataUtil.getMalusCorruption(player) - 1, false, true, true));
+            } else if (CorruptUtil.intWearingCorrupt(player, false) + EntityDataUtil.getMalusCorruption(player) > EntityDataUtil.getCorrupterite(player) && player.hasEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
                Integer time = 0;
-               time = player.m_21124_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get()).getDuration();
-               player.m_21195_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get());
+               time = player.getEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get()).getDuration();
+               player.removeEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get());
                EntityDataUtil.setMalusCorruption(player, EntityDataUtil.getCorrupterite(player) - CorruptUtil.intWearingCorrupt(player, false));
                if (CorruptUtil.intWearingCorrupt(player, false) < EntityDataUtil.getCorrupterite(player)) {
-                  player.m_7292_(new MobEffectInstance((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get(), time, EntityDataUtil.getMalusCorruption(player) - 1, false, true, true));
+                  player.addEffect(new MobEffectInstance((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get(), time, EntityDataUtil.getMalusCorruption(player) - 1, false, true, true));
                }
             }
          } else {
             EntityDataUtil.setCorrupterite(player, 0);
             EntityDataUtil.setMalusCorruption(player, 0);
-            if (player.m_21023_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
-               player.m_21195_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get());
+            if (player.hasEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
+               player.removeEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get());
             }
          }
       }
@@ -120,10 +120,10 @@ public class ArmorEventHandler {
    }
 
    public static boolean enderSaveVoid(Player player) {
-      Level level = player.f_19853_;
+      Level level = player.level();
       if (!EntityDataUtil.hasEnderTeleportCooldown(player)) {
          if (EntityDataUtil.getAbilityEnderPos(player) == null) {
-            if (!level.getBlockState(new BlockPos(100, 48, 0)).m_60767_().blocksMotion()) {
+            if (!level.getBlockState(new BlockPos(100, 48, 0)).blocksMotion()) { //blocksMotion()) {
                level.setBlockAndUpdate(new BlockPos(100, 48, 0), Blocks.OBSIDIAN.defaultBlockState());
             }
 
@@ -135,16 +135,16 @@ public class ArmorEventHandler {
                level.setBlockAndUpdate(new BlockPos(100, 50, 0), Blocks.AIR.defaultBlockState());
             }
 
-            player.m_8127_();
-            player.f_19789_ = 0.0F;
-            player.m_6021_(100.5D, 49.0D, 0.5D);
+            player.stopRiding();
+            player.fallDistance = 0.0F;
+            player.teleportTo(100.5D, 49.0D, 0.5D);
             player.getPersistentData().putInt("upgraded_netherite_ender_teleport_cd", 20);
             SoundEvent soundevent = SoundEvents.ENDERMAN_TELEPORT;
-            player.f_19853_.playSound((Player)null, 100.5D, 49.0D, 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+            player.level().playSound((Player)null, 100.5D, 49.0D, 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
             player.playSound(soundevent, 1.0F, 1.0F);
 
             for(int i = 0; i < 32; ++i) {
-               player.f_19853_.addParticle(ParticleTypes.PORTAL, 100.5D, 49.0D + player.m_217043_().nextDouble() * 2.0D, 0.5D, player.m_217043_().nextGaussian(), 0.0D, player.m_217043_().nextGaussian());
+               player.level().addParticle(ParticleTypes.PORTAL, 100.5D, 49.0D + player.getRandom().nextDouble() * 2.0D, 0.5D, player.getRandom().nextGaussian(), 0.0D, player.getRandom().nextGaussian());
             }
 
             return true;
@@ -152,7 +152,7 @@ public class ArmorEventHandler {
 
          BlockPos blockpos = EntityDataUtil.getAbilityEnderPos(player);
          List<BlockPos> validTpList = new ArrayList();
-         if (level.getBlockState(blockpos.below()).m_60767_().blocksMotion() && (player.f_19853_.getFluidState(blockpos).isEmpty() || player.f_19853_.getBlockState(blockpos).m_60713_(Blocks.BUBBLE_COLUMN)) && player.f_19853_.getBlockState(blockpos).m_60647_(player.f_19853_, blockpos, PathComputationType.LAND) && (player.f_19853_.getFluidState(blockpos.above()).isEmpty() || player.f_19853_.getBlockState(blockpos.above()).m_60713_(Blocks.BUBBLE_COLUMN)) && player.f_19853_.getBlockState(blockpos.above()).m_60647_(player.f_19853_, blockpos.above(), PathComputationType.LAND)) {
+         if (level.getBlockState(blockpos.below()).blocksMotion() && (player.level().getFluidState(blockpos).isEmpty() || player.level().getBlockState(blockpos).is(Blocks.BUBBLE_COLUMN)) && player.level().getBlockState(blockpos).isPathfindable(player.level(), blockpos, PathComputationType.LAND) && (player.level().getFluidState(blockpos.above()).isEmpty() || player.level().getBlockState(blockpos.above()).is(Blocks.BUBBLE_COLUMN)) && player.level().getBlockState(blockpos.above()).isPathfindable(player.level(), blockpos.above(), PathComputationType.LAND)) {
             validTpList.add(blockpos.immutable());
          }
 
@@ -171,29 +171,29 @@ public class ArmorEventHandler {
                            }
 
                            blockpos1 = (BlockPos)var4.next();
-                        } while(!level.getBlockState(blockpos1.below()).m_60767_().blocksMotion());
-                     } while(!player.f_19853_.getFluidState(blockpos1).isEmpty() && !player.f_19853_.getBlockState(blockpos1).m_60713_(Blocks.BUBBLE_COLUMN));
-                  } while(!player.f_19853_.getBlockState(blockpos1).m_60647_(player.f_19853_, blockpos1, PathComputationType.LAND));
-               } while(!player.f_19853_.getFluidState(blockpos1.above()).isEmpty() && !player.f_19853_.getBlockState(blockpos1.above()).m_60713_(Blocks.BUBBLE_COLUMN));
+                        } while(!level.getBlockState(blockpos1.below()).blocksMotion());
+                     } while(!player.level().getFluidState(blockpos1).isEmpty() && !player.level().getBlockState(blockpos1).is(Blocks.BUBBLE_COLUMN));
+                  } while(!player.level().getBlockState(blockpos1).isPathfindable(player.level(), blockpos1, PathComputationType.LAND));
+               } while(!player.level().getFluidState(blockpos1.above()).isEmpty() && !player.level().getBlockState(blockpos1.above()).is(Blocks.BUBBLE_COLUMN));
 
-               if (player.f_19853_.getBlockState(blockpos1.above()).m_60647_(player.f_19853_, blockpos1.above(), PathComputationType.LAND)) {
+               if (player.level().getBlockState(blockpos1.above()).isPathfindable(player.level(), blockpos1.above(), PathComputationType.LAND)) {
                   validTpList.add(blockpos1.immutable());
                }
             }
          }
 
          if (validTpList.size() > 0) {
-            player.m_8127_();
-            player.f_19789_ = 0.0F;
-            Integer IRNG = player.m_217043_().nextInt(validTpList.size());
-            player.m_6021_((double)((BlockPos)validTpList.get(IRNG)).m_123341_() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).m_123342_(), (double)((BlockPos)validTpList.get(IRNG)).m_123343_() + 0.5D);
+            player.stopRiding();
+            player.fallDistance = 0.0F;
+            Integer IRNG = player.getRandom().nextInt(validTpList.size());
+            player.teleportTo((double)((BlockPos)validTpList.get(IRNG)).getX() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).getY(), (double)((BlockPos)validTpList.get(IRNG)).getZ() + 0.5D);
             player.getPersistentData().putInt("upgraded_netherite_ender_teleport_cd", 20);
             SoundEvent soundevent = SoundEvents.ENDERMAN_TELEPORT;
-            player.f_19853_.playSound((Player)null, (double)((BlockPos)validTpList.get(IRNG)).m_123341_() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).m_123342_(), (double)((BlockPos)validTpList.get(IRNG)).m_123343_() + 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+            player.level().playSound((Player)null, (double)((BlockPos)validTpList.get(IRNG)).getX() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).getY(), (double)((BlockPos)validTpList.get(IRNG)).getZ() + 0.5D, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
             player.playSound(soundevent, 1.0F, 1.0F);
 
             for(int i = 0; i < 32; ++i) {
-               player.f_19853_.addParticle(ParticleTypes.PORTAL, (double)((BlockPos)validTpList.get(IRNG)).m_123341_() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).m_123342_() + player.m_217043_().nextDouble() * 2.0D, (double)((BlockPos)validTpList.get(IRNG)).m_123343_() + 0.5D, player.m_217043_().nextGaussian(), 0.0D, player.m_217043_().nextGaussian());
+               player.level().addParticle(ParticleTypes.PORTAL, (double)((BlockPos)validTpList.get(IRNG)).getX() + 0.5D, (double)((BlockPos)validTpList.get(IRNG)).getY() + player.getRandom().nextDouble() * 2.0D, (double)((BlockPos)validTpList.get(IRNG)).getZ() + 0.5D, player.getRandom().nextGaussian(), 0.0D, player.getRandom().nextGaussian());
             }
 
             return true;
@@ -212,7 +212,7 @@ public class ArmorEventHandler {
             ItemStack stack = (ItemStack)var2.next();
             if (!stack.isEmpty() && EnderUtil.isEnderArmor(stack)) {
                stack.hurtAndBreak(stack.getMaxDamage() - stack.getDamageValue(), player, (e) -> {
-                  e.m_21166_(((ArmorItem)stack.getItem()).getEquipmentSlot());
+                  e.broadcastBreakEvent(((ArmorItem)stack.getItem()).getEquipmentSlot());
                });
             }
          }
@@ -225,7 +225,7 @@ public class ArmorEventHandler {
       priority = EventPriority.LOWEST
    )
    public static void onDamageEntity(LivingHurtEvent event) {
-      if (!event.getEntity().f_19853_.isClientSide) {
+      if (!event.getEntity().level().isClientSide) {
          if (event.getEntity() instanceof Player && "sonic_boom".equals(event.getSource().getMsgId()) && EchoUtil.isWearingEchoArmor((Player)event.getEntity()) && UpgradedNetheriteConfig.EnableReduceDamageEchoArmor) {
             float reduceDamage = (float)UpgradedNetheriteConfig.ReduceDamageEchoArmor;
             event.setAmount(event.getAmount() - event.getAmount() * Math.min(1.0F, reduceDamage / 100.0F));
@@ -256,83 +256,83 @@ public class ArmorEventHandler {
    public void onLivingUpdate(LivingTickEvent event) {
       if (event.getEntity() instanceof Player) {
          Player player = (Player)event.getEntity();
-         BlockPos blockpos = player.m_20183_().below();
-         BlockState blockstate = player.f_19853_.getBlockState(blockpos);
-         if (blockstate.m_60767_().blocksMotion()) {
+         BlockPos blockpos = player.blockPosition().below();
+         BlockState blockstate = player.level().getBlockState(blockpos);
+         if (blockstate.blocksMotion()) {
             EntityDataUtil.setAbilityEnderPos(player, true);
          }
 
          if (GoldUtil.isWearingGoldArmor(player) && UpgradedNetheriteConfig.EnableLuckBonus) {
-            player.m_21204_().addTransientAttributeModifiers(this.LuckAttributeMap());
+            player.getAttributes().addTransientAttributeModifiers(this.LuckAttributeMap());
          } else if (!GoldUtil.isWearingGoldArmor(player)) {
-            player.m_21204_().removeAttributeModifiers(this.LuckAttributeMap());
+            player.getAttributes().removeAttributeModifiers(this.LuckAttributeMap());
          }
 
-         if (FeatherUtil.isWearingFeatherArmor(player) && (player.f_19853_.getFluidState(player.m_20183_()).is(FluidTags.LAVA) || player.f_19853_.getFluidState(player.m_20183_()).is(FluidTags.WATER)) && !player.isCrouching() && !player.isSwimming() && !player.m_21255_() && UpgradedNetheriteConfig.EnableWaterLavaWalking && !player.getAbilities().flying) {
-            if (!player.m_20069_() && !player.m_20077_()) {
-               player.f_19789_ = 0.0F;
-               player.m_6853_(true);
-               player.m_20256_(player.m_20184_().add(0.0D, -player.m_20184_().y(), 0.0D));
-               if (player.f_19853_.getFluidState(player.m_20183_()).is(FluidTags.LAVA) && UpgradedNetheriteConfig.EnableLavaDamageDurabilityFeatherArmor) {
+         if (FeatherUtil.isWearingFeatherArmor(player) && (player.level().getFluidState(player.blockPosition()).is(FluidTags.LAVA) || player.level().getFluidState(player.blockPosition()).is(FluidTags.WATER)) && !player.isCrouching() && !player.isSwimming() && !player.isFallFlying() && UpgradedNetheriteConfig.EnableWaterLavaWalking && !player.getAbilities().flying) {
+            if (!player.isInWater() && !player.isInLava()) {
+               player.fallDistance = 0.0F;
+               player.setOnGround(true);
+               player.setDeltaMovement(player.getDeltaMovement().add(0.0D, -player.getDeltaMovement().y(), 0.0D));
+               if (player.level().getFluidState(player.blockPosition()).is(FluidTags.LAVA) && UpgradedNetheriteConfig.EnableLavaDamageDurabilityFeatherArmor) {
                   DurabilityUtil.FeatherDurabilityLoss(player);
                }
 
-               if (player.f_19853_.getFluidState(player.m_20183_()).is(FluidTags.WATER) && UpgradedNetheriteConfig.EnableWaterDamageDurabilityFeatherArmor) {
+               if (player.level().getFluidState(player.blockPosition()).is(FluidTags.WATER) && UpgradedNetheriteConfig.EnableWaterDamageDurabilityFeatherArmor) {
                   DurabilityUtil.FeatherDurabilityLoss(player);
                }
-            } else if (!WaterUtil.isWearingWaterArmor(player) && player.m_20184_().y < 0.226D && player.m_20184_().y > 0.11D && (player.m_204029_(FluidTags.LAVA) || player.m_204029_(FluidTags.WATER)) && player.f_19853_.isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.jumping) {
-               player.m_20256_(player.m_20184_().add(0.0D, (player.m_20184_().y + 1.0D) * 0.015D, 0.0D));
-            } else if (player.m_20184_().y < 0.15D && !player.m_204029_(FluidTags.LAVA) && !player.m_204029_(FluidTags.WATER)) {
-               player.m_20256_(player.m_20184_().add(0.0D, 0.15D - player.m_20184_().y, 0.0D));
+            } else if (!WaterUtil.isWearingWaterArmor(player) && player.getDeltaMovement().y < 0.226D && player.getDeltaMovement().y > 0.11D && (player.isEyeInFluid(FluidTags.LAVA) || player.isEyeInFluid(FluidTags.WATER)) && player.level().isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.jumping) {
+               player.setDeltaMovement(player.getDeltaMovement().add(0.0D, (player.getDeltaMovement().y + 1.0D) * 0.015D, 0.0D));
+            } else if (player.getDeltaMovement().y < 0.15D && !player.isEyeInFluid(FluidTags.LAVA) && !player.isEyeInFluid(FluidTags.WATER)) {
+               player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.15D - player.getDeltaMovement().y, 0.0D));
             }
          }
 
-         if (player.f_19853_.isClientSide && FeatherUtil.isWearingFeatherArmor(player) && (player.m_20096_() || EntityDataUtil.getAbilityClimbwall(player)) && !EntityDataUtil.getAbilityMultiJump(player) && UpgradedNetheriteConfig.EnableMultiJump) {
+         if (player.level().isClientSide && FeatherUtil.isWearingFeatherArmor(player) && (player.onGround() || EntityDataUtil.getAbilityClimbwall(player)) && !EntityDataUtil.getAbilityMultiJump(player) && UpgradedNetheriteConfig.EnableMultiJump) {
             EntityDataUtil.setAbilityMultiJump(player, true);
-         } else if (player.f_19853_.isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.jumping && FeatherUtil.isWearingFeatherArmor(player) && !player.getAbilities().mayfly && !player.m_20069_() && !player.m_20077_() && !player.m_6147_() && player.m_20184_().y < 0.0D && EntityDataUtil.getAbilityMultiJump(player) && UpgradedNetheriteConfig.EnableMultiJump) {
-            player.f_19789_ = 0.0F;
-            PlayerFallDistanceUpdateHandler.PlayerFallDistanceUpdate(player.m_20148_(), player.f_19789_);
+         } else if (player.level().isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.jumping && FeatherUtil.isWearingFeatherArmor(player) && !player.getAbilities().mayfly && !player.isInWater() && !player.isInLava() && !player.onClimbable() && player.getDeltaMovement().y < 0.0D && EntityDataUtil.getAbilityMultiJump(player) && UpgradedNetheriteConfig.EnableMultiJump) {
+            player.fallDistance = 0.0F;
+            PlayerFallDistanceUpdateHandler.PlayerFallDistanceUpdate(player.getUUID(), player.fallDistance);
             player.jumpFromGround();
             EntityDataUtil.decreaseAbilityMultiJump(player);
          } else if ((!FeatherUtil.isWearingFeatherArmor(player) || !UpgradedNetheriteConfig.EnableMultiJump) && EntityDataUtil.getAbilityMultiJump(player)) {
             EntityDataUtil.setAbilityMultiJump(player, false);
          }
 
-         if ((CorruptUtil.intWearingCorrupt(player, true) >= 1 || player.m_21023_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) && UpgradedNetheriteConfig.EnableHealthMalus) {
-            if (CorruptUtil.intWearingCorrupt(player, true) >= 1 || player.m_21023_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
-               if (player.m_21023_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
-                  player.m_21204_().addTransientAttributeModifiers(this.HealthAttributeMap(CorruptUtil.intWearingCorrupt(player, true) + player.m_21124_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get()).getAmplifier() + 1));
-                  if (player.m_21223_() > player.m_21233_()) {
-                     player.m_21153_(player.m_21233_());
+         if ((CorruptUtil.intWearingCorrupt(player, true) >= 1 || player.hasEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) && UpgradedNetheriteConfig.EnableHealthMalus) {
+            if (CorruptUtil.intWearingCorrupt(player, true) >= 1 || player.hasEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
+               if (player.hasEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
+                  player.getAttributes().addTransientAttributeModifiers(this.HealthAttributeMap(CorruptUtil.intWearingCorrupt(player, true) + player.getEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get()).getAmplifier() + 1));
+                  if (player.getHealth() > player.getMaxHealth()) {
+                     player.setHealth(player.getMaxHealth());
                   }
                } else {
-                  player.m_21204_().addTransientAttributeModifiers(this.HealthAttributeMap(CorruptUtil.intWearingCorrupt(player, true)));
-                  if (player.m_21223_() > player.m_21233_()) {
-                     player.m_21153_(player.m_21233_());
+                  player.getAttributes().addTransientAttributeModifiers(this.HealthAttributeMap(CorruptUtil.intWearingCorrupt(player, true)));
+                  if (player.getHealth() > player.getMaxHealth()) {
+                     player.setHealth(player.getMaxHealth());
                   }
                }
             }
          } else {
-            player.m_21204_().removeAttributeModifiers(this.HealthAttributeMap(0));
+            player.getAttributes().removeAttributeModifiers(this.HealthAttributeMap(0));
          }
 
-         if (EntityDataUtil.getMalusCorruption(player) > 0 && !player.m_21023_((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
+         if (EntityDataUtil.getMalusCorruption(player) > 0 && !player.hasEffect((MobEffect)UpgradedNetheriteEffects.NETHERITE_CORRUPTION.get())) {
             EntityDataUtil.setMalusCorruption(player, 0);
             EntityDataUtil.setCorrupterite(player, CorruptUtil.intWearingCorrupt(player, false));
          }
 
-         if (WaterUtil.isWearingWaterArmor(player) && UpgradedNetheriteConfig.EnableWaterBreath && player.m_20146_() < player.m_6062_()) {
-            player.m_20301_(player.m_20146_() + 4);
+         if (WaterUtil.isWearingWaterArmor(player) && UpgradedNetheriteConfig.EnableWaterBreath && player.getAirSupply() < player.getMaxAirSupply()) {
+            player.setAirSupply(player.getAirSupply() + 4);
             DurabilityUtil.WaterDurabilityLoss(player);
          }
 
          if (PhantomUtil.isWearingPhantomArmor(player) && UpgradedNetheriteConfig.EnableStepHeight) {
-            if (player.f_19793_ < 1.0F) {
+            if (player.maxUpStep() < 1.0F) {
                EntityDataUtil.setAbilityStepHeight(player, true);
-               player.f_19793_ = 1.0F;
+               player.setMaxUpStep(1.0F);
             }
-         } else if (EntityDataUtil.getAbilityStepHeight(player) && player.f_19793_ > 0.6F) {
-            player.f_19793_ = 0.6F;
+         } else if (EntityDataUtil.getAbilityStepHeight(player) && player.maxUpStep() > 0.6F) {
+            player.setMaxUpStep(0.6F);
             EntityDataUtil.setAbilityStepHeight(player, false);
          }
 
@@ -340,35 +340,35 @@ public class ArmorEventHandler {
             DurabilityUtil.CorruptDurabilityGain(player);
          }
 
-         if (FireUtil.isWearingFireArmor(player) && UpgradedNetheriteConfig.EnableLavaSpeed && player.m_20077_() && !player.getAbilities().flying) {
-            player.m_20256_(player.m_20184_().multiply(1.659999966621399D, 1.0D, 1.659999966621399D));
+         if (FireUtil.isWearingFireArmor(player) && UpgradedNetheriteConfig.EnableLavaSpeed && player.isInLava() && !player.getAbilities().flying) {
+            player.setDeltaMovement(player.getDeltaMovement().multiply(1.659999966621399D, 1.0D, 1.659999966621399D));
          }
 
          if (WaterUtil.isWearingWaterArmor(player) && UpgradedNetheriteConfig.EnableWaterSpeed) {
-            player.m_21204_().addTransientAttributeModifiers(this.SwimAttributeMap());
+            player.getAttributes().addTransientAttributeModifiers(this.SwimAttributeMap());
          } else if (!WaterUtil.isWearingWaterArmor(player)) {
-            player.m_21204_().removeAttributeModifiers(this.SwimAttributeMap());
+            player.getAttributes().removeAttributeModifiers(this.SwimAttributeMap());
          }
 
          if (UpgradedNetheriteConfig.EnableClimbWall && PoisonUtil.isWearingPoisonArmor(player)) {
             if (!player.isCrouching() && EntityDataUtil.getAbilityClimbwall(player)) {
-               if (player.m_20184_().y() < 0.0D) {
-                  player.m_6853_(true);
-                  player.m_20256_(player.m_20184_().add(-player.m_20184_().x() / 5.0D, -player.m_20184_().y(), -player.m_20184_().z() / 5.0D));
-                  player.f_19789_ = 0.0F;
+               if (player.getDeltaMovement().y() < 0.0D) {
+                  player.setOnGround(true);
+                  player.setDeltaMovement(player.getDeltaMovement().add(-player.getDeltaMovement().x() / 5.0D, -player.getDeltaMovement().y(), -player.getDeltaMovement().z() / 5.0D));
+                  player.fallDistance = 0.0F;
                }
 
-               if (player.m_20184_().x() != 0.0D && player.m_20184_().z() != 0.0D) {
+               if (player.getDeltaMovement().x() != 0.0D && player.getDeltaMovement().z() != 0.0D) {
                   EntityDataUtil.setAbilityClimbwall(player, false);
                }
             }
 
-            if ((player.isCrouching() || player.m_6147_()) && EntityDataUtil.getAbilityClimbwall(player)) {
+            if ((player.isCrouching() || player.onClimbable()) && EntityDataUtil.getAbilityClimbwall(player)) {
                EntityDataUtil.setAbilityClimbwall(player, false);
             }
 
-            if (!player.isCrouching() && player.f_19862_ && !player.m_20077_() && !player.m_20069_() && !player.getAbilities().flying && !player.m_6147_() && player.m_20184_().y() < 0.1D) {
-               Double LookAt = player.m_20154_().y;
+            if (!player.isCrouching() && player.horizontalCollision && !player.isInLava() && !player.isInWater() && !player.getAbilities().flying && !player.onClimbable() && player.getDeltaMovement().y() < 0.1D) {
+               Double LookAt = player.getLookAngle().y;
                if (LookAt > 0.1D) {
                   LookAt = 0.1D;
                }
@@ -377,24 +377,24 @@ public class ArmorEventHandler {
                   LookAt = -0.1D;
                }
 
-               if (player.f_19853_.isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.forwardImpulse < 0.0F) {
+               if (player.level().isClientSide && player instanceof LocalPlayer && ((LocalPlayer)player).input.forwardImpulse < 0.0F) {
                   LookAt = LookAt * -1.0D;
                }
 
-               player.m_20256_(player.m_20184_().add(-player.m_20184_().x() / 5.0D, LookAt - player.m_20184_().y, -player.m_20184_().z() / 5.0D));
+               player.setDeltaMovement(player.getDeltaMovement().add(-player.getDeltaMovement().x() / 5.0D, LookAt - player.getDeltaMovement().y, -player.getDeltaMovement().z() / 5.0D));
                EntityDataUtil.setAbilityClimbwall(player, true);
-               player.f_19789_ = 0.0F;
-               if (player.f_19853_.isClientSide) {
-                  PlayerFallDistanceUpdateHandler.PlayerFallDistanceUpdate(player.m_20148_(), player.f_19789_);
+               player.fallDistance = 0.0F;
+               if (player.level().isClientSide) {
+                  PlayerFallDistanceUpdateHandler.PlayerFallDistanceUpdate(player.getUUID(), player.fallDistance);
                }
             }
          } else if (!PoisonUtil.isWearingPoisonArmor(player) && EntityDataUtil.getAbilityClimbwall(player)) {
             EntityDataUtil.setAbilityClimbwall(player, false);
          }
 
-         if (EchoUtil.isWearingEchoArmor(player) && !EntityDataUtil.hasEchoHealCooldown(player) && player.f_19853_.m_204166_(player.m_20183_()).is(Biomes.DEEP_DARK) && UpgradedNetheriteConfig.EnableHealEchoArmor && player.m_21223_() < player.m_21233_()) {
+         if (EchoUtil.isWearingEchoArmor(player) && !EntityDataUtil.hasEchoHealCooldown(player) && player.level().getBiome(player.blockPosition()).is(Biomes.DEEP_DARK) && UpgradedNetheriteConfig.EnableHealEchoArmor && player.getHealth() < player.getMaxHealth()) {
             player.getPersistentData().putInt("upgraded_netherite_echo_heal_cd", UpgradedNetheriteConfig.HealEchoArmorDelay * 20);
-            player.m_5634_(1.0F);
+            player.heal(1.0F);
          }
 
          EntityDataUtil.tickCooldown(player);
@@ -414,10 +414,10 @@ public class ArmorEventHandler {
                   event.setCanceled(true);
                }
 
-               player.m_20095_();
+               player.clearFire();
                DurabilityUtil.FireDurabilityLoss(player);
             }
-         } else if (event.getSource().is(DamageTypes.OUT_OF_WORLD) && !player.f_19853_.isClientSide() && EnderUtil.isWearingEnderArmor(player) && EnderUtil.isVoidYLevel(player) && !player.m_21023_((MobEffect)UpgradedNetheriteEffects.ENDER_ANCHOR.get()) && UpgradedNetheriteConfig.EnableVoidSave && enderSaveVoid(player)) {
+         } else if (event.getSource().is(DamageTypes.FELL_OUT_OF_WORLD) && !player.level().isClientSide() && EnderUtil.isWearingEnderArmor(player) && EnderUtil.isVoidYLevel(player) && !player.hasEffect((MobEffect)UpgradedNetheriteEffects.ENDER_ANCHOR.get()) && UpgradedNetheriteConfig.EnableVoidSave && enderSaveVoid(player)) {
             enderBreakArmor(player);
             if (event.isCancelable()) {
                event.setCanceled(true);
@@ -442,9 +442,9 @@ public class ArmorEventHandler {
 
                while(var4.hasNext()) {
                   ItemStack stack = (ItemStack)var4.next();
-                  if (!stack.isEmpty() && PhantomUtil.isPhantomArmor(stack) && (double)player.f_19789_ >= 3.5D) {
-                     stack.hurtAndBreak(UpgradedNetheriteConfig.MultiplierDamageDurabilityPhantomArmor * (Math.round(player.f_19789_) - 3), player, (livingEntity) -> {
-                        livingEntity.m_21166_(((ArmorItem)stack.getItem()).getEquipmentSlot());
+                  if (!stack.isEmpty() && PhantomUtil.isPhantomArmor(stack) && (double)player.fallDistance >= 3.5D) {
+                     stack.hurtAndBreak(UpgradedNetheriteConfig.MultiplierDamageDurabilityPhantomArmor * (Math.round(player.fallDistance) - 3), player, (livingEntity) -> {
+                        livingEntity.broadcastBreakEvent(((ArmorItem)stack.getItem()).getEquipmentSlot());
                      });
                   }
                }
@@ -513,7 +513,7 @@ public class ArmorEventHandler {
    @OnlyIn(Dist.CLIENT)
    public void onOverlayRender(Pre event) {
       Minecraft mc = Minecraft.getInstance();
-      if (event.getOverlay() == VanillaGuiOverlay.AIR_LEVEL.type() && WaterUtil.isWearingWaterArmor(mc.player) && UpgradedNetheriteConfig.EnableWaterBreath && (double)mc.player.m_20146_() >= (double)mc.player.m_6062_() * 0.966D) {
+      if (event.getOverlay() == VanillaGuiOverlay.AIR_LEVEL.type() && WaterUtil.isWearingWaterArmor(mc.player) && UpgradedNetheriteConfig.EnableWaterBreath && (double)mc.player.getAirSupply() >= (double)mc.player.getMaxAirSupply() * 0.966D) {
          event.setCanceled(true);
       }
 

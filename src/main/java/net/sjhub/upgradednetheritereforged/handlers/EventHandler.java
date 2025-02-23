@@ -77,7 +77,7 @@ public class EventHandler {
          double tx = target.getX();
          double ty = target.getY();
          double tz = target.getZ();
-         List<LivingEntity> entities = target.level.m_45976_(LivingEntity.class, new AABB(tx - 5.0D, ty - 5.0D, tz - 5.0D, tx + 5.0D, ty + 5.0D, tz + 5.0D));
+         List<LivingEntity> entities = target.level().getEntitiesOfClass(LivingEntity.class, new AABB(tx - 5.0D, ty - 5.0D, tz - 5.0D, tx + 5.0D, ty + 5.0D, tz + 5.0D));
          int pulled = 0;
          Iterator var11 = entities.iterator();
 
@@ -103,16 +103,16 @@ public class EventHandler {
                break;
             }
 
-            Vec3 entityVector = new Vec3(entity.m_20185_(), entity.m_20186_(), entity.m_20189_());
+            Vec3 entityVector = new Vec3(entity.getX(), entity.getY(), entity.getZ());
             Vec3 finalVector = (new Vec3(tx, ty, tz)).subtract(entityVector);
-            if (entity.m_20186_() < ty && target.isOnGround()) {
+            if (entity.getY() < ty && target.onGround()) {
                finalVector = (new Vec3(tx, ty + 0.1D, tz)).subtract(entityVector);
-               entity.f_19789_ = 0.0F;
+               entity.fallDistance = 0.0F;
             }
 
             if (Math.sqrt(finalVector.x * finalVector.x + finalVector.y * finalVector.y + finalVector.z * finalVector.z) > 1.8D) {
                finalVector = finalVector.normalize();
-               entity.m_20334_(finalVector.x * 0.15000000596046448D, finalVector.y * 0.15000000596046448D, finalVector.z * 0.15000000596046448D);
+               entity.setDeltaMovement(finalVector.x * 0.15000000596046448D, finalVector.y * 0.15000000596046448D, finalVector.z * 0.15000000596046448D);
                ++pulled;
             }
          }

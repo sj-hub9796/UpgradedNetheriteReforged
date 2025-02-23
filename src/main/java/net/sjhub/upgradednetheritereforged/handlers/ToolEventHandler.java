@@ -2,7 +2,7 @@ package net.sjhub.upgradednetheritereforged.handlers;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.rolfmao.upgradedcore.helpers.TextHelper;
+import com.rolfmao.upgradedcore_old.helpers.TextHelper;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.utils.ToolUtil;
 import net.sjhub.upgradednetheritereforged.utils.check.EchoUtil;
@@ -54,15 +54,15 @@ public class ToolEventHandler {
          Player player = (Player)event.getEntity();
          ItemStack heldItem = player.getMainHandItem();
          if (PhantomUtil.isPhantomToolOrWeapon(heldItem) && UpgradedNetheriteConfig.EnableReachEffect) {
-            player.m_21204_().addTransientAttributeModifiers(this.ReachAttributeMap());
-            player.m_21204_().addTransientAttributeModifiers(this.AttackRangeAttributeMap());
+            player.getAttributes().addTransientAttributeModifiers(this.ReachAttributeMap());
+            player.getAttributes().addTransientAttributeModifiers(this.AttackRangeAttributeMap());
          } else if (!PhantomUtil.isPhantomToolOrWeapon(heldItem) || !UpgradedNetheriteConfig.EnableReachEffect) {
-            player.m_21204_().removeAttributeModifiers(this.ReachAttributeMap());
-            player.m_21204_().removeAttributeModifiers(this.AttackRangeAttributeMap());
+            player.getAttributes().removeAttributeModifiers(this.ReachAttributeMap());
+            player.getAttributes().removeAttributeModifiers(this.AttackRangeAttributeMap());
          }
 
-         if (!player.f_19853_.isClientSide && PhantomUtil.isPhantomToolOrWeapon(heldItem) && UpgradedNetheriteConfig.EnableGlowingEffect && !ToolUtil.getDisableEffect(player.getMainHandItem())) {
-            List<Entity> list = player.f_19853_.getEntities(player, player.m_20191_().inflate(10.0D, 10.0D, 10.0D), (entity) -> {
+         if (!player.level().isClientSide && PhantomUtil.isPhantomToolOrWeapon(heldItem) && UpgradedNetheriteConfig.EnableGlowingEffect && !ToolUtil.getDisableEffect(player.getMainHandItem())) {
+            List<Entity> list = player.level().getEntities(player, player.getBoundingBox().inflate(10.0D, 10.0D, 10.0D), (entity) -> {
                return entity instanceof Enemy;
             });
             if (!list.isEmpty()) {
@@ -75,27 +75,27 @@ public class ToolEventHandler {
          }
 
          if (FeatherUtil.isFeatherToolOrWeapon(heldItem) && UpgradedNetheriteConfig.EnableAttractItem && !ToolUtil.getDisableEffect(player.getMainHandItem()) && !player.isCrouching()) {
-            double px = player.m_20185_();
-            double py = player.m_20186_();
-            double pz = player.m_20189_();
+            double px = player.getX();
+            double py = player.getY();
+            double pz = player.getZ();
             int count = 0;
-            List<ItemEntity> items = player.f_19853_.m_45976_(ItemEntity.class, new AABB(px - 5.0D, py - 5.0D, pz - 5.0D, px + 5.0D, py + 5.0D, pz + 5.0D));
+            List<ItemEntity> items = player.level().getEntitiesOfClass(ItemEntity.class, new AABB(px - 5.0D, py - 5.0D, pz - 5.0D, px + 5.0D, py + 5.0D, pz + 5.0D));
             Iterator var12 = items.iterator();
 
             while(var12.hasNext()) {
                ItemEntity item = (ItemEntity)var12.next();
-               if (item.m_6084_() && !item.getItem().isEmpty() && !item.getPersistentData().getBoolean("PreventRemoteMovement")) {
+               if (item.isAlive() && !item.getItem().isEmpty() && !item.getPersistentData().getBoolean("PreventRemoteMovement")) {
                   if (count > 128) {
                      break;
                   }
 
-                  Vec3 entityVector = new Vec3(item.m_20185_(), item.m_20186_(), item.m_20189_());
+                  Vec3 entityVector = new Vec3(item.getX(), item.getY(), item.getZ());
                   Vec3 finalVector = (new Vec3(px, py + 0.5D, pz)).subtract(entityVector);
                   if (Math.sqrt(finalVector.x * finalVector.x + finalVector.y * finalVector.y + finalVector.z * finalVector.z) > 1.0D) {
                      finalVector = finalVector.normalize();
                   }
 
-                  item.m_20334_(finalVector.x * 0.30000001192092896D, finalVector.y * 0.30000001192092896D, finalVector.z * 0.30000001192092896D);
+                  item.setDeltaMovement(finalVector.x * 0.30000001192092896D, finalVector.y * 0.30000001192092896D, finalVector.z * 0.30000001192092896D);
                   item.setNoPickUpDelay();
                   ++count;
                }
@@ -110,15 +110,14 @@ public class ToolEventHandler {
       Player player = event.getPlayer();
       ItemStack heldItem = player.getMainHandItem();
       if (EchoUtil.isEchoToolOrWeapon(heldItem) && event.getExpToDrop() > 0 && UpgradedNetheriteConfig.EnableBonusExpEcho) {
-         int nextInt = false;
-         int exp = false;
+         int nextInt;
          int exp;
          if (UpgradedNetheriteConfig.MaxExpEcho < UpgradedNetheriteConfig.MinExpEcho) {
             exp = 0;
          } else if (UpgradedNetheriteConfig.MaxExpEcho == UpgradedNetheriteConfig.MinExpEcho) {
             exp = UpgradedNetheriteConfig.MinExpEcho;
          } else {
-            int nextInt = player.m_217043_().nextInt(UpgradedNetheriteConfig.MaxExpEcho - UpgradedNetheriteConfig.MinExpEcho + 1);
+            nextInt = player.getRandom().nextInt(UpgradedNetheriteConfig.MaxExpEcho - UpgradedNetheriteConfig.MinExpEcho + 1);
             exp = UpgradedNetheriteConfig.MinExpEcho + nextInt;
          }
 
@@ -131,7 +130,7 @@ public class ToolEventHandler {
    public void onBreakSpeed(BreakSpeed event) {
       if (event.getEntity() instanceof Player) {
          Player player = event.getEntity();
-         if (WaterUtil.isWaterToolOrWeapon(player.getMainHandItem()) && player.m_204029_(FluidTags.WATER) && UpgradedNetheriteConfig.EnableMiningSpeedUnderwater) {
+         if (WaterUtil.isWaterToolOrWeapon(player.getMainHandItem()) && player.isEyeInFluid(FluidTags.WATER) && UpgradedNetheriteConfig.EnableMiningSpeedUnderwater) {
             event.setNewSpeed(event.getOriginalSpeed() * 2.0F);
          }
       }

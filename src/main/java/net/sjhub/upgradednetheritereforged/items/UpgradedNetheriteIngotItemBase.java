@@ -12,6 +12,6 @@ public class UpgradedNetheriteIngotItemBase extends Item {
    }
 
    public boolean isPiglinCurrency(ItemStack stack) {
-      return ItemStack.isSame(stack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_INGOT.get()));
+      return ItemStack.isSameItem(stack, new ItemStack((ItemLike)ModItems.GOLD_UPGRADED_NETHERITE_INGOT.get()));
    }
 }

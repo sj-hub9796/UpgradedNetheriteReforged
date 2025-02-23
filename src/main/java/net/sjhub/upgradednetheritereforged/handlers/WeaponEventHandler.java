@@ -56,15 +56,14 @@ public class WeaponEventHandler {
       if (UpgradedNetheriteConfig.EnableBonusExpEcho && event.getDroppedExperience() > 0 && event.getAttackingPlayer() != null) {
          Player player = event.getAttackingPlayer();
          if (EchoUtil.isEchoToolOrWeapon(player.getMainHandItem())) {
-            int nextInt = false;
-            int exp = false;
+            int nextInt;
             int exp;
             if (UpgradedNetheriteConfig.MaxExpEcho < UpgradedNetheriteConfig.MinExpEcho) {
                exp = 0;
             } else if (UpgradedNetheriteConfig.MaxExpEcho == UpgradedNetheriteConfig.MinExpEcho) {
                exp = UpgradedNetheriteConfig.MinExpEcho;
             } else {
-               int nextInt = player.m_217043_().nextInt(UpgradedNetheriteConfig.MaxExpEcho - UpgradedNetheriteConfig.MinExpEcho + 1);
+               nextInt = player.getRandom().nextInt(UpgradedNetheriteConfig.MaxExpEcho - UpgradedNetheriteConfig.MinExpEcho + 1);
                exp = UpgradedNetheriteConfig.MinExpEcho + nextInt;
             }
 
@@ -130,7 +129,7 @@ public class WeaponEventHandler {
       priority = EventPriority.HIGHEST
    )
    public static void onAttackEntityEvent(AttackEntityEvent event) {
-      if (!event.getEntity().f_19853_.isClientSide) {
+      if (!event.getEntity().level().isClientSide) {
          Player player = event.getEntity();
          Entity target = event.getTarget();
          ItemStack heldItem = player.getMainHandItem();
@@ -150,7 +149,7 @@ public class WeaponEventHandler {
    )
    public static void onDamageEntity(LivingHurtEvent event) {
       if (event.getSource().getEntity() instanceof Player) {
-         if (event.getEntity().f_19853_.isClientSide) {
+         if (event.getEntity().level().isClientSide) {
             return;
          }
 
@@ -164,15 +163,15 @@ public class WeaponEventHandler {
                bonusDamage += (float)UpgradedNetheriteConfig.DamageBonusGoldWeapon;
             }
 
-            if (target.m_6060_() && FireUtil.isFireProjectile(projectile) && UpgradedNetheriteConfig.EnableDamageBonusFireWeapon) {
-               if (projectile.m_19880_().contains("FlameFireUpgradedNetheriteBow")) {
+            if (target.isOnFire() && FireUtil.isFireProjectile(projectile) && UpgradedNetheriteConfig.EnableDamageBonusFireWeapon) {
+               if (projectile.getTags().contains("FlameFireUpgradedNetheriteBow")) {
                   bonusDamage += (float)(UpgradedNetheriteConfig.DamageBonusFireWeapon + UpgradedNetheriteConfig.DamageBonusFireEnchantWeapon);
                } else {
                   bonusDamage += (float)UpgradedNetheriteConfig.DamageBonusFireWeapon;
                }
             }
 
-            if (target.m_5825_() && WaterUtil.isWaterProjectile(projectile)) {
+            if (target.fireImmune() && WaterUtil.isWaterProjectile(projectile)) {
                bonusDamage += (float)UpgradedNetheriteConfig.DamageBonusWaterWeapon;
             }
 
@@ -228,7 +227,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (target.m_6060_() && FireUtil.isFireMeleeWeapon(heldItem) && UpgradedNetheriteConfig.EnableDamageBonusFireWeapon) {
+            if (target.isOnFire() && FireUtil.isFireMeleeWeapon(heldItem) && UpgradedNetheriteConfig.EnableDamageBonusFireWeapon) {
                float EnchantBonus = 0.0F;
                Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(heldItem);
                if (!enchantments.isEmpty() && enchantments.containsKey(Enchantments.FIRE_ASPECT)) {
@@ -263,7 +262,7 @@ public class WeaponEventHandler {
             }
 
             if (WaterUtil.isWaterMeleeWeapon(heldItem)) {
-               if (target.m_5825_()) {
+               if (target.fireImmune()) {
                   bonusDamage += (float)UpgradedNetheriteConfig.DamageBonusWaterWeapon;
                   if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                      bonusDamage += heldItem.getOrCreateTag().getFloat("shield_bonusdamage");
@@ -353,10 +352,10 @@ public class WeaponEventHandler {
          Player player = (Player)event.getEntity();
          if (event.getSource().getEntity() != null && event.getSource().getEntity() instanceof LivingEntity) {
             Entity attacker = event.getSource().getEntity();
-            ItemStack stackShield = player.m_21211_();
+            ItemStack stackShield = player.getUseItem();
             Item shield = stackShield.getItem();
             ItemStack heldItem = player.getMainHandItem();
-            if (GoldUtil.isGoldShield(stackShield) && attacker instanceof PiglinBrute && GoldUtil.isGoldMeleeWeapon(heldItem) && player.m_21254_()) {
+            if (GoldUtil.isGoldShield(stackShield) && attacker instanceof PiglinBrute && GoldUtil.isGoldMeleeWeapon(heldItem) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusGoldWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusGoldWeapon / 2.0F));
                } else {
@@ -364,7 +363,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (FireUtil.isFireShield(stackShield) && attacker.isOnFire() && FireUtil.isFireMeleeWeapon(heldItem) && player.m_21254_()) {
+            if (FireUtil.isFireShield(stackShield) && attacker.isOnFire() && FireUtil.isFireMeleeWeapon(heldItem) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusFireWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusFireWeapon / 2.0F));
                } else {
@@ -372,7 +371,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (EnderUtil.isEnderShield(stackShield) && attacker instanceof EnderMan && EnderUtil.isEnderMeleeWeapon(heldItem) && player.m_21254_()) {
+            if (EnderUtil.isEnderShield(stackShield) && attacker instanceof EnderMan && EnderUtil.isEnderMeleeWeapon(heldItem) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusEnderWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusEnderWeapon / 2.0F));
                } else {
@@ -380,7 +379,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (WaterUtil.isWaterShield(stackShield) && (attacker.fireImmune() || attacker instanceof EnderMan) && WaterUtil.isWaterMeleeWeapon(heldItem) && player.m_21254_()) {
+            if (WaterUtil.isWaterShield(stackShield) && (attacker.fireImmune() || attacker instanceof EnderMan) && WaterUtil.isWaterMeleeWeapon(heldItem) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusWaterWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusWaterWeapon / 2.0F));
                } else {
@@ -388,7 +387,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (WitherUtil.isWitherShield(stackShield) && WitherUtil.isWitherMeleeWeapon(heldItem) && ((LivingEntity)attacker).hasEffect(MobEffects.WITHER) && player.m_21254_()) {
+            if (WitherUtil.isWitherShield(stackShield) && WitherUtil.isWitherMeleeWeapon(heldItem) && ((LivingEntity)attacker).hasEffect(MobEffects.WITHER) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusWitherWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusWitherWeapon / 2.0F));
                } else {
@@ -396,7 +395,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (PoisonUtil.isPoisonShield(stackShield) && PoisonUtil.isPoisonMeleeWeapon(heldItem) && ((LivingEntity)attacker).hasEffect(MobEffects.POISON) && player.m_21254_()) {
+            if (PoisonUtil.isPoisonShield(stackShield) && PoisonUtil.isPoisonMeleeWeapon(heldItem) && ((LivingEntity)attacker).hasEffect(MobEffects.POISON) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusPoisonWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusPoisonWeapon / 2.0F));
                } else {
@@ -404,7 +403,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (PhantomUtil.isPhantomShield(stackShield) && attacker instanceof Phantom && PhantomUtil.isPhantomMeleeWeapon(heldItem) && player.m_21254_()) {
+            if (PhantomUtil.isPhantomShield(stackShield) && attacker instanceof Phantom && PhantomUtil.isPhantomMeleeWeapon(heldItem) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusPhantomWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusPhantomWeapon / 2.0F));
                } else {
@@ -412,13 +411,13 @@ public class WeaponEventHandler {
                }
             }
 
-            if (FeatherUtil.isFeatherShield(stackShield) && player.m_21254_()) {
+            if (FeatherUtil.isFeatherShield(stackShield) && player.isBlocking()) {
                Double rand = Math.random();
                if (rand <= 0.5D) {
-                  double px = player.m_20185_();
-                  double py = player.m_20186_();
-                  double pz = player.m_20189_();
-                  List<Entity> entitys = player.f_19853_.m_45976_(Entity.class, new AABB(px - 1.0D, py - 1.0D, pz - 1.0D, px + 1.0D, py + 1.0D, pz + 1.0D));
+                  double px = player.getX();
+                  double py = player.getY();
+                  double pz = player.getZ();
+                  List<Entity> entitys = player.level().getEntitiesOfClass(Entity.class, new AABB(px - 1.0D, py - 1.0D, pz - 1.0D, px + 1.0D, py + 1.0D, pz + 1.0D));
                   int bumped = 0;
                   Iterator var16 = entitys.iterator();
 
@@ -456,7 +455,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (CorruptUtil.isCorruptShield(stackShield) && CorruptUtil.isCorruptMeleeWeapon(heldItem) && player.m_21254_()) {
+            if (CorruptUtil.isCorruptShield(stackShield) && CorruptUtil.isCorruptMeleeWeapon(heldItem) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusCorruptWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusCorruptWeapon / 2.0F));
                } else {
@@ -464,7 +463,7 @@ public class WeaponEventHandler {
                }
             }
 
-            if (EchoUtil.isEchoShield(stackShield) && attacker instanceof Warden && EchoUtil.isEchoMeleeWeapon(heldItem) && player.m_21254_()) {
+            if (EchoUtil.isEchoShield(stackShield) && attacker instanceof Warden && EchoUtil.isEchoMeleeWeapon(heldItem) && player.isBlocking()) {
                if (heldItem.getOrCreateTag().contains("shield_bonusdamage")) {
                   heldItem.getOrCreateTag().putFloat("shield_bonusdamage", Math.min(heldItem.getOrCreateTag().getFloat("shield_bonusdamage") + (float)UpgradedNetheriteConfig.DamageBonusEchoWeapon / 20.0F, (float)UpgradedNetheriteConfig.DamageBonusEchoWeapon / 2.0F));
                } else {

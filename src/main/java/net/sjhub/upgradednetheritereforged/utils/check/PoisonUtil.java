@@ -1,7 +1,7 @@
 package net.sjhub.upgradednetheritereforged.utils.check;
 
-import com.rolfmao.upgradedcore.utils.SetArmorUtil;
-import com.rolfmao.upgradedcore.utils.morecheck.MorePoisonUtil;
+import com.rolfmao.upgradedcore_old.utils.SetArmorUtil;
+import com.rolfmao.upgradedcore_old.utils.morecheck.MorePoisonUtil;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModArmorMaterial;
@@ -36,7 +36,7 @@ public class PoisonUtil {
    }
 
    public static boolean isHorseWearingPoisonArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE.get()).m_5456_() || MorePoisonUtil.isHorseWearingPoisonArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MorePoisonUtil.isHorseWearingPoisonArmor(horse);
    }
 
    public static boolean isPoisonArmor(ItemStack itemStack) {
@@ -44,7 +44,7 @@ public class PoisonUtil {
    }
 
    public static boolean isPoisonToolOrWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_CROSSBOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_HOE.get())) || MorePoisonUtil.isPoisonToolOrWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_CROSSBOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_HOE.get())) || MorePoisonUtil.isPoisonToolOrWeapon(itemStack);
    }
 
    public static boolean isPoisonWeapon(ItemStack itemStack) {
@@ -52,30 +52,30 @@ public class PoisonUtil {
    }
 
    public static boolean isPoisonMeleeWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_AXE.get())) || MorePoisonUtil.isPoisonWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_AXE.get())) || MorePoisonUtil.isPoisonWeapon(itemStack);
    }
 
    public static boolean isPoisonRangedWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_CROSSBOW.get())) || MorePoisonUtil.isPoisonRangedWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_CROSSBOW.get())) || MorePoisonUtil.isPoisonRangedWeapon(itemStack);
    }
 
    public static boolean isPoisonTool(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_HOE.get())) || MorePoisonUtil.isPoisonTool(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_HOE.get())) || MorePoisonUtil.isPoisonTool(itemStack);
    }
 
    public static boolean isPoisonHoe(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_HOE.get())) || MorePoisonUtil.isPoisonHoe(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_HOE.get())) || MorePoisonUtil.isPoisonHoe(itemStack);
    }
 
    public static boolean isPoisonProjectile(Projectile projectile) {
-      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MorePoisonUtil.isPoisonProjectile(projectile)) && projectile.m_19880_().contains("PoisonUpgradedNetheriteBow");
+      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MorePoisonUtil.isPoisonProjectile(projectile)) && projectile.getTags().contains("PoisonUpgradedNetheriteBow");
    }
 
    public static boolean isPoisonShield(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_SHIELD.get())) || MorePoisonUtil.isPoisonShield(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_SHIELD.get())) || MorePoisonUtil.isPoisonShield(itemStack);
    }
 
    public static boolean isPoisonHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MorePoisonUtil.isPoisonHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.POISON_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MorePoisonUtil.isPoisonHorseArmor(itemStack);
    }
 }

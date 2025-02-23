@@ -10,7 +10,7 @@ public class EntityDataUtil {
    public static void setAbilityEnderPos(Entity entity, Boolean bool) {
       if (bool) {
          if (getAbilityEnderPos(entity) == null || !(new BlockPos(getAbilityEnderPos(entity))).equals(entity.blockPosition())) {
-            entity.getPersistentData().putIntArray("upgraded_netherite_ender_pos", new int[]{entity.blockPosition().m_123341_(), entity.blockPosition().m_123342_(), entity.blockPosition().m_123343_()});
+            entity.getPersistentData().putIntArray("upgraded_netherite_ender_pos", new int[]{entity.blockPosition().getX(), entity.blockPosition().getY(), entity.blockPosition().getZ()});
          }
       } else {
          entity.getPersistentData().remove("upgraded_netherite_ender_pos");

@@ -29,7 +29,7 @@ public class DurabilityUtil {
             ItemStack itemStack = (ItemStack)var2.next();
             if (!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorItem && FireUtil.isFireArmor(itemStack)) {
                itemStack.hurtAndBreak(UpgradedNetheriteConfig.DamageDurabilityFireArmor, player, (e) -> {
-                  e.m_21166_(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
+                  e.broadcastBreakEvent(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
                });
             }
          }
@@ -47,7 +47,7 @@ public class DurabilityUtil {
             ItemStack itemStack = (ItemStack)var2.next();
             if (!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorItem && WaterUtil.isWaterArmor(itemStack)) {
                itemStack.hurtAndBreak(UpgradedNetheriteConfig.DamageDurabilityWaterArmor, player, (e) -> {
-                  e.m_21166_(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
+                  e.broadcastBreakEvent(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
                });
             }
          }
@@ -65,7 +65,7 @@ public class DurabilityUtil {
             ItemStack itemStack = (ItemStack)var2.next();
             if (!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorItem && WitherUtil.isWitherArmor(itemStack)) {
                itemStack.hurtAndBreak(UpgradedNetheriteConfig.DamageDurabilityWitherArmor, player, (e) -> {
-                  e.m_21166_(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
+                  e.broadcastBreakEvent(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
                });
             }
          }
@@ -83,7 +83,7 @@ public class DurabilityUtil {
             ItemStack itemStack = (ItemStack)var2.next();
             if (!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorItem && PoisonUtil.isPoisonArmor(itemStack)) {
                itemStack.hurtAndBreak(UpgradedNetheriteConfig.DamageDurabilityPoisonArmor, player, (e) -> {
-                  e.m_21166_(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
+                  e.broadcastBreakEvent(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
                });
             }
          }
@@ -101,7 +101,7 @@ public class DurabilityUtil {
             ItemStack itemStack = (ItemStack)var2.next();
             if (!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorItem && FeatherUtil.isFeatherArmor(itemStack)) {
                itemStack.hurtAndBreak(UpgradedNetheriteConfig.DamageDurabilityFeatherArmor, player, (e) -> {
-                  e.m_21166_(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
+                  e.broadcastBreakEvent(((ArmorItem)itemStack.getItem()).getEquipmentSlot());
                });
             }
          }
@@ -110,7 +110,7 @@ public class DurabilityUtil {
    }
 
    public static void CorruptDurabilityGain(Player player) {
-      if (!EntityDataUtil.hasCorruptDurabilityCooldown(player) && !player.f_19853_.isClientSide && player.getFoodData().getFoodLevel() >= 1) {
+      if (!EntityDataUtil.hasCorruptDurabilityCooldown(player) && !player.level().isClientSide && player.getFoodData().getFoodLevel() >= 1) {
          List<ItemStack> CorruptList = new ArrayList();
          Iterable<ItemStack> wearedList = player.getArmorSlots();
          Iterator var3 = wearedList.iterator();
@@ -130,8 +130,8 @@ public class DurabilityUtil {
             CorruptList.add(player.getMainHandItem());
          }
 
-         if ((CorruptUtil.isCorruptToolOrWeapon(player.m_21206_()) || ItemStack.isSame(player.m_21206_(), new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHIELD.get()))) && player.m_21206_().getDamageValue() > 0) {
-            CorruptList.add(player.m_21206_());
+         if ((CorruptUtil.isCorruptToolOrWeapon(player.getOffhandItem()) || ItemStack.isSameItem(player.getOffhandItem(), new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHIELD.get()))) && player.getOffhandItem().getDamageValue() > 0) {
+            CorruptList.add(player.getOffhandItem());
          }
 
          if (CorruptList.size() <= 0) {
@@ -141,7 +141,7 @@ public class DurabilityUtil {
          int durability = 40;
 
          do {
-            int nextInt = player.m_217043_().nextInt(CorruptList.size());
+            int nextInt = player.getRandom().nextInt(CorruptList.size());
             ItemStack itemStack = (ItemStack)CorruptList.get(nextInt);
             if (itemStack.getDamageValue() >= 1) {
                player.causeFoodExhaustion(0.1F);

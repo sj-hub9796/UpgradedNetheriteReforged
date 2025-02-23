@@ -1,7 +1,7 @@
 package net.sjhub.upgradednetheritereforged.utils.check;
 
-import com.rolfmao.upgradedcore.utils.SetArmorUtil;
-import com.rolfmao.upgradedcore.utils.morecheck.MoreWaterUtil;
+import com.rolfmao.upgradedcore_old.utils.SetArmorUtil;
+import com.rolfmao.upgradedcore_old.utils.morecheck.MoreWaterUtil;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModArmorMaterial;
@@ -36,7 +36,7 @@ public class WaterUtil {
    }
 
    public static boolean isHorseWearingWaterArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).m_5456_() || MoreWaterUtil.isHorseWearingWaterArmor(horse);
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem() || MoreWaterUtil.isHorseWearingWaterArmor(horse);
    }
 
    public static boolean isWaterArmor(ItemStack itemStack) {
@@ -44,7 +44,7 @@ public class WaterUtil {
    }
 
    public static boolean isWaterToolOrWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreWaterUtil.isWaterToolOrWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreWaterUtil.isWaterToolOrWeapon(itemStack);
    }
 
    public static boolean isWaterWeapon(ItemStack itemStack) {
@@ -52,26 +52,26 @@ public class WaterUtil {
    }
 
    public static boolean isWaterMeleeWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_AXE.get())) || MoreWaterUtil.isWaterWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_AXE.get())) || MoreWaterUtil.isWaterWeapon(itemStack);
    }
 
    public static boolean isWaterRangedWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreWaterUtil.isWaterRangedWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreWaterUtil.isWaterRangedWeapon(itemStack);
    }
 
    public static boolean isWaterTool(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_HOE.get())) || MoreWaterUtil.isWaterTool(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_HOE.get())) || MoreWaterUtil.isWaterTool(itemStack);
    }
 
    public static boolean isWaterProjectile(Projectile projectile) {
-      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreWaterUtil.isWaterProjectile(projectile)) && projectile.m_19880_().contains("WaterUpgradedNetheriteBow");
+      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreWaterUtil.isWaterProjectile(projectile)) && projectile.getTags().contains("WaterUpgradedNetheriteBow");
    }
 
    public static boolean isWaterShield(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SHIELD.get())) || MoreWaterUtil.isWaterShield(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_SHIELD.get())) || MoreWaterUtil.isWaterShield(itemStack);
    }
 
    public static boolean isWaterHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreWaterUtil.isWaterHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.WATER_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreWaterUtil.isWaterHorseArmor(itemStack);
    }
 }

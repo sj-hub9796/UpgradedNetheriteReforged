@@ -1,7 +1,7 @@
 package net.sjhub.upgradednetheritereforged.content;
 
 import com.google.common.collect.Lists;
-import com.rolfmao.upgradedcore.helpers.TooltipHelper;
+import com.rolfmao.upgradedcore_old.helpers.TooltipHelper;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.utils.ToolUtil;
@@ -172,7 +172,7 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
             boolean flag = itemStack1.getItem() == Items.FIREWORK_ROCKET;
             Object projectileentity;
             if (flag) {
-               projectileentity = new FireworkRocketEntity(level, itemStack1, livingEntity, livingEntity.m_20185_(), livingEntity.m_20188_() - 0.15000000596046448D, livingEntity.m_20189_(), true);
+               projectileentity = new FireworkRocketEntity(level, itemStack1, livingEntity, livingEntity.getX(), livingEntity.getEyeY() - 0.15000000596046448D, livingEntity.getZ(), true);
             } else {
                projectileentity = getArrow(level, livingEntity, itemStack, itemStack1);
                if (p_220016_6_ || p_220016_9_ != 0.0F) {
@@ -184,9 +184,9 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
                CrossbowAttackMob icrossbowuser = (CrossbowAttackMob)livingEntity;
                icrossbowuser.shootCrossbowProjectile(icrossbowuser.getTarget(), itemStack, (Projectile)projectileentity, p_220016_9_);
             } else {
-               Vec3 vec31 = livingEntity.m_20289_(1.0F);
+               Vec3 vec31 = livingEntity.getUpVector(1.0F);
                Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(p_220016_9_ * 0.017453292F), vec31.x, vec31.y, vec31.z);
-               Vec3 vec3 = livingEntity.m_20252_(1.0F);
+               Vec3 vec3 = livingEntity.getViewVector(1.0F);
                Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
                ((Projectile)projectileentity).shoot((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), p_220016_7_, p_220016_8_);
             }
@@ -195,22 +195,22 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
                p_220017_1_.broadcastBreakEvent(interactionHand);
             });
             if (itemStack.getItem() == ModItems.GOLD_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("GoldUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("GoldUpgradedNetheriteBow");
                if (EnchantmentHelper.getTagEnchantmentLevel(Enchantments.MOB_LOOTING, itemStack) > 0) {
                   ((Projectile)projectileentity).getPersistentData().putInt("LootingGoldUpgradedNetheriteBow", EnchantmentHelper.getTagEnchantmentLevel(Enchantments.MOB_LOOTING, itemStack));
                }
             }
 
             if (itemStack.getItem() == ModItems.FIRE_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("FireUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("FireUpgradedNetheriteBow");
                if (EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FLAMING_ARROWS, itemStack) > 0) {
-                  ((Projectile)projectileentity).m_20049_("FlameFireUpgradedNetheriteBow");
+                  ((Projectile)projectileentity).addTag("FlameFireUpgradedNetheriteBow");
                   ((Projectile)projectileentity).setSecondsOnFire(100);
                }
             }
 
             if (itemStack.getItem() == ModItems.ENDER_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("EnderUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("EnderUpgradedNetheriteBow");
                if (itemStack.getOrCreateTag().getBoolean("UpgradedNetherite_Tagged")) {
                   ((Projectile)projectileentity).getPersistentData().putIntArray("UpgradedNetherite_Position", itemStack.getOrCreateTag().getIntArray("UpgradedNetherite_Position"));
                   ((Projectile)projectileentity).getPersistentData().putString("UpgradedNetherite_Dimension", itemStack.getOrCreateTag().getString("UpgradedNetherite_Dimension"));
@@ -219,36 +219,36 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
             }
 
             if (itemStack.getItem() == ModItems.WATER_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("WaterUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("WaterUpgradedNetheriteBow");
             }
 
             if (itemStack.getItem() == ModItems.WITHER_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("WitherUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("WitherUpgradedNetheriteBow");
             }
 
             if (itemStack.getItem() == ModItems.POISON_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("PoisonUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("PoisonUpgradedNetheriteBow");
             }
 
             if (itemStack.getItem() == ModItems.PHANTOM_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("PhantomUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("PhantomUpgradedNetheriteBow");
             }
 
             if (itemStack.getItem() == ModItems.FEATHER_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("FeatherUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("FeatherUpgradedNetheriteBow");
             }
 
             if (itemStack.getItem() == ModItems.CORRUPT_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("CorruptUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("CorruptUpgradedNetheriteBow");
                ((Projectile)projectileentity).getPersistentData().putInt("LootingCorruptUpgradedNetheriteBow", CorruptUtil.intWearingCorrupt(playerentity, true));
             }
 
             if (itemStack.getItem() == ModItems.ECHO_UPGRADED_NETHERITE_CROSSBOW.get()) {
-               ((Projectile)projectileentity).m_20049_("EchoUpgradedNetheriteBow");
+               ((Projectile)projectileentity).addTag("EchoUpgradedNetheriteBow");
             }
 
-            level.m_7967_((Entity)projectileentity);
-            level.playSound((Player)null, livingEntity.m_20185_(), livingEntity.m_20186_(), livingEntity.m_20189_(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, p_220016_5_);
+            level.addFreshEntity((Entity)projectileentity);
+            level.playSound((Player)null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, p_220016_5_);
          }
       }
 
@@ -309,7 +309,7 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
             CriteriaTriggers.SHOT_CROSSBOW.trigger(serverplayerentity, itemStack);
          }
 
-         serverplayerentity.m_36246_(Stats.ITEM_USED.get(itemStack.getItem()));
+         serverplayerentity.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
       }
 
       clearChargedProjectiles(itemStack);
@@ -368,15 +368,15 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
    }
 
    public Predicate<ItemStack> getSupportedHeldProjectiles() {
-      return f_43006_;
+      return ARROW_OR_FIREWORK;
    }
 
    public Predicate<ItemStack> getAllSupportedProjectiles() {
-      return f_43005_;
+      return ARROW_ONLY;
    }
 
    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
-      ItemStack itemstack = player.m_21120_(interactionHand);
+      ItemStack itemstack = player.getItemInHand(interactionHand);
       if (isCharged(itemstack)) {
          performShooting(level, player, interactionHand, itemstack, getShootingPower(itemstack), 1.0F);
          setCharged(itemstack, false);
@@ -385,7 +385,7 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
          if (!isCharged(itemstack)) {
             this.startSoundPlayed = false;
             this.midLoadSoundPlayed = false;
-            player.m_6672_(interactionHand);
+            player.startUsingItem(interactionHand);
          }
 
          return InteractionResultHolder.consume(itemstack);
@@ -400,7 +400,7 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
       if (f >= 1.0F && !isCharged(itemStack) && tryLoadProjectiles(livingEntity, itemStack)) {
          setCharged(itemStack, true);
          SoundSource soundcategory = livingEntity instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE;
-         level.playSound((Player)null, livingEntity.m_20185_(), livingEntity.m_20186_(), livingEntity.m_20189_(), SoundEvents.CROSSBOW_LOADING_END, soundcategory, 1.0F, 1.0F / (level.random.nextFloat() * 0.5F + 1.0F) + 0.2F);
+         level.playSound((Player)null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.CROSSBOW_LOADING_END, soundcategory, 1.0F, 1.0F / (level.random.nextFloat() * 0.5F + 1.0F) + 0.2F);
       }
 
    }
@@ -418,12 +418,12 @@ public class UpgradedNetheriteCrossbow extends CrossbowItem {
 
          if (f >= 0.2F && !this.startSoundPlayed) {
             this.startSoundPlayed = true;
-            level.playSound((Player)null, livingEntity.m_20185_(), livingEntity.m_20186_(), livingEntity.m_20189_(), soundevent, SoundSource.PLAYERS, 0.5F, 1.0F);
+            level.playSound((Player)null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), soundevent, SoundSource.PLAYERS, 0.5F, 1.0F);
          }
 
          if (f >= 0.5F && soundevent1 != null && !this.midLoadSoundPlayed) {
             this.midLoadSoundPlayed = true;
-            level.playSound((Player)null, livingEntity.m_20185_(), livingEntity.m_20186_(), livingEntity.m_20189_(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
+            level.playSound((Player)null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
          }
       }
 

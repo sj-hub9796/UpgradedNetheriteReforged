@@ -132,26 +132,26 @@ public class UpgradedNetheriteBow extends BowItem {
                      abstractarrowentity.pickup = Pickup.CREATIVE_ONLY;
                   }
 
-                  if (this.m_5456_() != ModItems.NETHERITE_BOW.get()) {
+                  if (this.asItem() != ModItems.NETHERITE_BOW.get()) {
                      abstractarrowentity.getPersistentData().putFloat("getPowerForTime", f);
                   }
 
-                  if (this.m_5456_() == ModItems.GOLD_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("GoldUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.GOLD_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("GoldUpgradedNetheriteBow");
                      if (EnchantmentHelper.getTagEnchantmentLevel(Enchantments.MOB_LOOTING, itemStack) > 0) {
                         abstractarrowentity.getPersistentData().putInt("LootingGoldUpgradedNetheriteBow", EnchantmentHelper.getTagEnchantmentLevel(Enchantments.MOB_LOOTING, itemStack));
                      }
                   }
 
-                  if (this.m_5456_() == ModItems.FIRE_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("FireUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.FIRE_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("FireUpgradedNetheriteBow");
                      if (EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FLAMING_ARROWS, itemStack) > 0) {
-                        abstractarrowentity.m_20049_("FlameFireUpgradedNetheriteBow");
+                        abstractarrowentity.addTag("FlameFireUpgradedNetheriteBow");
                      }
                   }
 
-                  if (this.m_5456_() == ModItems.ENDER_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("EnderUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.ENDER_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("EnderUpgradedNetheriteBow");
                      if (itemStack.getOrCreateTag().getBoolean("UpgradedNetherite_Tagged")) {
                         abstractarrowentity.getPersistentData().putIntArray("UpgradedNetherite_Position", itemStack.getOrCreateTag().getIntArray("UpgradedNetherite_Position"));
                         abstractarrowentity.getPersistentData().putString("UpgradedNetherite_Dimension", itemStack.getOrCreateTag().getString("UpgradedNetherite_Dimension"));
@@ -159,39 +159,39 @@ public class UpgradedNetheriteBow extends BowItem {
                      }
                   }
 
-                  if (this.m_5456_() == ModItems.WATER_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("WaterUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.WATER_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("WaterUpgradedNetheriteBow");
                   }
 
-                  if (this.m_5456_() == ModItems.WITHER_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("WitherUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.WITHER_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("WitherUpgradedNetheriteBow");
                   }
 
-                  if (this.m_5456_() == ModItems.POISON_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("PoisonUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.POISON_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("PoisonUpgradedNetheriteBow");
                   }
 
-                  if (this.m_5456_() == ModItems.PHANTOM_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("PhantomUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.PHANTOM_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("PhantomUpgradedNetheriteBow");
                   }
 
-                  if (this.m_5456_() == ModItems.FEATHER_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("FeatherUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.FEATHER_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("FeatherUpgradedNetheriteBow");
                   }
 
-                  if (this.m_5456_() == ModItems.CORRUPT_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("CorruptUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.CORRUPT_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("CorruptUpgradedNetheriteBow");
                      abstractarrowentity.getPersistentData().putInt("LootingCorruptUpgradedNetheriteBow", CorruptUtil.intWearingCorrupt(playerentity, true));
                   }
 
-                  if (this.m_5456_() == ModItems.ECHO_UPGRADED_NETHERITE_BOW.get()) {
-                     abstractarrowentity.m_20049_("EchoUpgradedNetheriteBow");
+                  if (this.asItem() == ModItems.ECHO_UPGRADED_NETHERITE_BOW.get()) {
+                     abstractarrowentity.addTag("EchoUpgradedNetheriteBow");
                   }
 
-                  level.m_7967_(abstractarrowentity);
+                  level.addFreshEntity(abstractarrowentity);
                }
 
-               level.playSound((Player)null, playerentity.m_20185_(), playerentity.m_20186_(), playerentity.m_20189_(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+               level.playSound((Player)null, playerentity.getX(), playerentity.getY(), playerentity.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                if (!flag1 && !playerentity.getAbilities().instabuild) {
                   itemstack.shrink(1);
                   if (itemstack.isEmpty()) {

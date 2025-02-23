@@ -38,24 +38,24 @@ public class SoulboundEventHandler {
    public void onLivingDeathEvent(LivingDeathEvent event) {
       if (event.getEntity() instanceof Player && (UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance)) {
          Player player = (Player)event.getEntity();
-         if (this.transfertArmorList.containsKey(player.m_20148_().toString())) {
-            this.transfertArmorList.remove(player.m_20148_().toString());
-            this.transfertArmorSlot.remove(player.m_20148_().toString());
+         if (this.transfertArmorList.containsKey(player.getUUID().toString())) {
+            this.transfertArmorList.remove(player.getUUID().toString());
+            this.transfertArmorSlot.remove(player.getUUID().toString());
          }
 
-         if (this.transfertItemList.containsKey(player.m_20148_().toString())) {
-            this.transfertItemList.remove(player.m_20148_().toString());
-            this.transfertItemSlot.remove(player.m_20148_().toString());
+         if (this.transfertItemList.containsKey(player.getUUID().toString())) {
+            this.transfertItemList.remove(player.getUUID().toString());
+            this.transfertItemSlot.remove(player.getUUID().toString());
          }
 
-         if (this.transfertOffhandList.containsKey(player.m_20148_().toString())) {
-            this.transfertOffhandList.remove(player.m_20148_().toString());
-            this.transfertOffhandSlot.remove(player.m_20148_().toString());
+         if (this.transfertOffhandList.containsKey(player.getUUID().toString())) {
+            this.transfertOffhandList.remove(player.getUUID().toString());
+            this.transfertOffhandSlot.remove(player.getUUID().toString());
          }
 
-         if (this.transfertCuriosList.containsKey(player.m_20148_().toString())) {
-            this.transfertCuriosList.remove(player.m_20148_().toString());
-            this.transfertCuriosSlot.remove(player.m_20148_().toString());
+         if (this.transfertCuriosList.containsKey(player.getUUID().toString())) {
+            this.transfertCuriosList.remove(player.getUUID().toString());
+            this.transfertCuriosSlot.remove(player.getUUID().toString());
          }
 
          List<ItemStack> validTransferArmorList = new ArrayList();
@@ -69,10 +69,9 @@ public class SoulboundEventHandler {
          Boolean isWearingEchoArmor = EchoUtil.isWearingEchoArmor(player);
          List<ItemStack> armorsInventory = player.getInventory().armor;
 
-         int i;
          for(int i = 0; i < armorsInventory.size(); ++i) {
             ItemStack itemStack = (ItemStack)armorsInventory.get(i);
-            i = player.m_217043_().nextInt(100) + 1;
+            i = player.getRandom().nextInt(100) + 1;
             if ((EchoUtil.isEchoSoulbound(itemStack) && UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance && isWearingEchoArmor && i <= UpgradedNetheriteConfig.KeepItemsChance) && !EnchantmentHelper.hasVanishingCurse(itemStack)) {
                validTransferArmorList.add(itemStack.copy());
                validTransferArmorSlot.add(i);
@@ -84,7 +83,7 @@ public class SoulboundEventHandler {
 
          for(int i = 0; i < itemsInventory.size(); ++i) {
             ItemStack itemStack = (ItemStack)itemsInventory.get(i);
-            int nextInt = player.m_217043_().nextInt(100) + 1;
+            int nextInt = player.getRandom().nextInt(100) + 1;
             if ((EchoUtil.isEchoSoulbound(itemStack) && UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance && isWearingEchoArmor && nextInt <= UpgradedNetheriteConfig.KeepItemsChance) && !EnchantmentHelper.hasVanishingCurse(itemStack)) {
                validTransferItemList.add(itemStack.copy());
                validTransferItemSlot.add(i);
@@ -94,9 +93,9 @@ public class SoulboundEventHandler {
 
          List<ItemStack> offhandInventory = player.getInventory().offhand;
 
-         for(i = 0; i < offhandInventory.size(); ++i) {
+         for(int i = 0; i < offhandInventory.size(); ++i) {
             ItemStack itemStack = (ItemStack)offhandInventory.get(i);
-            int nextInt = player.m_217043_().nextInt(100) + 1;
+            int nextInt = player.getRandom().nextInt(100) + 1;
             if ((EchoUtil.isEchoSoulbound(itemStack) && UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance && isWearingEchoArmor && nextInt <= UpgradedNetheriteConfig.KeepItemsChance) && !EnchantmentHelper.hasVanishingCurse(itemStack)) {
                validTransferOffhandList.add(itemStack.copy());
                validTransferOffhandSlot.add(i);
@@ -108,7 +107,7 @@ public class SoulboundEventHandler {
             CuriosApi.getCuriosHelper().getEquippedCurios(player).ifPresent((value) -> {
                for(int i = 0; i < value.getSlots(); ++i) {
                   ItemStack itemStack = value.getStackInSlot(i);
-                  int nextInt = player.m_217043_().nextInt(100) + 1;
+                  int nextInt = player.getRandom().nextInt(100) + 1;
                   if ((EchoUtil.isEchoSoulbound(itemStack) && UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance && isWearingEchoArmor && nextInt <= UpgradedNetheriteConfig.KeepItemsChance) && !EnchantmentHelper.hasVanishingCurse(itemStack)) {
                      validTransferCuriosList.add(itemStack.copy());
                      validTransferCuriosSlot.add(i);
@@ -120,23 +119,23 @@ public class SoulboundEventHandler {
          }
 
          if (validTransferArmorList.size() > 0) {
-            this.transfertArmorList.put(player.m_20148_().toString(), validTransferArmorList);
-            this.transfertArmorSlot.put(player.m_20148_().toString(), validTransferArmorSlot);
+            this.transfertArmorList.put(player.getUUID().toString(), validTransferArmorList);
+            this.transfertArmorSlot.put(player.getUUID().toString(), validTransferArmorSlot);
          }
 
          if (validTransferItemList.size() > 0) {
-            this.transfertItemList.put(player.m_20148_().toString(), validTransferItemList);
-            this.transfertItemSlot.put(player.m_20148_().toString(), validTransferItemSlot);
+            this.transfertItemList.put(player.getUUID().toString(), validTransferItemList);
+            this.transfertItemSlot.put(player.getUUID().toString(), validTransferItemSlot);
          }
 
          if (validTransferOffhandList.size() > 0) {
-            this.transfertOffhandList.put(player.m_20148_().toString(), validTransferOffhandList);
-            this.transfertOffhandSlot.put(player.m_20148_().toString(), validTransferOffhandSlot);
+            this.transfertOffhandList.put(player.getUUID().toString(), validTransferOffhandList);
+            this.transfertOffhandSlot.put(player.getUUID().toString(), validTransferOffhandSlot);
          }
 
          if (validTransferCuriosList.size() > 0) {
-            this.transfertCuriosList.put(player.m_20148_().toString(), validTransferCuriosList);
-            this.transfertCuriosSlot.put(player.m_20148_().toString(), validTransferCuriosSlot);
+            this.transfertCuriosList.put(player.getUUID().toString(), validTransferCuriosList);
+            this.transfertCuriosSlot.put(player.getUUID().toString(), validTransferCuriosSlot);
          }
       }
 
@@ -148,39 +147,36 @@ public class SoulboundEventHandler {
    public void onPlayerRespawnEvent(PlayerRespawnEvent event) {
       if (UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance) {
          Player player = event.getEntity();
-         List toTransfert;
-         List toSlot;
-         int i;
-         if (this.transfertArmorList.containsKey(player.m_20148_().toString())) {
-            toTransfert = (List)this.transfertArmorList.get(player.m_20148_().toString());
-            toSlot = (List)this.transfertArmorSlot.get(player.m_20148_().toString());
+         if (this.transfertArmorList.containsKey(player.getUUID().toString())) {
+            List toTransfert = (List)this.transfertArmorList.get(player.getUUID().toString());
+            List toSlot = (List)this.transfertArmorSlot.get(player.getUUID().toString());
 
-            for(i = 0; i < toTransfert.size(); ++i) {
+            for(int i = 0; i < toTransfert.size(); ++i) {
                player.getInventory().armor.set((Integer)toSlot.get(i), ((ItemStack)toTransfert.get(i)).copy());
             }
          }
 
-         if (this.transfertItemList.containsKey(player.m_20148_().toString())) {
-            toTransfert = (List)this.transfertItemList.get(player.m_20148_().toString());
-            toSlot = (List)this.transfertItemSlot.get(player.m_20148_().toString());
+         if (this.transfertItemList.containsKey(player.getUUID().toString())) {
+            List toTransfert = (List)this.transfertItemList.get(player.getUUID().toString());
+            List toSlot = (List)this.transfertItemSlot.get(player.getUUID().toString());
 
-            for(i = 0; i < toTransfert.size(); ++i) {
+            for(int i = 0; i < toTransfert.size(); ++i) {
                player.getInventory().items.set((Integer)toSlot.get(i), ((ItemStack)toTransfert.get(i)).copy());
             }
          }
 
-         if (this.transfertOffhandList.containsKey(player.m_20148_().toString())) {
-            toTransfert = (List)this.transfertOffhandList.get(player.m_20148_().toString());
-            toSlot = (List)this.transfertOffhandSlot.get(player.m_20148_().toString());
+         if (this.transfertOffhandList.containsKey(player.getUUID().toString())) {
+            List toTransfert = (List)this.transfertOffhandList.get(player.getUUID().toString());
+            List toSlot = (List)this.transfertOffhandSlot.get(player.getUUID().toString());
 
-            for(i = 0; i < toTransfert.size(); ++i) {
+            for(int i = 0; i < toTransfert.size(); ++i) {
                player.getInventory().offhand.set((Integer)toSlot.get(i), ((ItemStack)toTransfert.get(i)).copy());
             }
          }
 
-         if (ExternalMods.CURIOS.isLoaded() && this.transfertCuriosList.containsKey(player.m_20148_().toString())) {
-            toTransfert = (List)this.transfertCuriosList.get(player.m_20148_().toString());
-            toSlot = (List)this.transfertCuriosSlot.get(player.m_20148_().toString());
+         if (ExternalMods.CURIOS.isLoaded() && this.transfertCuriosList.containsKey(player.getUUID().toString())) {
+            List toTransfert = (List)this.transfertCuriosList.get(player.getUUID().toString());
+            List toSlot = (List)this.transfertCuriosSlot.get(player.getUUID().toString());
             CuriosApi.getCuriosHelper().getEquippedCurios(player).ifPresent((value) -> {
                for(int i = 0; i < toTransfert.size(); ++i) {
                   value.setStackInSlot((Integer)toSlot.get(i), ((ItemStack)toTransfert.get(i)).copy());
@@ -189,14 +185,14 @@ public class SoulboundEventHandler {
             });
          }
 
-         this.transfertArmorList.remove(player.m_20148_().toString());
-         this.transfertArmorSlot.remove(player.m_20148_().toString());
-         this.transfertItemList.remove(player.m_20148_().toString());
-         this.transfertItemSlot.remove(player.m_20148_().toString());
-         this.transfertOffhandList.remove(player.m_20148_().toString());
-         this.transfertOffhandSlot.remove(player.m_20148_().toString());
-         this.transfertCuriosList.remove(player.m_20148_().toString());
-         this.transfertCuriosSlot.remove(player.m_20148_().toString());
+         this.transfertArmorList.remove(player.getUUID().toString());
+         this.transfertArmorSlot.remove(player.getUUID().toString());
+         this.transfertItemList.remove(player.getUUID().toString());
+         this.transfertItemSlot.remove(player.getUUID().toString());
+         this.transfertOffhandList.remove(player.getUUID().toString());
+         this.transfertOffhandSlot.remove(player.getUUID().toString());
+         this.transfertCuriosList.remove(player.getUUID().toString());
+         this.transfertCuriosSlot.remove(player.getUUID().toString());
       }
 
    }

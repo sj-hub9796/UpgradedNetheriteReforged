@@ -1,7 +1,7 @@
 package net.sjhub.upgradednetheritereforged.utils.check;
 
-import com.rolfmao.upgradedcore.utils.SetArmorUtil;
-import com.rolfmao.upgradedcore.utils.morecheck.MoreCorruptUtil;
+import com.rolfmao.upgradedcore_old.utils.SetArmorUtil;
+import com.rolfmao.upgradedcore_old.utils.morecheck.MoreCorruptUtil;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModArmorMaterial;
 import net.minecraft.world.entity.animal.horse.Horse;
@@ -20,7 +20,7 @@ public class CorruptUtil {
       Integer count = 0;
       count = count + SetArmorUtil.isWearingArmor(player, ModArmorMaterial.CORRUPT_UPGRADED_NETHERITE);
       count = count + MoreCorruptUtil.intWearingCorruptArmor(player);
-      if (enableHorse && player.m_20202_() != null && player.m_20202_() instanceof Horse && isHorseWearingCorruptArmor((Horse)player.m_20202_())) {
+      if (enableHorse && player.getVehicle() != null && player.getVehicle() instanceof Horse && isHorseWearingCorruptArmor((Horse)player.getVehicle())) {
          count = count + 1;
       }
 
@@ -28,7 +28,7 @@ public class CorruptUtil {
    }
 
    public static boolean isHorseWearingCorruptArmor(Horse horse) {
-      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get()).m_5456_();
+      return horse.getArmor().getItem() == ((HorseArmorItem)ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get()).asItem();
    }
 
    public static boolean isCorruptArmor(ItemStack itemStack) {
@@ -36,7 +36,7 @@ public class CorruptUtil {
    }
 
    public static boolean isCorruptToolOrWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreCorruptUtil.isCorruptToolOrWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_HOE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreCorruptUtil.isCorruptToolOrWeapon(itemStack);
    }
 
    public static boolean isCorruptWeapon(ItemStack itemStack) {
@@ -44,26 +44,26 @@ public class CorruptUtil {
    }
 
    public static boolean isCorruptMeleeWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_AXE.get())) || MoreCorruptUtil.isCorruptWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SWORD.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_AXE.get())) || MoreCorruptUtil.isCorruptWeapon(itemStack);
    }
 
    public static boolean isCorruptRangedWeapon(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreCorruptUtil.isCorruptRangedWeapon(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_BOW.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_CROSSBOW.get())) || MoreCorruptUtil.isCorruptRangedWeapon(itemStack);
    }
 
    public static boolean isCorruptTool(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_HOE.get())) || MoreCorruptUtil.isCorruptTool(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_PICKAXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHOVEL.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_AXE.get())) || ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_HOE.get())) || MoreCorruptUtil.isCorruptTool(itemStack);
    }
 
    public static boolean isCorruptProjectile(Projectile projectile) {
-      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreCorruptUtil.isCorruptProjectile(projectile)) && projectile.m_19880_().contains("CorruptUpgradedNetheriteBow");
+      return (projectile instanceof Arrow || projectile instanceof SpectralArrow || projectile instanceof FireworkRocketEntity || MoreCorruptUtil.isCorruptProjectile(projectile)) && projectile.getTags().contains("CorruptUpgradedNetheriteBow");
    }
 
    public static boolean isCorruptShield(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHIELD.get())) || MoreCorruptUtil.isCorruptShield(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_SHIELD.get())) || MoreCorruptUtil.isCorruptShield(itemStack);
    }
 
    public static boolean isCorruptHorseArmor(ItemStack itemStack) {
-      return ItemStack.isSame(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreCorruptUtil.isCorruptHorseArmor(itemStack);
+      return ItemStack.isSameItem(itemStack, new ItemStack((ItemLike)ModItems.CORRUPT_UPGRADED_NETHERITE_ARMOR_HORSE.get())) || MoreCorruptUtil.isCorruptHorseArmor(itemStack);
    }
 }

@@ -30,7 +30,7 @@ public class PacketEntityFallDistanceUpdate {
    public static void handle(PacketEntityFallDistanceUpdate msg, Supplier<Context> ctx) {
       ((Context)ctx.get()).enqueueWork(() -> {
          ServerPlayer player = ((Context)ctx.get()).getSender();
-         Entity entity = player.f_19853_.getEntity(msg.entityId);
+         Entity entity = player.level().getEntity(msg.entityId);
          Float fallDistance = msg.fallDistance;
          EntityFallDistanceUpdateHandler.handleEntityFallDistanceUpdate(entity, fallDistance);
       });
