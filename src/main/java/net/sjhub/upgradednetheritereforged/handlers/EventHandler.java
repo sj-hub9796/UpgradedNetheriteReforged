@@ -129,22 +129,22 @@ public class EventHandler {
          while(var3.hasNext()) {
             Component line = (Component)var3.next();
             if (line instanceof Component && (line.getString().contains("item.unbreakable") || line.getString().contains("item.canBreak") || line.getString().contains("item.canPlace") || line.getString().contains("item.durability"))) {
-               event.getToolTip().add(event.getToolTip().indexOf(line), Component.translatable("upgradednetherite.Echo_Tool.TT"));
+               event.getToolTip().add(event.getToolTip().indexOf(line), Component.translatable("upgradednetherite_reforged.Echo_Tool.TT"));
                break;
             }
 
             if (ForgeRegistries.ITEMS.getKey(event.getItemStack().getItem()).toString().equals(line.getString())) {
-               event.getToolTip().add(event.getToolTip().indexOf(line), Component.translatable("upgradednetherite.Echo_Tool.TT"));
+               event.getToolTip().add(event.getToolTip().indexOf(line), Component.translatable("upgradednetherite_reforged.Echo_Tool.TT"));
                break;
             }
 
             if (line instanceof Component && line.getString().contains("item.nbt_tags")) {
-               event.getToolTip().add(event.getToolTip().indexOf(line), Component.translatable("upgradednetherite.Echo_Tool.TT"));
+               event.getToolTip().add(event.getToolTip().indexOf(line), Component.translatable("upgradednetherite_reforged.Echo_Tool.TT"));
                break;
             }
 
             if (event.getToolTip().indexOf(line) == event.getToolTip().size() - 1) {
-               event.getToolTip().add(event.getToolTip().indexOf(line) + 1, Component.translatable("upgradednetherite.Echo_Tool.TT"));
+               event.getToolTip().add(event.getToolTip().indexOf(line) + 1, Component.translatable("upgradednetherite_reforged.Echo_Tool.TT"));
                break;
             }
          }

@@ -94,10 +94,10 @@ public class UpgradedNetheriteAxe extends AxeItem {
             Map enchantments;
             int EnchantLevel;
             if (GoldUtil.isGoldTool(itemStack) && (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon || UpgradedNetheriteConfig.EnableFortuneBonus || UpgradedNetheriteConfig.EnableLootingBonus)) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                if (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusGoldWeapon + "%"});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusGoldWeapon + "%"});
                }
 
                EnchantBonus = 0.0F;
@@ -115,145 +115,145 @@ public class UpgradedNetheriteAxe extends AxeItem {
 
                if (UpgradedNetheriteConfig.EnableFortuneBonus) {
                   if (EnchantBonus >= 3.0F) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Tool.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.FortuneBonus + UpgradedNetheriteConfig.FortuneEnchantBonus)});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Tool.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.FortuneBonus + UpgradedNetheriteConfig.FortuneEnchantBonus)});
                   } else {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Tool.TT", new Object[]{"§6" + UpgradedNetheriteConfig.FortuneBonus});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Tool.TT", new Object[]{"§6" + UpgradedNetheriteConfig.FortuneBonus});
                   }
                }
 
                if (UpgradedNetheriteConfig.EnableLootingBonus) {
                   if (EnchantBonusLooting >= 3.0F) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Weapon2.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.LootingBonus + UpgradedNetheriteConfig.LootingEnchantBonus)});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Weapon2.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.LootingBonus + UpgradedNetheriteConfig.LootingEnchantBonus)});
                   } else {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.LootingBonus});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.LootingBonus});
                   }
                }
 
                if (EnchantBonus < 3.0F && UpgradedNetheriteConfig.EnableFortuneBonus) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Tool2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneEnchantBonus});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Tool2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneEnchantBonus});
                }
 
                if (EnchantBonusLooting < 3.0F && UpgradedNetheriteConfig.EnableLootingBonus) {
                   if (!(EnchantBonusLooting > 0.0F)) {
-                     tooltip.add(Component.translatable("upgradednetherite.Gold_Bow.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Gold_Bow.TT"));
                   }
 
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Weapon3.TT", new Object[]{"§d" + UpgradedNetheriteConfig.LootingEnchantBonus});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Weapon3.TT", new Object[]{"§d" + UpgradedNetheriteConfig.LootingEnchantBonus});
                }
             } else if (!FireUtil.isFireTool(itemStack) || !UpgradedNetheriteConfig.EnableDamageBonusFireWeapon && !UpgradedNetheriteConfig.EnableAutoSmelt) {
                if (EnderUtil.isEnderTool(itemStack)) {
                   if (UpgradedNetheriteConfig.EnablePreventTeleport) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.OnHit.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Ender_Weapon.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.OnHit.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Weapon.TT"));
                   }
 
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableDamageBonusEnderWeapon) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Ender_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusEnderWeapon + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Ender_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusEnderWeapon + "%"});
                   }
 
                   if (UpgradedNetheriteConfig.EnableDoubleLootingBonusEnderWeapon) {
-                     tooltip.add(Component.translatable("upgradednetherite.Ender_Weapon3.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Weapon3.TT"));
                   }
 
                   if (UpgradedNetheriteConfig.EnableTeleportChest) {
                      if (ToolUtil.getDisableEffect(itemStack)) {
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.Ender_Tool.TT", new Object[]{"§c• "});
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Ender_Tool.TT", new Object[]{"§c• "});
                      } else {
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.Ender_Tool.TT", new Object[]{"§7• "});
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Ender_Tool.TT", new Object[]{"§7• "});
                      }
 
                      if (itemStack.getTag().getBoolean("UpgradedNetherite_Tagged")) {
                         String world = level.dimension().location().getPath();
                         String var10001;
                         if (!world.equals(itemStack.getTag().getString("UpgradedNetherite_Dimension"))) {
-                           tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                           tooltip.add(Component.translatable("upgradednetherite.Target.TT"));
-                           tooltip.add(Component.translatable("upgradednetherite.Ender_Dim.TT"));
+                           tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                           tooltip.add(Component.translatable("upgradednetherite_reforged.Target.TT"));
+                           tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Dim.TT"));
                            var10001 = itemStack.getTag().getString("UpgradedNetherite_Dimension");
                            tooltip.add(Component.literal("§7• §c" + var10001 + "§7 : §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[0] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[1] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[2] + "§7."));
                         } else {
-                           tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                           tooltip.add(Component.translatable("upgradednetherite.Target.TT"));
+                           tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                           tooltip.add(Component.translatable("upgradednetherite_reforged.Target.TT"));
                            var10001 = itemStack.getTag().getString("UpgradedNetherite_Dimension");
                            tooltip.add(Component.literal("§7• §9" + var10001 + "§7 : §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[0] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[1] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[2] + "§7."));
                         }
                      }
                   }
                } else if (WaterUtil.isWaterTool(itemStack) && (UpgradedNetheriteConfig.EnableDamageBonusWaterWeapon || UpgradedNetheriteConfig.EnableDamageBonusWaterEndermanWeapon || UpgradedNetheriteConfig.EnableMiningSpeedUnderwater)) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableDamageBonusWaterWeapon) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Water_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusWaterWeapon + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Water_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusWaterWeapon + "%"});
                   }
 
                   if (UpgradedNetheriteConfig.EnableDamageBonusWaterEndermanWeapon) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Water_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusWaterEndermanWeapon + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Water_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusWaterEndermanWeapon + "%"});
                   }
 
                   if (UpgradedNetheriteConfig.EnableMiningSpeedUnderwater) {
-                     tooltip.add(Component.translatable("upgradednetherite.Water_Tool.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Water_Tool.TT"));
                   }
                } else if (WitherUtil.isWitherTool(itemStack)) {
                   if (UpgradedNetheriteConfig.EnableWitherEffect) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.OnHit.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Wither_Weapon.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.OnHit.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Wither_Weapon.TT"));
                   }
 
                   if (UpgradedNetheriteConfig.EnableDamageBonusWitherWeapon) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Wither_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusWitherWeapon + "%"});
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Wither_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusWitherWeapon + "%"});
                   }
                } else if (PoisonUtil.isPoisonTool(itemStack)) {
                   if (UpgradedNetheriteConfig.EnablePoisonEffect) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.OnHit.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Poison_Weapon.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.OnHit.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Poison_Weapon.TT"));
                   }
 
                   if (UpgradedNetheriteConfig.EnableDamageBonusPoisonWeapon) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Poison_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusPoisonWeapon + "%"});
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Poison_Weapon2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusPoisonWeapon + "%"});
                   }
                } else if (PhantomUtil.isPhantomTool(itemStack) && (UpgradedNetheriteConfig.EnableDamageBonusPhantomWeapon || UpgradedNetheriteConfig.EnableGlowingEffect || UpgradedNetheriteConfig.EnableReachEffect)) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableDamageBonusPhantomWeapon) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Phantom_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusPhantomWeapon + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Phantom_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusPhantomWeapon + "%"});
                   }
 
                   if (UpgradedNetheriteConfig.EnableGlowingEffect) {
                      if (ToolUtil.getDisableEffect(itemStack)) {
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.Phantom_Tool.TT", new Object[]{"§c• "});
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Phantom_Tool.TT", new Object[]{"§c• "});
                      } else {
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.Phantom_Tool.TT", new Object[]{"§7• "});
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Phantom_Tool.TT", new Object[]{"§7• "});
                      }
                   }
 
                   if (UpgradedNetheriteConfig.EnableReachEffect) {
-                     tooltip.add(Component.translatable("upgradednetherite.Phantom_Tool2.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Phantom_Tool2.TT"));
                   }
                } else if (FeatherUtil.isFeatherTool(itemStack) && UpgradedNetheriteConfig.EnableAttractItem) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (ToolUtil.getDisableEffect(itemStack)) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Feather_Tool.TT", new Object[]{"§c• "});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Feather_Tool.TT", new Object[]{"§c• "});
                   } else {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Feather_Tool.TT", new Object[]{"§7• "});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Feather_Tool.TT", new Object[]{"§7• "});
                   }
                } else if (CorruptUtil.isCorruptTool(itemStack)) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Malus.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Corrupt_Bonus2.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Corrupt_Enchant.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Malus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Corrupt_Bonus2.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Corrupt_Enchant.TT"));
                   if (UpgradedNetheriteConfig.EnableDamageBonusCorruptWeapon || UpgradedNetheriteConfig.EnableLootingBonusCorruptWeapon || UpgradedNetheriteConfig.EnableFortuneBonusCorruptTool) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   }
 
                   if (Minecraft.getInstance().player != null && CorruptUtil.intWearingCorrupt(Minecraft.getInstance().player, true) > 0) {
@@ -263,21 +263,21 @@ public class UpgradedNetheriteAxe extends AxeItem {
                         var10002 = new Object[1];
                         var10005 = CorruptUtil.intWearingCorrupt(Minecraft.getInstance().player, true);
                         var10002[0] = "§6" + var10005 * UpgradedNetheriteConfig.DamageBonusCorruptWeapon + "%";
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Weapon3.TT", var10002);
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Weapon3.TT", var10002);
                      }
 
                      if (UpgradedNetheriteConfig.EnableLootingBonusCorruptWeapon) {
                         var10002 = new Object[1];
                         var10005 = CorruptUtil.intWearingCorrupt(Minecraft.getInstance().player, true);
                         var10002[0] = "§6" + var10005 * UpgradedNetheriteConfig.LootingBonusCorruptWeapon;
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Weapon4.TT", var10002);
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Weapon4.TT", var10002);
                      }
 
                      if (UpgradedNetheriteConfig.EnableFortuneBonusCorruptTool) {
                         var10002 = new Object[1];
                         var10005 = CorruptUtil.intWearingCorrupt(Minecraft.getInstance().player, true);
                         var10002[0] = "§6" + var10005 * UpgradedNetheriteConfig.FortuneBonusCorruptTool;
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Tool2.TT", var10002);
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Tool2.TT", var10002);
                      }
                   }
 
@@ -289,37 +289,37 @@ public class UpgradedNetheriteAxe extends AxeItem {
                   }
 
                   if (!(EnchantBonus > 0.0F)) {
-                     tooltip.add(Component.translatable("upgradednetherite.Gold_Bow.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Gold_Bow.TT"));
                   }
 
                   if (UpgradedNetheriteConfig.EnableDamageBonusCorruptWeapon) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Weapon2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.DamageBonusCorruptWeapon + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Weapon2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.DamageBonusCorruptWeapon + "%"});
                   }
 
                   if (UpgradedNetheriteConfig.EnableLootingBonusCorruptWeapon) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Weapon.TT", new Object[]{"§d" + UpgradedNetheriteConfig.LootingBonusCorruptWeapon});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Weapon.TT", new Object[]{"§d" + UpgradedNetheriteConfig.LootingBonusCorruptWeapon});
                   }
 
                   if (UpgradedNetheriteConfig.EnableFortuneBonusCorruptTool) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Tool.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneBonusCorruptTool});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Tool.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneBonusCorruptTool});
                   }
                } else if (!EchoUtil.isEchoTool(itemStack) || !UpgradedNetheriteConfig.EnableDamageBonusEchoWeapon && !UpgradedNetheriteConfig.EnableBonusExpEcho) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Disabled.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Disabled.TT"));
                } else {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (UpgradedNetheriteConfig.EnableDamageBonusEchoWeapon) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Echo_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusEchoWeapon + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Echo_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusEchoWeapon + "%"});
                   }
 
                   if (UpgradedNetheriteConfig.EnableBonusExpEcho) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Echo_Tool2.TT", new Object[0]);
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Echo_Tool2.TT", new Object[0]);
                   }
                }
             } else {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                if (UpgradedNetheriteConfig.EnableDamageBonusFireWeapon) {
                   EnchantBonus = 0.0F;
                   enchantments = EnchantmentHelper.getEnchantments(itemStack);
@@ -329,31 +329,31 @@ public class UpgradedNetheriteAxe extends AxeItem {
                   }
 
                   if (EnchantBonus >= 2.0F) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Weapon.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.DamageBonusFireWeapon + UpgradedNetheriteConfig.DamageBonusFireEnchantWeapon) + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Weapon.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.DamageBonusFireWeapon + UpgradedNetheriteConfig.DamageBonusFireEnchantWeapon) + "%"});
                   } else {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusFireWeapon + "%"});
-                     tooltip.add(Component.translatable("upgradednetherite.Fire_Weapon3.TT"));
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Weapon2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.DamageBonusFireEnchantWeapon + "%"});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Weapon.TT", new Object[]{"§6" + UpgradedNetheriteConfig.DamageBonusFireWeapon + "%"});
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Fire_Weapon3.TT"));
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Weapon2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.DamageBonusFireEnchantWeapon + "%"});
                   }
                }
 
                if (UpgradedNetheriteConfig.EnableAutoSmelt) {
                   if (ToolUtil.getDisableEffect(itemStack)) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Tool.TT", new Object[]{"§c• "});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Tool.TT", new Object[]{"§c• "});
                   } else {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Tool.TT", new Object[]{"§7• "});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Tool.TT", new Object[]{"§7• "});
                   }
                }
             }
          } else {
-            tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-            tooltip.add(Component.translatable("upgradednetherite.HoldShift.TT"));
+            tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+            tooltip.add(Component.translatable("upgradednetherite_reforged.HoldShift.TT"));
             if (EnderUtil.isEnderTool(itemStack)) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                if (itemStack.getTag() != null && itemStack.getTag().contains("UpgradedNetherite_Tagged") && itemStack.getTag().getBoolean("UpgradedNetherite_Tagged")) {
-                  tooltip.add(Component.translatable("upgradednetherite.Ender_ToolTar.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_ToolTar.TT"));
                } else {
-                  tooltip.add(Component.translatable("upgradednetherite.Ender_ToolReq.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_ToolReq.TT"));
                }
             }
          }

@@ -66,97 +66,97 @@ public class UpgradedNetheriteShield extends ShieldItem {
                Object[] var10002;
                float var10005;
                if (shield == ModItems.GOLD_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusGoldWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusGoldWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Shield.TT", var10002);
                } else if (shield == ModItems.FIRE_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusFireWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusFireWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Shield.TT", var10002);
                } else if (shield == ModItems.ENDER_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusEnderWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusEnderWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Ender_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Ender_Shield.TT", var10002);
                } else if (shield == ModItems.WATER_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusWaterWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusWaterWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Water_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Water_Shield.TT", var10002);
                } else if (shield == ModItems.WITHER_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusWitherWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusWitherWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Wither_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Wither_Shield.TT", var10002);
                } else if (shield == ModItems.POISON_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusPoisonWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusPoisonWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Poison_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Poison_Shield.TT", var10002);
                } else if (shield == ModItems.PHANTOM_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusPhantomWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusPhantomWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Phantom_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Phantom_Shield.TT", var10002);
                } else if (shield == ModItems.FEATHER_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Feather_Shield.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Feather_Shield.TT"));
                } else if (shield == ModItems.CORRUPT_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusCorruptWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusCorruptWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Shield.TT", var10002);
                } else if (shield == ModItems.ECHO_UPGRADED_NETHERITE_SHIELD.get()) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.WhenBlocking.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.WhenBlocking.TT"));
                   var10002 = new Object[2];
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusEchoWeapon;
                   var10002[0] = "§6" + var10005 / 20.0F + "%";
                   var10005 = (float)UpgradedNetheriteConfig.DamageBonusEchoWeapon;
                   var10002[1] = "§6" + var10005 / 2.0F + "%";
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Echo_Shield.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Echo_Shield.TT", var10002);
                } else {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Disabled.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Disabled.TT"));
                }
             } else {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.HoldShift.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.HoldShift.TT"));
             }
          }
       }

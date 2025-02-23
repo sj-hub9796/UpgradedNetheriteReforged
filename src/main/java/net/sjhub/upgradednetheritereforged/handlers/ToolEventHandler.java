@@ -67,9 +67,9 @@ public class ToolEventHandler {
             });
             if (!list.isEmpty()) {
                if (list.size() > 1) {
-                  player.displayClientMessage(TextHelper.TCWO("upgradednetherite.Phantom_Tool_Detect2.TT", new Object[]{"§c" + list.size()}), true);
+                  player.displayClientMessage(TextHelper.TCWO("upgradednetherite_reforged.Phantom_Tool_Detect2.TT", new Object[]{"§c" + list.size()}), true);
                } else {
-                  player.displayClientMessage(TextHelper.TCWO("upgradednetherite.Phantom_Tool_Detect.TT", new Object[]{"§c" + list.size()}), true);
+                  player.displayClientMessage(TextHelper.TCWO("upgradednetherite_reforged.Phantom_Tool_Detect.TT", new Object[]{"§c" + list.size()}), true);
                }
             }
          }

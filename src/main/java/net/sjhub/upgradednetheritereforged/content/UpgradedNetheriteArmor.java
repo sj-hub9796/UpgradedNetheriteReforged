@@ -73,157 +73,157 @@ public class UpgradedNetheriteArmor extends ArmorItem {
             int var10005;
             if (!GoldUtil.isGoldArmor(itemStack) || !UpgradedNetheriteConfig.EnablePiglinNeutral && !UpgradedNetheriteConfig.EnableLuckBonus) {
                if (FireUtil.isFireArmor(itemStack) && (UpgradedNetheriteConfig.EnableFireImmune || UpgradedNetheriteConfig.EnableLavaSpeed)) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   var10002 = new Object[1];
                   var10005 = FireUtil.intWearingFireArmor(Minecraft.getInstance().player);
                   var10002[0] = "§a§l" + var10005 + "/" + FireUtil.setFireArmor();
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                   if (UpgradedNetheriteConfig.EnableFireImmune) {
-                     tooltip.add(Component.translatable("upgradednetherite.Fire_Bonus.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Fire_Bonus.TT"));
                   }
 
                   if (UpgradedNetheriteConfig.EnableLavaSpeed) {
-                     tooltip.add(Component.translatable("upgradednetherite.Fire_Bonus2.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Fire_Bonus2.TT"));
                   }
                } else if (!EnderUtil.isEnderArmor(itemStack) || !UpgradedNetheriteConfig.EnableVoidSave && !UpgradedNetheriteConfig.EnablePreventAnger) {
                   if (WaterUtil.isWaterArmor(itemStack) && (UpgradedNetheriteConfig.EnableWaterBreath || UpgradedNetheriteConfig.EnableWaterSpeed || UpgradedNetheriteConfig.EnableElderGuardianDebuffImmune)) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                      var10002 = new Object[1];
                      var10005 = WaterUtil.intWearingWaterArmor(Minecraft.getInstance().player);
                      var10002[0] = "§a§l" + var10005 + "/" + WaterUtil.setWaterArmor();
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                      if (UpgradedNetheriteConfig.EnableWaterBreath) {
-                        tooltip.add(Component.translatable("upgradednetherite.Water_Bonus.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Water_Bonus.TT"));
                      }
 
                      if (UpgradedNetheriteConfig.EnableWaterSpeed) {
-                        tooltip.add(Component.translatable("upgradednetherite.Water_Bonus2.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Water_Bonus2.TT"));
                      }
 
                      if (UpgradedNetheriteConfig.EnableElderGuardianDebuffImmune) {
-                        tooltip.add(Component.translatable("upgradednetherite.Water_Bonus3.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Water_Bonus3.TT"));
                      }
                   } else if (WitherUtil.isWitherArmor(itemStack) && UpgradedNetheriteConfig.EnableWitherImmune) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                      var10002 = new Object[1];
                      var10005 = WitherUtil.intWearingWitherArmor(Minecraft.getInstance().player);
                      var10002[0] = "§a§l" + var10005 + "/" + WitherUtil.setWitherArmor();
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
-                     tooltip.add(Component.translatable("upgradednetherite.Wither_Bonus.TT"));
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Wither_Bonus.TT"));
                   } else if (PoisonUtil.isPoisonArmor(itemStack) && (UpgradedNetheriteConfig.EnablePoisonImmune || UpgradedNetheriteConfig.EnableClimbWall)) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                      var10002 = new Object[1];
                      var10005 = PoisonUtil.intWearingPoisonArmor(Minecraft.getInstance().player);
                      var10002[0] = "§a§l" + var10005 + "/" + PoisonUtil.setPoisonArmor();
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                      if (UpgradedNetheriteConfig.EnablePoisonImmune) {
-                        tooltip.add(Component.translatable("upgradednetherite.Poison_Bonus.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Poison_Bonus.TT"));
                      }
 
                      if (UpgradedNetheriteConfig.EnableClimbWall) {
-                        tooltip.add(Component.translatable("upgradednetherite.Poison_Bonus2.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Poison_Bonus2.TT"));
                      }
                   } else if (PhantomUtil.isPhantomArmor(itemStack) && (UpgradedNetheriteConfig.EnableFallImmune || UpgradedNetheriteConfig.EnableStepHeight)) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                      var10002 = new Object[1];
                      var10005 = PhantomUtil.intWearingPhantomArmor(Minecraft.getInstance().player);
                      var10002[0] = "§a§l" + var10005 + "/" + PhantomUtil.setPhantomArmor();
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                      if (UpgradedNetheriteConfig.EnableFallImmune) {
-                        tooltip.add(Component.translatable("upgradednetherite.Phantom_Bonus.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Phantom_Bonus.TT"));
                      }
 
                      if (UpgradedNetheriteConfig.EnableStepHeight) {
-                        tooltip.add(Component.translatable("upgradednetherite.Phantom_Bonus2.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Phantom_Bonus2.TT"));
                      }
                   } else if (!FeatherUtil.isFeatherArmor(itemStack) || !UpgradedNetheriteConfig.EnableWaterLavaWalking && !UpgradedNetheriteConfig.EnableMultiJump && !UpgradedNetheriteConfig.EnableReduceFallDamage && !UpgradedNetheriteConfig.EnableLevitationImmune) {
                      if (CorruptUtil.isCorruptArmor(itemStack)) {
-                        tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                        tooltip.add(Component.translatable("upgradednetherite.Malus.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Malus.TT"));
                         if (UpgradedNetheriteConfig.EnableHealthMalus) {
-                           TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Bonus.TT", new Object[]{"§6" + UpgradedNetheriteConfig.HealthMalus + "%"});
+                           TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Bonus.TT", new Object[]{"§6" + UpgradedNetheriteConfig.HealthMalus + "%"});
                         }
 
-                        tooltip.add(Component.translatable("upgradednetherite.Corrupt_Bonus2.TT"));
-                        tooltip.add(Component.translatable("upgradednetherite.Corrupt_Enchant.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Corrupt_Bonus2.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Corrupt_Enchant.TT"));
                      } else if (EchoUtil.isEchoArmor(itemStack) && (UpgradedNetheriteConfig.EnableKeepItemsChance || UpgradedNetheriteConfig.EnableReduceDamageEchoArmor || UpgradedNetheriteConfig.EnableHealEchoArmor)) {
-                        tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                         var10002 = new Object[1];
                         var10005 = EchoUtil.intWearingEchoArmor(Minecraft.getInstance().player);
                         var10002[0] = "§a§l" + var10005 + "/" + EchoUtil.setEchoArmor();
-                        TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+                        TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                         if (UpgradedNetheriteConfig.EnableKeepItemsChance) {
-                           TooltipHelper.addTWO(tooltip, "upgradednetherite.Echo_Bonus.TT", new Object[]{"§6" + UpgradedNetheriteConfig.KeepItemsChance + "%"});
+                           TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Echo_Bonus.TT", new Object[]{"§6" + UpgradedNetheriteConfig.KeepItemsChance + "%"});
                         }
 
                         if (UpgradedNetheriteConfig.EnableReduceDamageEchoArmor) {
-                           TooltipHelper.addTWO(tooltip, "upgradednetherite.Echo_Bonus2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.ReduceDamageEchoArmor + "%"});
+                           TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Echo_Bonus2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.ReduceDamageEchoArmor + "%"});
                         }
 
                         if (UpgradedNetheriteConfig.EnableHealEchoArmor) {
-                           tooltip.add(Component.translatable("upgradednetherite.Echo_Bonus3.TT"));
+                           tooltip.add(Component.translatable("upgradednetherite_reforged.Echo_Bonus3.TT"));
                         }
                      } else {
-                        tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                        tooltip.add(Component.translatable("upgradednetherite.Disabled.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Disabled.TT"));
                      }
                   } else {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                      var10002 = new Object[1];
                      var10005 = FeatherUtil.intWearingFeatherArmor(Minecraft.getInstance().player);
                      var10002[0] = "§a§l" + var10005 + "/" + FeatherUtil.setFeatherArmor();
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                      if (UpgradedNetheriteConfig.EnableWaterLavaWalking) {
-                        tooltip.add(Component.translatable("upgradednetherite.Feather_Bonus.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Feather_Bonus.TT"));
                      }
 
                      if (UpgradedNetheriteConfig.EnableMultiJump) {
-                        tooltip.add(Component.translatable("upgradednetherite.Feather_Bonus2.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Feather_Bonus2.TT"));
                      }
 
                      if (UpgradedNetheriteConfig.EnableReduceFallDamage) {
-                        tooltip.add(Component.translatable("upgradednetherite.Feather_Bonus3.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Feather_Bonus3.TT"));
                      }
 
                      if (UpgradedNetheriteConfig.EnableLevitationImmune) {
-                        tooltip.add(Component.translatable("upgradednetherite.Feather_Bonus4.TT"));
+                        tooltip.add(Component.translatable("upgradednetherite_reforged.Feather_Bonus4.TT"));
                      }
                   }
                } else {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                   var10002 = new Object[1];
                   var10005 = EnderUtil.intWearingEnderArmor(Minecraft.getInstance().player);
                   var10002[0] = "§a§l" + var10005 + "/" + EnderUtil.setEnderArmor();
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                   if (UpgradedNetheriteConfig.EnableVoidSave) {
-                     tooltip.add(Component.translatable("upgradednetherite.Ender_Bonus.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Bonus.TT"));
                   }
 
                   if (UpgradedNetheriteConfig.EnablePreventAnger) {
-                     tooltip.add(Component.translatable("upgradednetherite.Ender_Bonus2.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Bonus2.TT"));
                   }
 
                   if (UpgradedNetheriteConfig.EnableBreakEnderArmor && UpgradedNetheriteConfig.EnableVoidSave) {
-                     tooltip.add(Component.translatable("upgradednetherite.Ender_Bonus3.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Bonus3.TT"));
                   }
                }
             } else {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                var10002 = new Object[1];
                var10005 = GoldUtil.intWearingGoldArmor(Minecraft.getInstance().player);
                var10002[0] = "§a§l" + var10005 + "/" + GoldUtil.setGoldArmor();
-               TooltipHelper.addTWO(tooltip, "upgradednetherite.SetBonus.TT", var10002);
+               TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.SetBonus.TT", var10002);
                if (UpgradedNetheriteConfig.EnablePiglinNeutral) {
-                  tooltip.add(Component.translatable("upgradednetherite.Gold_Bonus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Gold_Bonus.TT"));
                }
 
                if (UpgradedNetheriteConfig.EnableLuckBonus) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Bonus2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.LuckBonus});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Bonus2.TT", new Object[]{"§6" + UpgradedNetheriteConfig.LuckBonus});
                }
             }
          } else {
-            tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-            tooltip.add(Component.translatable("upgradednetherite.HoldShift.TT"));
+            tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+            tooltip.add(Component.translatable("upgradednetherite_reforged.HoldShift.TT"));
          }
       }
 

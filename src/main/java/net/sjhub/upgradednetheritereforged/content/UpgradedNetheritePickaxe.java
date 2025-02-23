@@ -83,8 +83,8 @@ public class UpgradedNetheritePickaxe extends PickaxeItem {
       if (!UpgradedNetheriteConfig.DisableTooltips) {
          if (Screen.hasShiftDown()) {
             if (GoldUtil.isGoldTool(itemStack) && UpgradedNetheriteConfig.EnableFortuneBonus) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                float EnchantBonus = 0.0F;
                Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(itemStack);
                if (!enchantments.isEmpty() && enchantments.containsKey(Enchantments.BLOCK_FORTUNE)) {
@@ -93,106 +93,106 @@ public class UpgradedNetheritePickaxe extends PickaxeItem {
                }
 
                if (EnchantBonus >= 3.0F) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Tool.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.FortuneBonus + UpgradedNetheriteConfig.FortuneEnchantBonus)});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Tool.TT", new Object[]{"§6" + (UpgradedNetheriteConfig.FortuneBonus + UpgradedNetheriteConfig.FortuneEnchantBonus)});
                } else {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Tool.TT", new Object[]{"§6" + UpgradedNetheriteConfig.FortuneBonus});
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Gold_Tool2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneEnchantBonus});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Tool.TT", new Object[]{"§6" + UpgradedNetheriteConfig.FortuneBonus});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Gold_Tool2.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneEnchantBonus});
                }
             } else if (FireUtil.isFireTool(itemStack) && UpgradedNetheriteConfig.EnableAutoSmelt) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                if (ToolUtil.getDisableEffect(itemStack)) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Tool.TT", new Object[]{"§c• "});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Tool.TT", new Object[]{"§c• "});
                } else {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Fire_Tool.TT", new Object[]{"§7• "});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Fire_Tool.TT", new Object[]{"§7• "});
                }
             } else if (EnderUtil.isEnderTool(itemStack) && UpgradedNetheriteConfig.EnableTeleportChest) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                if (ToolUtil.getDisableEffect(itemStack)) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Ender_Tool.TT", new Object[]{"§c• "});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Ender_Tool.TT", new Object[]{"§c• "});
                } else {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Ender_Tool.TT", new Object[]{"§7• "});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Ender_Tool.TT", new Object[]{"§7• "});
                }
 
                if (itemStack.getTag() != null && itemStack.getTag().contains("UpgradedNetherite_Tagged") && itemStack.getTag().getBoolean("UpgradedNetherite_Tagged")) {
                   String world = level.dimension().location().getPath();
                   String var10001;
                   if (!world.equals(itemStack.getTag().getString("UpgradedNetherite_Dimension"))) {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Target.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Ender_Dim.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Target.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_Dim.TT"));
                      var10001 = itemStack.getTag().getString("UpgradedNetherite_Dimension");
                      tooltip.add(Component.literal("§7• §c" + var10001 + "§7 : §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[0] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[1] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[2] + "§7."));
                   } else {
-                     tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                     tooltip.add(Component.translatable("upgradednetherite.Target.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                     tooltip.add(Component.translatable("upgradednetherite_reforged.Target.TT"));
                      var10001 = itemStack.getTag().getString("UpgradedNetherite_Dimension");
                      tooltip.add(Component.literal("§7• §9" + var10001 + "§7 : §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[0] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[1] + "§7, §3" + itemStack.getTag().getIntArray("UpgradedNetherite_Position")[2] + "§7."));
                   }
                }
             } else if (WaterUtil.isWaterTool(itemStack) && UpgradedNetheriteConfig.EnableMiningSpeedUnderwater) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Water_Tool.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Water_Tool.TT"));
             } else if (PhantomUtil.isPhantomTool(itemStack) && (UpgradedNetheriteConfig.EnableGlowingEffect || UpgradedNetheriteConfig.EnableReachEffect)) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                if (UpgradedNetheriteConfig.EnableGlowingEffect) {
                   if (ToolUtil.getDisableEffect(itemStack)) {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Phantom_Tool.TT", new Object[]{"§c• "});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Phantom_Tool.TT", new Object[]{"§c• "});
                   } else {
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Phantom_Tool.TT", new Object[]{"§7• "});
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Phantom_Tool.TT", new Object[]{"§7• "});
                   }
                }
 
                if (UpgradedNetheriteConfig.EnableReachEffect) {
-                  tooltip.add(Component.translatable("upgradednetherite.Phantom_Tool2.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Phantom_Tool2.TT"));
                }
             } else if (FeatherUtil.isFeatherTool(itemStack) && UpgradedNetheriteConfig.EnableAttractItem) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                if (ToolUtil.getDisableEffect(itemStack)) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Feather_Tool.TT", new Object[]{"§c• "});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Feather_Tool.TT", new Object[]{"§c• "});
                } else {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Feather_Tool.TT", new Object[]{"§7• "});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Feather_Tool.TT", new Object[]{"§7• "});
                }
             } else if (CorruptUtil.isCorruptTool(itemStack)) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Malus.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Corrupt_Bonus2.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Corrupt_Enchant.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Malus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Corrupt_Bonus2.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Corrupt_Enchant.TT"));
                if (UpgradedNetheriteConfig.EnableFortuneBonusCorruptTool) {
-                  tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-                  tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                   if (Minecraft.getInstance().player != null && CorruptUtil.intWearingCorrupt(Minecraft.getInstance().player, true) > 0) {
                      Object[] var10002 = new Object[1];
                      int var10005 = CorruptUtil.intWearingCorrupt(Minecraft.getInstance().player, true);
                      var10002[0] = "§6" + var10005 * UpgradedNetheriteConfig.FortuneBonusCorruptTool;
-                     TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Tool2.TT", var10002);
+                     TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Tool2.TT", var10002);
                   }
 
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Corrupt_Tool.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneBonusCorruptTool});
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Corrupt_Tool.TT", new Object[]{"§d" + UpgradedNetheriteConfig.FortuneBonusCorruptTool});
                }
             } else if (EchoUtil.isEchoTool(itemStack) && UpgradedNetheriteConfig.EnableBonusExpEcho) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Bonus.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Bonus.TT"));
                if (UpgradedNetheriteConfig.EnableBonusExpEcho) {
-                  TooltipHelper.addTWO(tooltip, "upgradednetherite.Echo_Tool2.TT", new Object[0]);
+                  TooltipHelper.addTWO(tooltip, "upgradednetherite_reforged.Echo_Tool2.TT", new Object[0]);
                }
             } else {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-               tooltip.add(Component.translatable("upgradednetherite.Disabled.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Disabled.TT"));
             }
          } else {
-            tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
-            tooltip.add(Component.translatable("upgradednetherite.HoldShift.TT"));
+            tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
+            tooltip.add(Component.translatable("upgradednetherite_reforged.HoldShift.TT"));
             if (EnderUtil.isEnderTool(itemStack)) {
-               tooltip.add(Component.translatable("upgradednetherite.Blank.TT"));
+               tooltip.add(Component.translatable("upgradednetherite_reforged.Blank.TT"));
                if (itemStack.getTag() != null && itemStack.getTag().contains("UpgradedNetherite_Tagged") && itemStack.getTag().getBoolean("UpgradedNetherite_Tagged")) {
-                  tooltip.add(Component.translatable("upgradednetherite.Ender_ToolTar.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_ToolTar.TT"));
                } else {
-                  tooltip.add(Component.translatable("upgradednetherite.Ender_ToolReq.TT"));
+                  tooltip.add(Component.translatable("upgradednetherite_reforged.Ender_ToolReq.TT"));
                }
             }
          }
