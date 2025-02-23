@@ -13,6 +13,7 @@ import net.sjhub.upgradednetheritereforged.content.UpgradedNetheriteShovel;
 import net.sjhub.upgradednetheritereforged.content.UpgradedNetheriteSword;
 import net.sjhub.upgradednetheritereforged.items.UpgradedNetheriteEssenceItemBase;
 import net.sjhub.upgradednetheritereforged.items.UpgradedNetheriteIngotItemBase;
+import net.sjhub.upgradednetheritereforged.items.UpgradedNetheriteSmithingTemplateBase;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModArmorMaterial;
 import net.sjhub.upgradednetheritereforged.utils.enums.ModItemTier;
 import java.util.function.Supplier;
@@ -30,6 +31,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
    public static final DeferredRegister<Item> ITEMS;
+   public static final RegistryObject<Item> NETHERITE_TRANSCEND_SMITHING_TEMPLATE;
    public static final RegistryObject<Item> GOLD_UPGRADED_NETHERITE_INGOT;
    public static final RegistryObject<Item> FIRE_UPGRADED_NETHERITE_INGOT;
    public static final RegistryObject<Item> ENDER_UPGRADED_NETHERITE_INGOT;
@@ -190,6 +192,7 @@ public class ModItems {
 
    static {
       ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "upgradednetherite_reforged");
+      NETHERITE_TRANSCEND_SMITHING_TEMPLATE = ITEMS.register("netherite_transcend_smithing_template", UpgradedNetheriteSmithingTemplateBase::createTranscendTemplate);
       GOLD_UPGRADED_NETHERITE_INGOT = ITEMS.register("gold_upgraded_netherite_ingot", UpgradedNetheriteIngotItemBase::new);
       FIRE_UPGRADED_NETHERITE_INGOT = ITEMS.register("fire_upgraded_netherite_ingot", UpgradedNetheriteIngotItemBase::new);
       ENDER_UPGRADED_NETHERITE_INGOT = ITEMS.register("ender_upgraded_netherite_ingot", UpgradedNetheriteIngotItemBase::new);

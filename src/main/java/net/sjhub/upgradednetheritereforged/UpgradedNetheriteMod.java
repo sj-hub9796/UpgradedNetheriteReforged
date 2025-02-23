@@ -134,6 +134,7 @@ public class UpgradedNetheriteMod {
       }
 
       if (event.getTab() == ModCreativeModeTabs.UPGRADED_NETHERITE_TAB.get()) {
+         event.accept(ModItems.NETHERITE_TRANSCEND_SMITHING_TEMPLATE);
          event.accept(ModItems.GOLD_ESSENCE);
          event.accept(ModItems.GOLD_UPGRADED_NETHERITE_INGOT);
          event.accept(ModItems.GOLD_UPGRADED_NETHERITE_SWORD);
