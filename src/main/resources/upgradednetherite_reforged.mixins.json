@@ -10,8 +10,5 @@
     "MixinMobEffectUtil"
   ],
   "client": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+  ]
 }
