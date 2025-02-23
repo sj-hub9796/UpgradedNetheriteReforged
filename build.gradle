@@ -151,6 +151,11 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+
+    // Mixin Tools
+    maven {
+        url = "https://maven.izzel.io/releases"
+    }
 }
 
 dependencies {
@@ -163,6 +168,10 @@ dependencies {
     // Curios
     compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api"))
     runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}"))
+
+    // mixin tools
+    //implementation ("io.izzel.arclight:mixin-tools:${mixinTools_version}") { transitive = false }
+    //annotationProcessor ("io.izzel.arclight:mixin-tools:${mixinTools_version}") { transitive = false }
 
 }
 
