@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 import static net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod.MOD_ID;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite_reforged",
+   modid = UpgradedNetheriteMod.MOD_ID,
    bus = Bus.MOD
 )
 public class ModCreativeModeTabs {

@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @EventBusSubscriber(
    value = {Dist.CLIENT},
-   modid = "upgradednetherite_reforged",
+   modid = UpgradedNetheriteMod.MOD_ID,
    bus = Bus.MOD
 )
 public class ShieldModel {

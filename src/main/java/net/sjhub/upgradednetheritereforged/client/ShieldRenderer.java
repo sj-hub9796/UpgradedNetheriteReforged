@@ -31,7 +31,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @EventBusSubscriber(
    value = {Dist.CLIENT},
-   modid = "upgradednetherite_reforged",
+   modid = UpgradedNetheriteMod.MOD_ID,
    bus = Bus.MOD
 )
 public class ShieldRenderer extends BlockEntityWithoutLevelRenderer {

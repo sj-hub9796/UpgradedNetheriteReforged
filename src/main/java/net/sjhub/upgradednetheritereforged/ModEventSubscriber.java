@@ -16,7 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite_reforged",
+   modid = UpgradedNetheriteMod.MOD_ID,
    bus = Bus.MOD
 )
 public class ModEventSubscriber {

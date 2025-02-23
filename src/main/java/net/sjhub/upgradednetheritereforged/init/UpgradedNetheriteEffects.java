@@ -1,5 +1,6 @@
 package net.sjhub.upgradednetheritereforged.init;
 
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 import net.sjhub.upgradednetheritereforged.effects.Attraction;
 import net.sjhub.upgradednetheritereforged.effects.EnderAnchor;
 import net.sjhub.upgradednetheritereforged.effects.NetheriteCorruption;
@@ -11,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 @EventBusSubscriber(
-   modid = "upgradednetherite_reforged",
+   modid = UpgradedNetheriteMod.MOD_ID,
    bus = Bus.MOD
 )
 public class UpgradedNetheriteEffects {
