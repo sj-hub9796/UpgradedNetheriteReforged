@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "upgradednetherite_reforged:item/netherite_transcend_smithing_template"
+  }
+}
