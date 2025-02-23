@@ -1,6 +1,7 @@
 package net.sjhub.upgradednetheritereforged.handlers;
 
 import com.rolfmao.upgradedcore.compat.ExternalMods;
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.utils.check.EchoUtil;
 import java.util.ArrayList;

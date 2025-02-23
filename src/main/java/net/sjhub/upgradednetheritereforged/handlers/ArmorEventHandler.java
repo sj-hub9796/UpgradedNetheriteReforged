@@ -2,6 +2,7 @@ package net.sjhub.upgradednetheritereforged.handlers;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.UpgradedNetheriteEffects;
 import net.sjhub.upgradednetheritereforged.utils.DurabilityUtil;

@@ -1,5 +1,6 @@
 package net.sjhub.upgradednetheritereforged.client;
 
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;

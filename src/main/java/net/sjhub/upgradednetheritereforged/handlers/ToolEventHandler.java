@@ -3,6 +3,7 @@ package net.sjhub.upgradednetheritereforged.handlers;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.rolfmao.upgradedcore_old.helpers.TextHelper;
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.utils.ToolUtil;
 import net.sjhub.upgradednetheritereforged.utils.check.EchoUtil;

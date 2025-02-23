@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 
 import static net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod.MOD_ID;
 

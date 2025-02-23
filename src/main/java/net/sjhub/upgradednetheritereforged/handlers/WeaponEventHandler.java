@@ -1,5 +1,6 @@
 package net.sjhub.upgradednetheritereforged.handlers;
 
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.init.UpgradedNetheriteEffects;
 import net.sjhub.upgradednetheritereforged.utils.check.CorruptUtil;
