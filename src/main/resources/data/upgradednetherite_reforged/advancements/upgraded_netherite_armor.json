@@ -275,7 +275,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancement.upgradednetherite.upgraded_armor.desc"
+      "translate": "advancement.upgradednetherite_reforged.upgraded_armor.desc"
     },
     "frame": "challenge",
     "hidden": true,
@@ -285,7 +285,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.upgradednetherite.upgraded_armor"
+      "translate": "advancement.upgradednetherite_reforged.upgraded_armor"
     }
   },
   "requirements": [
