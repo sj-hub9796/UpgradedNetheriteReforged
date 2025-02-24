@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.rolfmao.upgradedcore.helpers.RandHelper;
+import net.sjhub.upgradednetheritereforged.UpgradedNetheriteMod;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.utils.ToolUtil;
 import net.sjhub.upgradednetheritereforged.utils.check.EnderUtil;
@@ -53,13 +54,13 @@ public class GlobalLootModifiers {
    private static final RegistryObject<Codec<EnderTeleportModifier>> ENDERTP_MODIFIER;
 
    static {
-      GLM = DeferredRegister.create(Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, "upgradednetherite_reforged");
+      GLM = DeferredRegister.create(Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, UpgradedNetheriteMod.MOD_ID);
       UPGRADED_HOE_MODIFIER = GLM.register("upgraded_hoe_tool", UpgradedHoeModifier.CODEC);
       AUTOSMELT_MODIFIER = GLM.register("auto_smelt_tool", AutoSmeltModifier.CODEC);
       ENDERTP_MODIFIER = GLM.register("ender_teleport_tool", EnderTeleportModifier.CODEC);
    }
 
-   private static class UpgradedHoeModifier extends LootModifier {
+   public static class UpgradedHoeModifier extends LootModifier {
       public static final Supplier<Codec<UpgradedHoeModifier>> CODEC = Suppliers.memoize(() -> {
          return RecordCodecBuilder.create((inst) -> {
             return codecStart(inst).apply(inst, UpgradedHoeModifier::new);

@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.sjhub.upgradednetheritereforged.config.ConfigHolder;
 import net.sjhub.upgradednetheritereforged.config.UpgradedNetheriteConfig;
 import net.sjhub.upgradednetheritereforged.data.AdvancementData;
+import net.sjhub.upgradednetheritereforged.data.LootTableData;
 import net.sjhub.upgradednetheritereforged.data.RecipeData;
 import net.sjhub.upgradednetheritereforged.handlers.ArmorEventHandler;
 import net.sjhub.upgradednetheritereforged.handlers.EventHandler;
@@ -19,6 +20,8 @@ import net.sjhub.upgradednetheritereforged.init.ModCreativeModeTabs;
 import net.sjhub.upgradednetheritereforged.init.ModItems;
 import net.sjhub.upgradednetheritereforged.init.UpgradedNetheriteEffects;
 import net.sjhub.upgradednetheritereforged.modifiers.GlobalLootModifiers;
+import net.sjhub.upgradednetheritereforged.modifiers.LootTableModifier;
+import net.sjhub.upgradednetheritereforged.modifiers.ModLootModifiers;
 import net.sjhub.upgradednetheritereforged.packets.PacketEntityFallDistanceUpdate;
 import net.sjhub.upgradednetheritereforged.packets.PacketPlayerFallDistanceUpdate;
 import java.nio.file.Path;
@@ -72,6 +75,7 @@ public class UpgradedNetheriteMod {
       UpgradedNetheriteEffects.EFFECTS.register(eventBus);
       ModItems.ITEMS.register(eventBus);
       GlobalLootModifiers.GLM.register(eventBus);
+      ModLootModifiers.register(eventBus);
       ModEventSubscriber.create(eventBus);
       eventBus.addListener(this::addCreative);
 
@@ -125,6 +129,7 @@ public class UpgradedNetheriteMod {
    public void dataSetup(GatherDataEvent event) {
       event.getGenerator().addProvider(event.includeServer(), new AdvancementData(event.getGenerator().getPackOutput(), event.getLookupProvider(), event.getExistingFileHelper()));
       event.getGenerator().addProvider(event.includeServer(), new RecipeData(event.getGenerator().getPackOutput()));
+      event.getGenerator().addProvider(event.includeServer(), new LootTableData(event.getGenerator().getPackOutput()));
    }
 
    private void addCreative(BuildCreativeModeTabContentsEvent event) {
