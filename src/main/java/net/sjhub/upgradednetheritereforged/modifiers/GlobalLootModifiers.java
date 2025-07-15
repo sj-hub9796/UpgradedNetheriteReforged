@@ -150,7 +150,7 @@ public class GlobalLootModifiers {
       }
    }
 
-   private static class AutoSmeltModifier extends LootModifier {
+   public static class AutoSmeltModifier extends LootModifier {
       public static final Supplier<Codec<AutoSmeltModifier>> CODEC = Suppliers.memoize(() -> {
          return RecordCodecBuilder.create((inst) -> {
             return codecStart(inst).apply(inst, AutoSmeltModifier::new);
@@ -239,7 +239,7 @@ public class GlobalLootModifiers {
       }
    }
 
-   private static class EnderTeleportModifier extends LootModifier {
+   public static class EnderTeleportModifier extends LootModifier {
       public static final Supplier<Codec<EnderTeleportModifier>> CODEC = Suppliers.memoize(() -> {
          return RecordCodecBuilder.create((inst) -> {
             return codecStart(inst).apply(inst, EnderTeleportModifier::new);

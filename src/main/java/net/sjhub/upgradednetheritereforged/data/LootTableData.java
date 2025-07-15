@@ -46,10 +46,10 @@ public class LootTableData extends GlobalLootModifierProvider {
         add("upgraded_hoe_tool", new GlobalLootModifiers.UpgradedHoeModifier(new LootItemCondition[]{
         }));
 
-        add("auto_smelt_tool", new GlobalLootModifiers.UpgradedHoeModifier(new LootItemCondition[]{
+        add("auto_smelt_tool", new GlobalLootModifiers.AutoSmeltModifier(new LootItemCondition[]{
         }));
 
-        add("ender_teleport_tool", new GlobalLootModifiers.UpgradedHoeModifier(new LootItemCondition[]{
+        add("ender_teleport_tool", new GlobalLootModifiers.EnderTeleportModifier(new LootItemCondition[]{
         }));
     }
 }
